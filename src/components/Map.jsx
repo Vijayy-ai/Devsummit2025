@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { motion } from "framer-motion";
 import bgDevSummit from "../assets/bgDevSummit.png";
 
@@ -7,29 +7,12 @@ const Map = () => {
     <section className="relative min-h-screen py-20 px-4 overflow-hidden bg-black">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-40"
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-30"
         style={{ backgroundImage: `url(${bgDevSummit})` }}
       />
       
-      {/* Animated stars overlay */}
-      <div className="absolute inset-0 w-full h-full">
-        <div className="stars-container">
-          {Array.from({ length: 50 }).map((_, index) => (
-            <div
-              key={index}
-              className="star"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-              }}
-            />
-          ))}
-        </div>
-      </div>
-
       {/* Content */}
-      <div className="container relative z-10 mx-auto">
+      <div className="container relative z-10 mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,108 +20,94 @@ const Map = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-4 text-white">
-            Find Us Here
+            Event Location
           </h2>
           <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
-            Join us at our venue for an amazing hackathon experience
+            Join us at our state-of-the-art venue
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-[#1a1a1a]/40 backdrop-blur-sm rounded-2xl p-8 max-w-6xl mx-auto"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-2xl font-bold text-[#A7FF40] mb-4">
-                  Venue Location
-                </h3>
-                <p className="text-gray-300">
-                  Tech Innovation Center<br />
-                  123 Developer Street<br />
-                  Innovation District<br />
-                  Tech City, TC 12345
-                </p>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Map */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="w-full h-[400px] bg-[#1a1a1a] rounded-2xl overflow-hidden border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.2547158278226!2d73.91455931484253!3d18.562551287384868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c147b8b3a3bf%3A0x6f7fdcc8e4d6c77e!2sPhoenix%20Marketcity%20-%20Pune!5e0!3m2!1sen!2sin!4v1647043435735!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </motion.div>
 
-              <div>
-                <h3 className="text-2xl font-bold text-[#A7FF40] mb-4">
-                  Getting Here
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 mt-1 text-[#A7FF40]">
-                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                      </svg>
-                    </div>
-                    <div className="text-gray-300">
-                      <span className="font-semibold text-white">By Car:</span><br />
-                      Parking available at the venue
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 mt-1 text-[#A7FF40]">
-                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-                      </svg>
-                    </div>
-                    <div className="text-gray-300">
-                      <span className="font-semibold text-white">By Train:</span><br />
-                      5 minutes walk from Central Station
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 mt-1 text-[#A7FF40]">
-                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                      </svg>
-                    </div>
-                    <div className="text-gray-300">
-                      <span className="font-semibold text-white">By Bus:</span><br />
-                      Bus stops: 42, 67, 89 nearby
-                    </div>
-                  </div>
+          {/* Location Details */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="bg-[#1a1a1a] rounded-2xl p-8 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300"
+          >
+            <h3 className="text-2xl font-bold text-[#A7FF40] mb-6">Venue Details</h3>
+            
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center flex-shrink-0 border border-[#A7FF40]/10">
+                  <svg className="w-6 h-6 text-[#A7FF40]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-white font-semibold mb-1">Address</h4>
+                  <p className="text-gray-300">Phoenix Marketcity, Viman Nagar, Pune, Maharashtra 411014</p>
                 </div>
               </div>
 
-              <div>
-                <h3 className="text-2xl font-bold text-[#A7FF40] mb-4">
-                  Need Help?
-                </h3>
-                <p className="text-gray-300 mb-4">
-                  Having trouble finding us? Contact our support team:
-                </p>
-                <a
-                  href="tel:+1234567890"
-                  className="inline-flex items-center text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-                >
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center flex-shrink-0 border border-[#A7FF40]/10">
+                  <svg className="w-6 h-6 text-[#A7FF40]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  +1 (234) 567-890
-                </a>
+                </div>
+                <div>
+                  <h4 className="text-white font-semibold mb-1">Event Timing</h4>
+                  <p className="text-gray-300">April 5-6, 2024<br />9:00 AM - 6:00 PM</p>
+                </div>
               </div>
-            </div>
 
-            <div className="h-[400px] lg:h-full min-h-[400px] rounded-xl overflow-hidden">
-              <iframe
-                title="Venue Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1!2d-73.985!3d40.748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM40zMCc0OC4wIk4gNzPCsDU5JzA2LjAiVw!5e0!3m2!1sen!2sus!4v1234567890"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="filter grayscale hover:grayscale-0 transition-all duration-300"
-              ></iframe>
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center flex-shrink-0 border border-[#A7FF40]/10">
+                  <svg className="w-6 h-6 text-[#A7FF40]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-white font-semibold mb-1">Additional Info</h4>
+                  <p className="text-gray-300">Parking available<br />Food and refreshments provided</p>
+                </div>
+              </div>
+
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                href="https://goo.gl/maps/YOUR_LOCATION_LINK"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 bg-[#1a1a1a] text-[#A7FF40] border-2 border-[#A7FF40] rounded-full font-semibold hover:bg-[#A7FF40] hover:text-black transition-all duration-300 mt-6"
+              >
+                Get Directions
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </motion.a>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

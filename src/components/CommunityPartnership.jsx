@@ -1,29 +1,24 @@
-import React from "react";
+import React from 'react';
 import { motion } from "framer-motion";
 import bgDevSummit from "../assets/bgDevSummit.png";
 
 const CommunityPartnership = () => {
   const partners = [
     {
-      name: "Tech Community Hub",
+      name: "Polygon Guild Jaipur",
       logo: "https://via.placeholder.com/150",
-      description: "Building the future of tech communities",
+      description: "Web3 & Blockchain Community"
     },
     {
-      name: "Developer Network",
+      name: "Hayperlan",
       logo: "https://via.placeholder.com/150",
-      description: "Connecting developers worldwide",
+      description: "Tech Innovation Hub"
     },
     {
-      name: "Code Academy",
+      name: "Geeky Hub Community",
       logo: "https://via.placeholder.com/150",
-      description: "Empowering future developers",
-    },
-    {
-      name: "Innovation Labs",
-      logo: "https://via.placeholder.com/150",
-      description: "Fostering tech innovation",
-    },
+      description: "Developer Learning Community"
+    }
   ];
 
   const benefits = [
@@ -70,29 +65,12 @@ const CommunityPartnership = () => {
     <section className="relative min-h-screen py-20 px-4 overflow-hidden bg-black">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-40"
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-30"
         style={{ backgroundImage: `url(${bgDevSummit})` }}
       />
-      
-      {/* Animated stars overlay */}
-      <div className="absolute inset-0 w-full h-full">
-        <div className="stars-container">
-          {Array.from({ length: 50 }).map((_, index) => (
-            <div
-              key={index}
-              className="star"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-              }}
-            />
-          ))}
-        </div>
-      </div>
 
       {/* Content */}
-      <div className="container relative z-10 mx-auto">
+      <div className="container relative z-10 mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -100,113 +78,63 @@ const CommunityPartnership = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-4 text-white">
-            Community Partnership
+            Community Partners
           </h2>
           <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
-            Join forces with DevSummit and be part of the largest tech community network
+            Meet the amazing communities supporting DevSummit Hackathon
           </p>
         </motion.div>
 
-        {/* Current Partners */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-20"
-        >
-          <h3 className="text-2xl md:text-3xl font-bold text-[#A7FF40] text-center mb-12">
-            Our Community Partners
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            {partners.map((partner, index) => (
-              <motion.div
-                key={partner.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative"
-              >
-                <div className="bg-[#1a1a1a]/40 backdrop-blur-sm rounded-2xl p-6 text-center transform transition-all duration-300 group-hover:bg-[#1a1a1a]/60 group-hover:scale-105">
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="w-24 h-24 mx-auto mb-4 rounded-xl filter brightness-90 group-hover:brightness-100 transition-all duration-300"
-                  />
-                  <h4 className="text-xl font-semibold text-white mb-2">{partner.name}</h4>
-                  <p className="text-gray-300 text-sm">{partner.description}</p>
-
-                  {/* Hover Effect Glow */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#A7FF40] to-[#A7FF40]/50 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300 blur"></div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Partnership Benefits */}
-        <div className="mb-20">
-          <h3 className="text-2xl md:text-3xl font-bold text-[#A7FF40] text-center mb-12">
-            Partnership Benefits
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={benefit.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative"
-              >
-                <div className="bg-[#1a1a1a]/40 backdrop-blur-sm rounded-2xl p-6 transform transition-all duration-300 group-hover:bg-[#1a1a1a]/60 group-hover:scale-105">
-                  <div className="w-12 h-12 bg-[#A7FF40]/20 rounded-xl flex items-center justify-center mb-6 text-[#A7FF40] group-hover:bg-[#A7FF40]/30 transition-colors">
-                    {benefit.icon}
-                  </div>
-                  <h4 className="text-xl font-semibold text-white mb-3">{benefit.title}</h4>
-                  <p className="text-gray-300">{benefit.description}</p>
-
-                  {/* Hover Effect Glow */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#A7FF40] to-[#A7FF40]/50 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300 blur"></div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {partners.map((partner, index) => (
+            <motion.div
+              key={partner.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-[#1a1a1a] rounded-2xl p-8 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300"
+            >
+              <div className="w-24 h-24 mx-auto mb-6 rounded-xl overflow-hidden bg-black p-2 border border-[#A7FF40]/10">
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-[#A7FF40] mb-2 text-center">
+                {partner.name}
+              </h3>
+              <p className="text-gray-300 text-center">
+                {partner.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Partnership CTA */}
+        {/* Join as Partner CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center"
+          className="text-center mt-16"
         >
-          <div className="bg-[#1a1a1a]/40 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
+          <div className="bg-[#1a1a1a] rounded-2xl p-8 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-[#A7FF40] mb-4">
               Become a Community Partner
             </h3>
             <p className="text-gray-300 mb-6">
-              Join our growing network of tech communities and help shape the future of technology together.
-              Get exclusive benefits and opportunities for your community members.
+              Join us in building the future of technology. Partner with DevSummit Hackathon and help us create an amazing developer community.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#contact"
-                className="inline-flex items-center px-8 py-3 bg-[#A7FF40] text-black rounded-full font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105"
-              >
-                Partner with Us
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-              <a
-                href="#benefits"
-                className="inline-flex items-center px-8 py-3 border-2 border-[#A7FF40] text-[#A7FF40] rounded-full font-semibold hover:bg-[#A7FF40]/10 transition-all duration-300 transform hover:scale-105"
-              >
-                View Benefits
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              href="#contact"
+              className="inline-flex items-center px-8 py-3 bg-[#1a1a1a] text-[#A7FF40] border-2 border-[#A7FF40] rounded-full font-semibold hover:bg-[#A7FF40] hover:text-black transition-all duration-300"
+            >
+              Partner With Us
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </motion.a>
           </div>
         </motion.div>
       </div>

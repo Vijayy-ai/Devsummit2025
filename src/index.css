@@ -15,8 +15,16 @@ html {
   background: transparent;
 }
 
+/* Base styles for main content */
+main {
+  position: relative;
+  width: 100%;
+}
+
 /* Section Transitions */
 .section {
+  position: relative;
+  width: 100%;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -42,5 +50,83 @@ html {
 
 .float-animation {
   animation: float 6s ease-in-out infinite;
+}
+
+/* Section spacing */
+section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Remove margin between sections */
+section + section {
+  margin-top: 0;
+}
+
+/* Ensure content is centered in sections */
+section > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Ensure proper stacking context */
+.relative {
+  position: relative;
+  z-index: 1;
+}
+
+/* Background handling */
+.bg-black {
+  background-color: #000;
+}
+
+/* Responsive spacing adjustments */
+@media (max-width: 640px) {
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  section:first-of-type {
+    padding-top: 1rem;
+  }
+  
+  .section + .section {
+    padding-top: 2rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  section:first-of-type {
+    padding-top: 2rem;
+  }
+  
+  .section + .section {
+    padding-top: 3rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  
+  section:first-of-type {
+    padding-top: 3rem;
+  }
+  
+  .section + .section {
+    padding-top: 4rem;
+  }
 }
 

@@ -1,7 +1,6 @@
 import React from "react";
 import DevSummit from "../assets/Devsummit.png";
 import bgDevSummit from "../assets/bgDevSummit.png";
-import Mouse from "../svg/mouse.svg";
 
 function Header() {
   const handleDiscordClick = () => {
@@ -46,7 +45,7 @@ function Header() {
           {/* Logo */}
           <div className="my-6 sm:my-8 transform hover:scale-105 transition-transform duration-300">
             <img
-              className="h-auto w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] mx-auto"
+              className="h-auto w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] mx-auto"
               src={DevSummit}
               alt="Devsummit"
             />
@@ -72,16 +71,6 @@ function Header() {
               Join Discord
             </button>
           </div>
-        </div>
-
-        {/* Mouse Icon */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden sm:block">
-          <img
-            className="w-8 h-8 sm:w-10 sm:h-10 cursor-pointer"
-            src={Mouse}
-            alt="Scroll down"
-            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-          />
         </div>
       </div>
     </header>

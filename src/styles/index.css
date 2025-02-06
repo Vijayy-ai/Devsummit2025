@@ -10,6 +10,7 @@ body {
   background-color: black;
   color: #333;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -28,7 +29,44 @@ ul {
 .container {
   width: 90%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0;
+}
+
+/* Section Styles */
+section {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Remove the old section padding */
+.section {
+  padding: 0;
+}
+
+/* Remove extra spacing from cards */
+.section .card {
+  margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .section .card {
+    margin: 0;
+  }
+}
+
+/* Ensure proper stacking of sections */
+section + section {
+  margin-top: 0;
+}
+
+/* Remove any default margins from section children */
+section > * {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* Header Styles */
@@ -99,14 +137,9 @@ header .apply-btn:hover {
 }
 
 /* Hackathon Themes, Prizes, Timeline, Sponsors Sections */
-.section {
-  padding: 60px 0;
-}
-
 .section .card {
   background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 20px;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
@@ -170,9 +203,5 @@ footer a:hover {
 
   .about-us img {
     max-width: 100%;
-  }
-
-  .section .card {
-    margin: 10px;
   }
 }

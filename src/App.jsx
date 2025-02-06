@@ -22,40 +22,44 @@ function App() {
 
   return (
     <Router>
-      <div className="App bg-[#1a1a1a] min-h-screen overflow-hidden">
+      <div className="App bg-[#1a1a1a] min-h-screen overflow-hidden relative">
         <Navbar />
-        <Header />
-        <CountdownTimer targetDate={HACKATHON_DETAILS.date} />
-        <div id="about" className="section">
-          <AboutUs />
-        </div>
-        <div id="themes" className="section">
-          <HackathonThemes />
-        </div>
-        <div id="timeline" className="section">
-          <Timeline />
-        </div>
-        <div id="prizes" className="section">
-          <Prizes />
-        </div>
-        <div id="mentors" className="section">
-          <Mentors />
-        </div>
-        <div id="team" className="section">
-          <Team />
-        </div>
-        <div id="sponsors" className="section">
-          <Sponsors />
-        </div>
-        <div id="community" className="section">
-          <CommunityPartnership />
-        </div>
-        <div id="faq" className="section">
-          <FAQ />
-        </div>
-        <div id="contact" className="section">
-          <ContactUs />
-        </div>
+        <main className="relative">
+          <Header />
+          <div className="space-y-0">
+            <CountdownTimer targetDate={HACKATHON_DETAILS.date} />
+            <section id="about" className="section">
+              <AboutUs />
+            </section>
+            <section id="themes" className="section">
+              <HackathonThemes />
+            </section>
+            <section id="timeline" className="section">
+              <Timeline />
+            </section>
+            <section id="prizes" className="section">
+              <Prizes />
+            </section>
+            <section id="mentors" className="section">
+              <Mentors />
+            </section>
+            <section id="team" className="section">
+              <Team />
+            </section>
+            <section id="sponsors" className="section">
+              <Sponsors />
+            </section>
+            <section id="community" className="section">
+              <CommunityPartnership />
+            </section>
+            <section id="faq" className="section">
+              <FAQ />
+            </section>
+            <section id="contact" className="section">
+              <ContactUs />
+            </section>
+          </div>
+        </main>
         <Footer />
       </div>
     </Router>

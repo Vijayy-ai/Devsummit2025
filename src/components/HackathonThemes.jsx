@@ -64,7 +64,7 @@ const HackathonThemes = () => {
     <section className="relative min-h-screen py-20 px-4 overflow-hidden bg-black">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-40"
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-30"
         style={{ backgroundImage: `url(${bgDevSummit})` }}
       />
       
@@ -86,7 +86,7 @@ const HackathonThemes = () => {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 mx-auto">
+      <div className="relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -101,25 +101,23 @@ const HackathonThemes = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
           {themes.map((theme, index) => (
             <motion.div
               key={theme.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative"
+              className="bg-[#1a1a1a] rounded-xl p-8 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300"
             >
-              <div className="bg-[#1a1a1a]/40 backdrop-blur-sm rounded-2xl p-6 h-full transform transition-all duration-300 group-hover:bg-[#1a1a1a]/60 group-hover:scale-105">
-                <div className="w-12 h-12 bg-[#A7FF40]/20 rounded-xl flex items-center justify-center mb-6 text-[#A7FF40] group-hover:bg-[#A7FF40]/30 transition-colors">
+              <div className="w-16 h-16 mx-auto rounded-xl overflow-hidden bg-black p-3 border border-[#A7FF40]/10">
+                <div className="w-full h-full flex items-center justify-center text-[#A7FF40]">
                   {theme.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">{theme.title}</h3>
-                <p className="text-gray-300">{theme.description}</p>
-
-                {/* Hover Effect Glow */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-[#A7FF40] to-[#A7FF40]/50 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300 blur"></div>
               </div>
+              <h3 className="text-xl font-bold text-white mb-3 text-center">{theme.title}</h3>
+              <p className="text-gray-300 text-sm text-center line-clamp-3">{theme.description}</p>
             </motion.div>
           ))}
         </div>
@@ -129,9 +127,9 @@ const HackathonThemes = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16"
+          className="text-center mt-16 px-4"
         >
-          <div className="bg-[#1a1a1a]/40 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
+          <div className="bg-[#1a1a1a] rounded-2xl p-8 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300">
             <h3 className="text-2xl font-bold text-[#A7FF40] mb-4">
               Ready to Start Building?
             </h3>
@@ -140,28 +138,45 @@ const HackathonThemes = () => {
               Our mentors are here to help you bring your ideas to life!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <motion.a
+                whileHover={{ scale: 1.05 }}
                 href="#register"
-                className="inline-flex items-center px-8 py-3 bg-[#A7FF40] text-black rounded-full font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105"
+                className="inline-flex items-center px-8 py-3 bg-[#1a1a1a] text-[#A7FF40] border-2 border-[#A7FF40] rounded-full font-semibold hover:bg-[#A7FF40] hover:text-black transition-all duration-300"
               >
                 Start Project
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </a>
-              <a
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
                 href="#mentors"
-                className="inline-flex items-center px-8 py-3 border-2 border-[#A7FF40] text-[#A7FF40] rounded-full font-semibold hover:bg-[#A7FF40]/10 transition-all duration-300 transform hover:scale-105"
+                className="inline-flex items-center px-8 py-3 bg-[#1a1a1a] text-[#A7FF40] border-2 border-[#A7FF40] rounded-full font-semibold hover:bg-[#A7FF40] hover:text-black transition-all duration-300"
               >
                 Meet Mentors
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-              </a>
+              </motion.a>
             </div>
           </div>
         </motion.div>
       </div>
+
+      <style jsx>{`
+        .star {
+          position: absolute;
+          width: 2px;
+          height: 2px;
+          background: white;
+          border-radius: 50%;
+          animation: twinkle 1s infinite;
+        }
+        @keyframes twinkle {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.3; }
+        }
+      `}</style>
     </section>
   );
 };

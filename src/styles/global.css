@@ -22,19 +22,16 @@
 }
 
 /* Base styles */
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
-  height: 100%;
+html, body {
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
 }
 
 body {
-  font-family: 'Inter', 'Arial', sans-serif;
-  background-color: var(--background-dark);
-  color: var(--text-light);
-  line-height: 1.6;
-  min-height: 100vh;
-  overflow-x: hidden;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -92,18 +89,43 @@ button:focus {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 var(--spacing-sm);
+  padding: 0 1rem;
 }
 
-@media (min-width: 640px) {
-  .container {
-    padding: 0 var(--spacing-md);
+/* Section styling */
+section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background handling */
+.bg-gradient {
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+}
+
+/* Utility classes */
+.relative {
+  position: relative;
+  z-index: 1;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  section {
+    padding: 4rem 0;
   }
-}
-
-@media (min-width: 1024px) {
+  
   .container {
-    padding: 0 var(--spacing-lg);
+    padding: 0 1.5rem;
   }
 }
 

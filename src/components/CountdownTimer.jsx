@@ -2,120 +2,96 @@ import React, { useState, useEffect } from "react";
 import bgDevSummit from "../assets/bgDevSummit.png";
 import { motion } from "framer-motion";
 
-const CountdownTimer = ({ targetDate }) => {
-  const calculateTimeLeft = () => {
-    const now = new Date();
-    const difference = new Date(targetDate) - now;
-
-    if (difference <= 0) {
-      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-    }
-
-    return {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / (1000 * 60)) % 60),
-      seconds: Math.floor((difference / 1000) % 60),
-    };
-  };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-  const [isHovered, setIsHovered] = useState(null);
+const CountdownTimer = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
+    const calculateTimeLeft = () => {
+      const eventDate = new Date('2025-03-29T09:00:00').getTime();
+      const now = new Date().getTime();
+      const difference = eventDate - now;
 
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60)
+        });
+      }
+    };
+
+    const timer = setInterval(calculateTimeLeft, 1000);
     return () => clearInterval(timer);
-  }, [targetDate]);
-
-  const timeUnits = [
-    { label: "Days", value: timeLeft.days },
-    { label: "Hours", value: timeLeft.hours },
-    { label: "Minutes", value: timeLeft.minutes },
-    { label: "Seconds", value: timeLeft.seconds },
-  ];
+  }, []);
 
   return (
-    <section className="relative py-16 overflow-hidden">
+    <section className="relative py-16 sm:py-20 bg-black overflow-hidden">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-40"
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-30"
         style={{ backgroundImage: `url(${bgDevSummit})` }}
       />
-      
-      {/* Animated stars overlay */}
-      <div className="absolute inset-0 w-full h-full">
-        <div className="stars-container">
-          {Array.from({ length: 50 }).map((_, index) => (
-            <div
-              key={index}
-              className="star"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-              }}
-            />
-          ))}
-        </div>
-      </div>
 
-      {/* Content */}
-      <div className="container relative z-10 mx-auto px-4">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto"
+          className="text-center mb-12"
         >
-          <div className="bg-[#1a1a1a]/40 backdrop-blur-sm rounded-3xl p-8 md:p-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">
-              Countdown to DevSummit
-            </h2>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-              {timeUnits.map((unit, index) => (
-                <motion.div
-                  key={unit.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="relative"
-                  onMouseEnter={() => setIsHovered(index)}
-                  onMouseLeave={() => setIsHovered(null)}
-                >
-                  <div className="bg-[#A7FF40] rounded-2xl p-6 text-center transform transition-all duration-300 hover:scale-105">
-                    <div className="text-4xl md:text-5xl font-bold text-black mb-2">
-                      {String(unit.value).padStart(2, '0')}
-                    </div>
-                    <div className="text-sm md:text-base font-medium text-black/80">
-                      {unit.label}
-                    </div>
-                  </div>
-                  {isHovered === index && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-4 py-2 bg-black/80 backdrop-blur-sm rounded-lg text-white text-sm whitespace-nowrap"
-                    >
-                      {unit.value} {unit.label.toLowerCase()} remaining
-                    </motion.div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 text-white">
+            The Countdown Begins
+          </h2>
+          <p className="text-gray-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
+            Join us on April 5th, 2024 for an amazing hackathon experience
+          </p>
+        </motion.div>
 
-            <div className="text-center mt-8 text-gray-300">
-              <p>Join us on {new Date(targetDate).toLocaleDateString('en-US', { 
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}</p>
-            </div>
-          </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto mb-12">
+          {[
+            { label: 'Days', value: timeLeft.days },
+            { label: 'Hours', value: timeLeft.hours },
+            { label: 'Minutes', value: timeLeft.minutes },
+            { label: 'Seconds', value: timeLeft.seconds }
+          ].map((item) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="bg-[#1a1a1a] rounded-xl p-4 sm:p-6 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
+                shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300"
+            >
+              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#A7FF40] mb-2">
+                {String(item.value).padStart(2, '0')}
+              </div>
+              <div className="text-sm sm:text-base text-gray-300">{item.label}</div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-center"
+        >
+          <a
+            href="#register"
+            className="inline-flex items-center px-6 sm:px-8 py-3 bg-[#1a1a1a] text-[#A7FF40] border-2 
+              border-[#A7FF40] rounded-full font-semibold hover:bg-[#A7FF40] hover:text-black 
+              transition-all duration-300 text-sm sm:text-base"
+          >
+            Register Now
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
         </motion.div>
       </div>
     </section>
