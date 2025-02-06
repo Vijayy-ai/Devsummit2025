@@ -1,0 +1,91 @@
+import React from "react";
+import DevSummit from "../assets/Devsummit.png";
+import bgDevSummit from "../assets/bgDevSummit.png";
+import Mouse from "../svg/mouse.svg";
+
+function Header() {
+  const handleDiscordClick = () => {
+    window.open('YOUR_DISCORD_LINK', '_blank');
+  };
+
+  return (
+    <header id="home" className="relative min-h-screen w-full text-white overflow-hidden">
+      {/* Background with stars */}
+      <div 
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+        style={{ backgroundImage: `url(${bgDevSummit})` }}
+      />
+      
+      {/* Animated stars overlay */}
+      <div className="absolute inset-0 w-full h-full">
+        <div className="stars-container">
+          {Array.from({ length: 50 }).map((_, index) => (
+            <div
+              key={index}
+              className="star"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Main Content Container */}
+      <div className="container mx-auto px-4 min-h-screen flex flex-col justify-center items-center relative z-10">
+        {/* Hero Content */}
+        <div className="text-center w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+            Unlock the power of{" "}
+            <br className="hidden sm:block" />
+            innovation with
+          </h1>
+          
+          {/* Logo */}
+          <div className="my-6 sm:my-8 transform hover:scale-105 transition-transform duration-300">
+            <img
+              className="h-auto w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] mx-auto"
+              src={DevSummit}
+              alt="Devsummit"
+            />
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6 sm:mt-8 px-4">
+            <a 
+              href="YOUR_EXTERNAL_REGISTRATION_LINK"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-[165px] h-[54px] bg-[#A7FF40] text-black rounded-3xl font-semibold 
+                hover:bg-opacity-90 transition-all transform hover:scale-105 flex items-center justify-center"
+            >
+              Register Now
+            </a>
+            <button 
+              onClick={handleDiscordClick}
+              className="w-full sm:w-[165px] h-[54px] text-[#A7FF40] border-2 border-[#A7FF40] rounded-3xl 
+                font-semibold hover:bg-[#A7FF40] hover:bg-opacity-10 transition-all transform hover:scale-105
+                flex items-center justify-center"
+            >
+              Join Discord
+            </button>
+          </div>
+        </div>
+
+        {/* Mouse Icon */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden sm:block">
+          <img
+            className="w-8 h-8 sm:w-10 sm:h-10 cursor-pointer"
+            src={Mouse}
+            alt="Scroll down"
+            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          />
+        </div>
+      </div>
+    </header>
+  );
+}
+
+export default Header;

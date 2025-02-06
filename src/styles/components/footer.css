@@ -1,0 +1,75 @@
+/* General Footer Styles */
+footer {
+  background-color: #2d3748; /* Dark background */
+  color: #ffffff; /* White text color */
+  padding: 2rem 0; /* Vertical padding */
+  text-align: center; /* Center align text */
+}
+
+/* Footer Title Styles */
+footer h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Footer Description Styles */
+footer p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Social Media Links */
+footer .social-links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+footer .social-links a {
+  margin: 0 1rem;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+/* Hover effects for social media icons */
+footer .social-links a:hover {
+  color: #38bdf8; /* Light blue for hover */
+}
+
+/* Contact Info Styles */
+footer .contact-info {
+  margin-bottom: 1.5rem;
+}
+
+footer .contact-info a {
+  color: #38bdf8; /* Blue color for links */
+  text-decoration: none;
+}
+
+footer .contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Copyright Style */
+footer .copyright {
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.6); /* Lighter white for copyright */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  footer {
+    padding: 1.5rem 0; /* Reduce padding on smaller screens */
+  }
+
+  footer .social-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer .social-links a {
+    margin: 0.5rem 0;
+  }
+}

@@ -1,0 +1,113 @@
+/* General Form Styles */
+form {
+  background-color: #f9fafb; /* Light background for the form */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 600px;
+  margin: 2rem auto; /* Centered with some margin */
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Form Title */
+form h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #1f2937; /* Dark text color */
+}
+
+/* Input Fields */
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="number"],
+form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus,
+form input[type="number"]:focus,
+form textarea:focus {
+  border-color: #38bdf8; /* Blue border on focus */
+  outline: none;
+}
+
+/* Textarea Specific Styles */
+form textarea {
+  resize: vertical;
+  height: 150px; /* Default height for textarea */
+}
+
+/* Label Styles */
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  color: #1f2937;
+}
+
+/* Button Styles */
+form button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #38bdf8; /* Light blue background */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #1e40af; /* Darker blue on hover */
+}
+
+/* Disabled Button Styles */
+form button:disabled {
+  background-color: #d1d5db; /* Light grey background when disabled */
+  cursor: not-allowed;
+}
+
+/* Error Message */
+form .error-message {
+  color: #ef4444; /* Red color for errors */
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  form {
+    padding: 1.5rem;
+  }
+
+  form h2 {
+    font-size: 1.5rem;
+  }
+
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="tel"],
+  form input[type="number"],
+  form textarea {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  form button {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+}
