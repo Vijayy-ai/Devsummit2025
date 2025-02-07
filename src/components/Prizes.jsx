@@ -6,7 +6,7 @@ const Prizes = () => {
   const prizes = [
     {
       title: "Grand Prize Pool",
-      amount: "₹2,00,000",
+      amount: "₹1,50,000",
       description: "Total prize pool for innovative solutions",
       icon: (
         <svg className="w-12 h-12 text-[#A7FF40]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,7 +79,7 @@ const Prizes = () => {
         >
           <div className="bg-[#1a1a1a] rounded-2xl p-8 md:p-12 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300 max-w-3xl mx-auto">
             <h3 className="text-4xl md:text-6xl font-bold text-[#A7FF40] mb-4">
-              ₹2,00,000
+              ₹1,50,000
             </h3>
             <p className="text-2xl text-white mb-2">Total Prize Pool</p>
             <p className="text-gray-300">

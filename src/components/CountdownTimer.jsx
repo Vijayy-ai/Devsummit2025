@@ -49,7 +49,7 @@ const CountdownTimer = () => {
             The Countdown Begins
           </h2>
           <p className="text-gray-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
-            Join us on April 5th, 2024 for an amazing hackathon experience
+            Join us on 29 march, 2025 for an amazing hackathon experience
           </p>
         </motion.div>
 

@@ -26,36 +26,36 @@ function App() {
         <Navbar />
         <main className="relative">
           <Header />
-          <div className="space-y-0">
+          <div>
             <CountdownTimer targetDate={HACKATHON_DETAILS.date} />
-            <section id="about" className="section">
+            <section id="about">
               <AboutUs />
             </section>
-            <section id="themes" className="section">
+            <section id="themes">
               <HackathonThemes />
             </section>
-            <section id="timeline" className="section">
+            <section id="timeline">
               <Timeline />
             </section>
-            <section id="prizes" className="section">
+            <section id="prizes">
               <Prizes />
             </section>
-            <section id="mentors" className="section">
+            <section id="mentors">
               <Mentors />
             </section>
-            <section id="team" className="section">
+            <section id="team">
               <Team />
             </section>
-            <section id="sponsors" className="section">
+            <section id="sponsors">
               <Sponsors />
             </section>
-            <section id="community" className="section">
+            <section id="community">
               <CommunityPartnership />
             </section>
-            <section id="faq" className="section">
+            <section id="faq">
               <FAQ />
             </section>
-            <section id="contact" className="section">
+            <section id="contact">
               <ContactUs />
             </section>
           </div>
