@@ -27,10 +27,10 @@ const teamMembers = [
     }
   },
   {
-    name: "Mike Johnson",
-    role: "Design Lead",
+    name: "Rambhajan Mali",
+    role: "Lead Organizer",
     image: "https://via.placeholder.com/150",
-    bio: "UI/UX designer creating beautiful experiences",
+    bio: "developer with modern tech expertise",
     socials: {
       linkedin: "#",
       github: "#",
@@ -38,10 +38,10 @@ const teamMembers = [
     }
   },
   {
-    name: "Sarah Wilson",
-    role: "Community Manager",
+    name: "Rahul Kumar Shah",
+    role: "Lead Organizer",
     image: "https://via.placeholder.com/150",
-    bio: "Building the DevSummit community",
+    bio: "Managing hackathon operations",
     socials: {
       linkedin: "#",
       github: "#",

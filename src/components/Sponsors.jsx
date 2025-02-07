@@ -4,9 +4,9 @@ import bgDevSummit from "../assets/bgDevSummit.png";
 
 const Sponsors = () => {
   const titleSponsor = {
-    name: "TechGiant Solutions",
+    name: "Coming Soon",
     logo: "https://via.placeholder.com/300",
-    description: "Global Leader in Technology Innovation"
+    description: "Coming Soon"
   };
 
   const sponsorTiers = [

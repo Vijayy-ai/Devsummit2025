@@ -47,19 +47,6 @@ function Footer() {
         <div className="social">
           <div className="main flex h-20 w-[30rem] items-center justify-around ">
             <a
-              href="https://www.facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mx-2"
-            >
-              <img
-                src={Facebook}
-
-                alt="Facebook"
-                className="w-10 h-10 rounded-full"
-              />
-            </a>
-            <a
               href="https://www.twitter.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -91,14 +78,7 @@ function Footer() {
                 className="w-10 h-10"
                 />
               </a>
-            <a
-              href="https://www.github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mx-2"
-            >
-              <img src={Github} alt="GitHub" className="w-10 h-10 rounded-full" />
-            </a>
+           
           </div>
         </div>
       </div>

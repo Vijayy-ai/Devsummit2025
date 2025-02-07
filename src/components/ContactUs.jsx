@@ -174,7 +174,7 @@ const ContactUs = () => {
               </svg>
             </div>
             <h3 className="text-white font-semibold mb-2 text-center">Location</h3>
-            <p className="text-gray-300 text-center">Tech Hub, Innovation Street</p>
+            <p className="text-gray-300 text-center">Jagannath University Jaipur (Sitapura Campus)</p>
           </div>
 
           <div className="bg-[#1a1a1a] rounded-xl p-6 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300">
