@@ -6,17 +6,17 @@ const CommunityPartnership = () => {
   const partners = [
     {
       name: "Polygon Guild Jaipur",
-      logo: "https://via.placeholder.com/150",
+      logo: "https://altcoinsbox.com/wp-content/uploads/2023/03/matic-logo.webp",
       description: "Web3 & Blockchain Community"
     },
     {
       name: "Hayperlan",
-      logo: "https://via.placeholder.com/150",
+      logo: "https://cryptocurrencyjobs.co/startups/assets/logos/hyperlane.jpg",
       description: "Tech Innovation Hub"
     },
     {
       name: "Geeky Hub Community",
-      logo: "https://via.placeholder.com/150",
+      logo: "https://ugc.production.linktr.ee/Nr4lfuCToyRPTtwTCvFp_0wRPTPJgQKMnCH95?io=true&size=avatar-v3_0",
       description: "Developer Learning Community"
     }
   ];

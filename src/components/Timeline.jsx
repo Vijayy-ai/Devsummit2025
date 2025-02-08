@@ -5,38 +5,38 @@ import bgDevSummit from "../assets/bgDevSummit.png";
 const Timeline = () => {
   const events = [
     {
-      date: "April 5, 2024",
+      date: "March 29, 2025",
       time: "9:00 AM",
+      title: "Reporting Time",
+      description: "report to the venue"
+    },
+    {
+      date: "March 29, 2025",
+      time: "10:00 AM",
       title: "Opening Ceremony",
       description: "Welcome address and kickoff of DevSummit Hackathon 2024"
     },
     {
-      date: "April 5, 2024",
-      time: "10:00 AM",
-      title: "Team Formation",
-      description: "Form your teams and get ready for the challenge"
-    },
-    {
-      date: "April 5, 2024",
-      time: "11:00 AM",
+      date: "March 29, 2025",
+      time: "12:00 PM",
       title: "Hacking Begins",
       description: "Start working on your innovative solutions"
     },
     {
-      date: "April 6, 2024",
-      time: "10:00 AM",
+      date: "March 29, 2025",
+      time: "1:00 PM",
       title: "Mentorship Sessions",
       description: "Get guidance from industry experts"
     },
     {
-      date: "April 6, 2024",
-      time: "4:00 PM",
+      date: "March 30, 2025",
+      time: "12:00 PM",
       title: "Project Submission",
       description: "Submit your projects for evaluation"
     },
     {
-      date: "April 6, 2024",
-      time: "6:00 PM",
+      date: "March 30, 2025",
+      time: "2:00 PM",
       title: "Final Presentations",
       description: "Present your solutions to the judges"
     }

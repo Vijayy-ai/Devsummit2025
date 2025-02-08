@@ -222,141 +222,36 @@ function Mentor() {
           </p>
         </motion.div>
 
-        <div className="space-y-16">
-          {rows.map((row, rowIndex) => (
-            <div
-              key={rowIndex}
-              className="overflow-hidden relative w-screen -mx-4"
-            >
-              <div 
-                className="flex gap-6 animate-scroll whitespace-nowrap"
-                style={{
-                  animationDirection: rowIndex % 2 === 0 ? 'normal' : 'reverse',
-                  animationDuration: '40s',
-                  paddingLeft: '1rem'
-                }}
+        {/* Coming Soon Message */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <div className="bg-[#1a1a1a] rounded-xl p-10 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300">
+            <div className="w-24 h-24 mx-auto mb-6 bg-black rounded-full flex items-center justify-center border border-[#A7FF40]/10">
+              <svg 
+                className="w-12 h-12 text-[#A7FF40]" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
               >
-                {/* First set of cards */}
-                {row.map((mentor, index) => (
-                  <motion.div
-                    key={`first-${index}`}
-                    whileHover={{ scale: 1.05 }}
-                    className="inline-block flex-shrink-0 w-80 bg-[#1a1a1a] rounded-xl p-8 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300"
-                  >
-                    <div className="relative mb-4">
-                      <div className="w-24 h-24 mx-auto rounded-full overflow-hidden bg-black p-1 border border-[#A7FF40]/10">
-                        <img
-                          src={mentor.image}
-                          alt={mentor.name}
-                          className="w-full h-full object-cover rounded-full"
-                        />
-                      </div>
-                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-[#1a1a1a] text-[#A7FF40] text-xs px-4 py-1.5 rounded-full font-medium border border-[#A7FF40]/40">
-                        {mentor.role}
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2 text-center">{mentor.name}</h3>
-                    <p className="text-gray-300 text-sm mb-4 text-center">{mentor.expertise}</p>
-                    <div className="flex justify-center space-x-4">
-                      <motion.a 
-                        whileHover={{ scale: 1.2 }}
-                        href={mentor.socials.linkedin} 
-                        className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-                      >
-                        <FaLinkedin size={20} />
-                      </motion.a>
-                      <motion.a 
-                        whileHover={{ scale: 1.2 }}
-                        href={mentor.socials.github} 
-                        className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-                      >
-                        <FaGithub size={20} />
-                      </motion.a>
-                      <motion.a 
-                        whileHover={{ scale: 1.2 }}
-                        href={mentor.socials.twitter} 
-                        className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-                      >
-                        <FaTwitter size={20} />
-                      </motion.a>
-                    </div>
-                  </motion.div>
-                ))}
-                {/* Duplicate set for seamless loop */}
-                {row.map((mentor, index) => (
-                  <motion.div
-                    key={`second-${index}`}
-                    whileHover={{ scale: 1.05 }}
-                    className="inline-block flex-shrink-0 w-80 bg-[#1a1a1a] rounded-xl p-8 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300"
-                  >
-                    <div className="relative mb-4">
-                      <div className="w-24 h-24 mx-auto rounded-full overflow-hidden bg-black p-1 border border-[#A7FF40]/10">
-                        <img
-                          src={mentor.image}
-                          alt={mentor.name}
-                          className="w-full h-full object-cover rounded-full"
-                        />
-                      </div>
-                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-[#1a1a1a] text-[#A7FF40] text-xs px-4 py-1.5 rounded-full font-medium border border-[#A7FF40]/40">
-                        {mentor.role}
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2 text-center">{mentor.name}</h3>
-                    <p className="text-gray-300 text-sm mb-4 text-center">{mentor.expertise}</p>
-                    <div className="flex justify-center space-x-4">
-                      <motion.a 
-                        whileHover={{ scale: 1.2 }}
-                        href={mentor.socials.linkedin} 
-                        className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-                      >
-                        <FaLinkedin size={20} />
-                      </motion.a>
-                      <motion.a 
-                        whileHover={{ scale: 1.2 }}
-                        href={mentor.socials.github} 
-                        className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-                      >
-                        <FaGithub size={20} />
-                      </motion.a>
-                      <motion.a 
-                        whileHover={{ scale: 1.2 }}
-                        href={mentor.socials.twitter} 
-                        className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-                      >
-                        <FaTwitter size={20} />
-                      </motion.a>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" 
+                />
+              </svg>
             </div>
-          ))}
-        </div>
+            <h3 className="text-3xl font-bold text-[#A7FF40] mb-4">Coming Soon!</h3>
+            <p className="text-gray-300 text-lg">
+              Our expert mentors will be announced shortly. Stay tuned for updates on industry leaders who will guide you through your hackathon journey.
+            </p>
+          </div>
+        </motion.div>
       </div>
-
-      <style jsx>{`
-        .animate-scroll {
-          animation: scroll linear infinite;
-          min-width: max-content;
-          will-change: transform;
-        }
-        @keyframes scroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(calc(-50% - 0.75rem)); }
-        }
-        .star {
-          position: absolute;
-          width: 2px;
-          height: 2px;
-          background: white;
-          border-radius: 50%;
-          animation: twinkle 1s infinite;
-        }
-        @keyframes twinkle {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.3; }
-        }
-      `}</style>
     </section>
   );
 }

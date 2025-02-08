@@ -34,14 +34,14 @@ const AboutUs = () => {
   ];
 
   const stats = [
-    { label: "Participants", value: "1000+" },
-    { label: "Projects", value: "200+" },
-    { label: "Mentors", value: "50+" },
-    { label: "Prize Pool", value: "$50K+" },
+    { label: "Participants", value: "250+" },
+    { label: "Projects", value: "70+" },
+    { label: "Mentors", value: "20+" },
+    { label: "Prize Pool", value: "1,50,000" },
   ];
 
   return (
-    <section id="about" className="relative py-12 xs:py-16 sm:py-20 bg-black overflow-hidden">
+    <section id="about" className="relative bg-black overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-30"

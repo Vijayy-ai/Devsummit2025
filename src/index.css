@@ -57,9 +57,11 @@ section {
   position: relative;
   width: 100%;
   overflow: hidden;
+  padding: 0;
+  margin: 0;
 }
 
-/* Remove margin between sections */
+/* Remove section spacing */
 section + section {
   margin-top: 0;
 }
@@ -87,46 +89,46 @@ section > div {
 /* Responsive spacing adjustments */
 @media (max-width: 640px) {
   section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 0;
+    padding-bottom: 0;
   }
   
   section:first-of-type {
-    padding-top: 1rem;
+    padding-top: 0;
   }
   
   .section + .section {
-    padding-top: 2rem;
+    padding-top: 0;
   }
 }
 
 @media (min-width: 641px) and (max-width: 1024px) {
   section {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 0;
+    padding-bottom: 0;
   }
   
   section:first-of-type {
-    padding-top: 2rem;
+    padding-top: 0;
   }
   
   .section + .section {
-    padding-top: 3rem;
+    padding-top: 0;
   }
 }
 
 @media (min-width: 1025px) {
   section {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 0;
+    padding-bottom: 0;
   }
   
   section:first-of-type {
-    padding-top: 3rem;
+    padding-top: 0;
   }
   
   .section + .section {
-    padding-top: 4rem;
+    padding-top: 0;
   }
 }
 
