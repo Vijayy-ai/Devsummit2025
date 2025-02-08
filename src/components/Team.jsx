@@ -27,7 +27,7 @@ const teamMembers = [
     }
   },
   {
-    name: "Rambhajan Mali",
+    name: "Rambhajan Saini",
     role: "Lead Organizer",
     image: "https://via.placeholder.com/150",
     bio: "developer with modern tech expertise",
@@ -49,7 +49,7 @@ const teamMembers = [
     }
   },
   {
-    name: "David Chen",
+    name: "Satyam Jha",
     role: "Marketing Lead",
     image: "https://via.placeholder.com/150",
     bio: "Spreading the word about DevSummit",
@@ -82,7 +82,7 @@ const teamMembers = [
     }
   },
   {
-    name: "Sophia Lee",
+    name: "Rishabh",
     role: "Content Lead",
     image: "https://via.placeholder.com/150",
     bio: "Creating engaging content",
