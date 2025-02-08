@@ -15,8 +15,11 @@ function Header() {
         style={{ backgroundImage: `url(${bgDevSummit})` }}
       />
       {/* Ellipse Background  */}
-      <div style={{backgroundImage: `url(${Ellipse})`}} className="absolute top-0 left-0 h-[90vh] w-screen"></div>
-      
+      <div 
+        style={{ backgroundImage: `url(${Ellipse})` }} 
+        className="absolute top-0 left-0 h-full w-full min-h-screen bg-cover bg-center"
+      />
+
       {/* Animated stars overlay */}
       <div className="absolute inset-0 w-full h-full">
         <div className="stars-container">
