@@ -22,13 +22,10 @@ const FAQ = () => {
       question: "What are the prizes?",
       answer: "We have exciting prizes for winners including cash rewards, sponsored products, mentorship opportunities, and more. Check out our Prizes section for detailed information."
     },
-    {
-      question: "Can I participate as a team?",
-      answer: "Yes! You can participate either individually or as a team of up to 4 members. We encourage collaboration and team participation."
-    },
+    
     {
       question: "What if I don't have a team?",
-      answer: "Don't worry! You can join our Discord community where you'll find other participants looking for team members. We'll also have team formation events before the hackathon."
+      answer: "Don't worry! You can join our Discord community where you'll find other participants looking for team members."
     }
   ];
 

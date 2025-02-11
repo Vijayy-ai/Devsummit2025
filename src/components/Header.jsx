@@ -1,7 +1,7 @@
 import React from "react";
 import DevSummit from "../assets/Devsummit.png";
 import bgDevSummit from "../assets/bgDevSummit.png";
-
+import Ellipse from "../assets/Ellipse.png"
 function Header() {
   const handleDiscordClick = () => {
     window.open('YOUR_DISCORD_LINK', '_blank');
@@ -14,7 +14,12 @@ function Header() {
         className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
         style={{ backgroundImage: `url(${bgDevSummit})` }}
       />
-      
+      {/* Ellipse Background  */}
+      <div 
+        style={{ backgroundImage: `url(${Ellipse})` }} 
+        className="absolute top-0 left-0 h-full w-full min-h-screen bg-cover bg-center"
+      />
+
       {/* Animated stars overlay */}
       <div className="absolute inset-0 w-full h-full">
         <div className="stars-container">
