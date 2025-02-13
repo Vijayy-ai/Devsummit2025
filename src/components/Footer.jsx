@@ -1,10 +1,8 @@
 import React from "react";
 import bgImage from "../assets/bgDevSummit.png";
 import X from "../assets/X.png"
-import Facebook from "../assets/facebook.png"
 import Linkedin from "../assets/Linkedin.png"
-import Github from "../assets/github.png"
-import Instagram from "../assets/Instagram.jpeg"
+import Instagram from "../assets/Instagram.png"
 
 function Footer() {
   return (
@@ -57,7 +55,7 @@ function Footer() {
               <img 
                 src={X} 
                 alt="Twitter" 
-                className="h-8 w-8 md:h-10 md:w-10 rounded-full"
+                className="h-8 border border-white w-8 md:h-10 md:w-10 rounded-full"
               />
             </a>
             <a

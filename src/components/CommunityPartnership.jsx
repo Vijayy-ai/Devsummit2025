@@ -1,68 +1,62 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import bgDevSummit from "../assets/bgDevSummit.png";
+import platformPartner from "../assets/platform-partner.jpg";
 
 const CommunityPartnership = () => {
   const partners = [
     {
+      name: "HackQuest",
+      logo: platformPartner,
+      description: "Platform Partner",
+      type: "platform"
+    },
+    {
       name: "Polygon Guild Jaipur",
       logo: "https://altcoinsbox.com/wp-content/uploads/2023/03/matic-logo.webp",
-      description: "Web3 & Blockchain Community"
+      description: "Web3 & Blockchain Community",
+      type: "community"
     },
     {
       name: "Hayperlan",
       logo: "https://cryptocurrencyjobs.co/startups/assets/logos/hyperlane.jpg",
-      description: "Tech Innovation Hub"
+      description: "Tech Innovation Hub",
+      type: "community"
     },
     {
       name: "Geeky Hub Community",
       logo: "https://ugc.production.linktr.ee/Nr4lfuCToyRPTtwTCvFp_0wRPTPJgQKMnCH95?io=true&size=avatar-v3_0",
-      description: "Developer Learning Community"
+      description: "Developer Learning Community",
+      type: "community"
     }
   ];
 
-  const benefits = [
-    {
-      title: "Network Growth",
-      description: "Expand your community's reach and connect with diverse tech enthusiasts",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Brand Visibility",
-      description: "Showcase your community to a highly engaged tech audience",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Exclusive Access",
-      description: "Get priority access to DevSummit events and resources",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Collaborative Events",
-      description: "Co-create and host tech events with DevSummit",
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-        </svg>
-      ),
-    },
-  ];
+  const PartnerCard = ({ partner }) => (
+    <motion.div
+      whileHover={{ scale: 1.02 }}
+      className={`inline-block flex-shrink-0 w-72 sm:w-80 bg-[#1a1a1a] rounded-2xl p-6 sm:p-8 
+        border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
+        shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] 
+        transition-all duration-300`}
+    >
+      <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 rounded-xl overflow-hidden bg-black p-2 border border-[#A7FF40]/10">
+        <img
+          src={partner.logo}
+          alt={partner.name}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <h3 className="text-lg sm:text-xl font-bold text-[#A7FF40] mb-2 text-center">
+        {partner.name}
+      </h3>
+      <p className="text-gray-300 text-sm text-center">
+        {partner.description}
+      </p>
+    </motion.div>
+  );
 
   return (
-    <section className="relative min-h-screen py-20 px-4 overflow-hidden bg-black">
+    <section className="relative py-16 sm:py-20 overflow-hidden bg-black">
       {/* Background Image */}
       <div 
         className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-30"
@@ -70,45 +64,50 @@ const CommunityPartnership = () => {
       />
 
       {/* Content */}
-      <div className="container relative z-10 mx-auto max-w-7xl">
+      <div className="container relative z-10 mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-4 text-white">
-            Community Partners
+          <h2 className="text-3xl xs:text-4xl sm:text-5xl lg:text-7xl font-bold mb-3 sm:mb-4 text-white">
+            Our Partners
           </h2>
-          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
-            Meet the amazing communities supporting DevSummit Hackathon
+          <p className="text-gray-300 text-base xs:text-lg sm:text-xl max-w-2xl mx-auto">
+            Meet the amazing partners supporting DevSummit Hackathon
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {partners.map((partner, index) => (
-            <motion.div
-              key={partner.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-[#1a1a1a] rounded-2xl p-8 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300"
+        {/* Platform Partner */}
+        <div className="mb-12 sm:mb-16">
+          <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 text-center">Platform Partner</h3>
+          <div className="flex justify-center">
+            <PartnerCard partner={partners.find(p => p.type === "platform")} />
+          </div>
+        </div>
+
+        {/* Community Partners Slider */}
+        <div className="mb-12 sm:mb-16">
+          <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 text-center">Community Partners</h3>
+          <div className="overflow-hidden relative w-screen -mx-4">
+            <div 
+              className="flex gap-4 sm:gap-6 animate-scroll whitespace-nowrap"
+              style={{
+                animationDuration: '40s',
+                paddingLeft: '1rem'
+              }}
             >
-              <div className="w-24 h-24 mx-auto mb-6 rounded-xl overflow-hidden bg-black p-2 border border-[#A7FF40]/10">
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-[#A7FF40] mb-2 text-center">
-                {partner.name}
-              </h3>
-              <p className="text-gray-300 text-center">
-                {partner.description}
-              </p>
-            </motion.div>
-          ))}
+              {/* First set of community partners */}
+              {partners.filter(p => p.type === "community").map((partner, index) => (
+                <PartnerCard key={`first-${index}`} partner={partner} />
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {partners.filter(p => p.type === "community").map((partner, index) => (
+                <PartnerCard key={`second-${index}`} partner={partner} />
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Join as Partner CTA */}
@@ -116,28 +115,45 @@ const CommunityPartnership = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16"
+          className="text-center"
         >
-          <div className="bg-[#1a1a1a] rounded-2xl p-8 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-[#A7FF40] mb-4">
-              Become a Community Partner
+          <div className="bg-[#1a1a1a] rounded-2xl p-6 sm:p-8 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
+            shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] 
+            transition-all duration-300 max-w-2xl mx-auto"
+          >
+            <h3 className="text-xl sm:text-2xl font-bold text-[#A7FF40] mb-3 sm:mb-4">
+              Become a Partner
             </h3>
-            <p className="text-gray-300 mb-6">
+            <p className="text-gray-300 text-sm sm:text-base mb-6">
               Join us in building the future of technology. Partner with DevSummit Hackathon and help us create an amazing developer community.
             </p>
             <motion.a
               whileHover={{ scale: 1.05 }}
               href="#contact"
-              className="inline-flex items-center px-8 py-3 bg-[#1a1a1a] text-[#A7FF40] border-2 border-[#A7FF40] rounded-full font-semibold hover:bg-[#A7FF40] hover:text-black transition-all duration-300"
+              className="inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 bg-[#1a1a1a] text-[#A7FF40] 
+                border-2 border-[#A7FF40] rounded-full font-semibold hover:bg-[#A7FF40] hover:text-black 
+                transition-all duration-300 text-sm sm:text-base"
             >
               Partner With Us
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </motion.a>
           </div>
         </motion.div>
       </div>
+
+      <style jsx>{`
+        .animate-scroll {
+          animation: scroll linear infinite;
+          min-width: max-content;
+          will-change: transform;
+        }
+        @keyframes scroll {
+          from { transform: translateX(0); }
+          to { transform: translateX(calc(-50% - 0.75rem)); }
+        }
+      `}</style>
     </section>
   );
 };

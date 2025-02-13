@@ -1,1 +1,6 @@
+# Start of Selection
 node_modules
+build
+dist
+.cache
+# End of Selection
