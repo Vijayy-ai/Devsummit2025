@@ -59,22 +59,22 @@ function Header() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6 sm:mt-8 px-4">
             <a 
-              href="YOUR_EXTERNAL_REGISTRATION_LINK"
+              href="#"
+              className="w-full sm:w-[200px] h-[54px] bg-[#A7FF40] text-black rounded-3xl font-semibold 
+                hover:bg-opacity-90 transition-all transform hover:scale-105 flex items-center justify-center cursor-not-allowed opacity-75"
+            >
+              Registration Opening Soon
+            </a>
+            <a 
+              href="https://discord.gg/VtJ9Qk3p"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-[165px] h-[54px] bg-[#A7FF40] text-black rounded-3xl font-semibold 
-                hover:bg-opacity-90 transition-all transform hover:scale-105 flex items-center justify-center"
-            >
-              Register Now
-            </a>
-            <button 
-              onClick={handleDiscordClick}
               className="w-full sm:w-[165px] h-[54px] text-[#A7FF40] border-2 border-[#A7FF40] rounded-3xl 
                 font-semibold hover:bg-[#A7FF40] hover:bg-opacity-10 transition-all transform hover:scale-105
                 flex items-center justify-center"
             >
               Join Discord
-            </button>
+            </a>
           </div>
         </div>
       </div>

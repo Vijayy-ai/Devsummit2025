@@ -41,7 +41,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <section id="about" className="relative bg-black overflow-hidden">
+    <section id="about" className="relative py-16 sm:py-20 bg-black overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-30"
@@ -66,7 +66,7 @@ const AboutUs = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 px-4">
+      <div className="relative z-10 container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -76,13 +76,13 @@ const AboutUs = () => {
           <h2 className="text-3xl xs:text-4xl sm:text-5xl lg:text-7xl font-bold mb-3 sm:mb-4 text-white">
             About DevSummit
           </h2>
-          <p className="text-gray-300 text-base xs:text-lg sm:text-xl max-w-2xl mx-auto px-4">
+          <p className="text-gray-300 text-base xs:text-lg sm:text-xl max-w-2xl mx-auto">
             Join us for an extraordinary journey of innovation, learning, and collaboration
           </p>
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto mb-12 sm:mb-16">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -90,76 +90,43 @@ const AboutUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-[#1a1a1a] rounded-xl p-6 sm:p-8 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
-                shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300"
+              className="bg-[#1a1a1a] rounded-2xl p-6 sm:p-8 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
+                shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300
+                flex flex-col items-center text-center h-full"
             >
-              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-xl overflow-hidden bg-black p-2 sm:p-3 border border-[#A7FF40]/10">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden bg-black p-2.5 sm:p-3 
+                border border-[#A7FF40]/10 flex items-center justify-center mb-4 sm:mb-5"
+              >
                 <div className="w-full h-full flex items-center justify-center text-[#A7FF40]">
                   {feature.icon}
                 </div>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 text-center mt-4">{feature.title}</h3>
-              <p className="text-gray-300 text-sm sm:text-base text-center line-clamp-3">{feature.description}</p>
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">{feature.title}</h3>
+              <p className="text-gray-300 text-sm sm:text-base flex-grow">{feature.description}</p>
             </motion.div>
           ))}
         </div>
 
         {/* Stats Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 sm:mt-16 lg:mt-20"
-        >
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto px-4">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[#1a1a1a] rounded-xl p-4 sm:p-6 lg:p-8 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
-                  shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300"
-              >
-                <div className="text-2xl xs:text-3xl sm:text-4xl font-bold text-[#A7FF40] mb-2">{stat.value}</div>
-                <div className="text-xs sm:text-sm text-gray-300">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center mt-12 sm:mt-16 lg:mt-20 px-4"
-        >
-          <div className="bg-[#1a1a1a] rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
-            shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300 
-            max-w-2xl mx-auto"
-          >
-            <h3 className="text-xl sm:text-2xl font-bold text-[#A7FF40] mb-3 sm:mb-4">
-              Ready to Join the Revolution?
-            </h3>
-            <p className="text-gray-300 text-sm sm:text-base mb-4 sm:mb-6">
-              Be part of the next generation of innovators and creators. Register now to secure your spot!
-            </p>
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              href="#register"
-              className="inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 bg-[#1a1a1a] text-[#A7FF40] border-2 
-                border-[#A7FF40] rounded-full text-sm sm:text-base font-semibold hover:bg-[#A7FF40] hover:text-black 
-                transition-all duration-300"
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-[#1a1a1a] rounded-xl p-4 sm:p-6 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
+                shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300
+                text-center"
             >
-              Register Now
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </motion.a>
-          </div>
-        </motion.div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#A7FF40] mb-1 sm:mb-2">
+                {stat.value}
+              </div>
+              <div className="text-sm sm:text-base text-gray-300">{stat.label}</div>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
       <style jsx>{`

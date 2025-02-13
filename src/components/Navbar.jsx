@@ -107,23 +107,19 @@ const Navbar = () => {
 
             {/* Mobile Register Button */}
             <a 
-              href="YOUR_EXTERNAL_REGISTRATION_LINK"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
               className="md:hidden block w-full text-center mt-3 px-4 py-2 bg-[#A7FF40] text-black rounded-full
-              text-sm font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
-              Register Now
+              text-sm font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 cursor-not-allowed opacity-75">
+              Registration Opening Soon
             </a>
           </div>
 
           {/* Desktop Register Button */}
           <a 
-            href="YOUR_EXTERNAL_REGISTRATION_LINK"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
             className="hidden md:flex h-8 sm:h-10 px-4 sm:px-6 bg-[#A7FF40] text-black rounded-full items-center
-            text-sm font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
-            Register Now
+            text-sm font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 cursor-not-allowed opacity-75">
+            Registration Opening Soon
           </a>
         </div>
       </div>
