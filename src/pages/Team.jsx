@@ -3,27 +3,27 @@ import React from "react";
 const Team = () => {
   const teamMembers = [
     {
-      name: "Satyam Don",
+      name: "Satyam ",
       role: "Event Manager",
       photo: "/images/john-doe.jpg",
     },
     {
-      name: "Yajju Badmosh ",
+      name: "Yajvendra Saini",
       role: "Lead Developer",
       photo: "/images/jane-smith.jpg",
     },
     {
-      name: "Prince bhaii ",
+      name: "vijay ",
       role: "Design Lead",
       photo: "/images/mark-johnson.jpg",
     },
     {
-      name: "Ram Seth",
+      name: "Rambhajan Saini",
       role: "Marketing Head",
       photo: "/images/sara-lee.jpg",
     },
     {
-      name: "Rishu gunda",
+      name: "Rishabh",
       role: "Sponsor Relations",
       photo: "/images/emma-brown.jpg",
     },
