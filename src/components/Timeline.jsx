@@ -14,7 +14,7 @@ const Timeline = () => {
       date: "March 29, 2025",
       time: "10:00 AM",
       title: "Opening Ceremony",
-      description: "Welcome address and kickoff of DevSummit Hackathon 2024"
+      description: "Welcome address and kickoff of DevSummit Hackathon 2025"
     },
     {
       date: "March 29, 2025",

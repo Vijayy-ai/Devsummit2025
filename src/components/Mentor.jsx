@@ -1,184 +1,147 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import bgDevSummit from '../assets/bgDevSummit.png';
-import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
+import { FaLinkedin, FaTwitter } from 'react-icons/fa';
+import amitChandra from '../assets/mentors/Amit Chandra.jpeg';
+import abhimanyu from '../assets/mentors/abhimanyu.jpeg';
+import niharika from '../assets/mentors/Niharika.jpeg';
+import RishikaKinger from '../assets/mentors/Rishika Kinger.jpeg';
+import HarshitSharma from '../assets/mentors/Harshit Sharma.jpeg';
 
 const mentors = [
   {
-    name: "Dr. Sarah Chen",
-    role: "AI Research Lead",
-    image: "https://via.placeholder.com/150",
-    expertise: "Machine Learning & Neural Networks",
+    name: "Amit Chandra",
+    role: "Blockchain Advisor @ EY",
+    image: amitChandra,
+    bio: "Leading Blockchain Initiative for Govt of Rajasthan, India | Empowering 200+ Govt Officials, 300+ Faculties, 400+ Students & Startups | Strategic Advisor: LF Decentralized Trust & NOBSAA",
     socials: {
       linkedin: "#",
       twitter: "#"
     }
   },
   {
-    name: "Alex Rodriguez",
-    role: "Blockchain Expert",
-    image: "https://via.placeholder.com/150",
-    expertise: "Web3 & Smart Contracts",
+    name: "Abhimanyu Shekhawat",
+    role: "Co-founder Epoch Protocol",
+    image: abhimanyu,
+    bio: "Co-founder Epoch Protocol | Prev Co-founder Slick Wallet (acquired)",
     socials: {
       linkedin: "#",
       twitter: "#"
     }
   },
   {
-    name: "Priya Sharma",
-    role: "Cloud Architect",
-    image: "https://via.placeholder.com/150",
-    expertise: "Cloud Computing & DevOps",
+    name: "Niharika",
+    role: "Community Lead @Rise In",
+    image: niharika,
+    bio: "Handling India Community @Rise In | Leading Community Initiatives",
     socials: {
       linkedin: "#",
-      github: "#",
       twitter: "#"
     }
   },
   {
-    name: "James Wilson",
-    role: "Security Expert",
-    image: "https://via.placeholder.com/150",
-    expertise: "Cybersecurity & Encryption",
+    name: "Rishika Kinger",
+    role: "SWE  @ Couchbase",
+    image: RishikaKinger,
+    bio: "SWE @ Couchbase | Prev- Amazon",
     socials: {
       linkedin: "#",
-      github: "#",
       twitter: "#"
     }
   },
   {
-    name: "Lisa Park",
-    role: "UX Lead",
-    image: "https://via.placeholder.com/150",
-    expertise: "User Experience & Design",
+    name: "Harshit Sharma",
+    role: "Software Engineer 2 @ Google",
+    image: HarshitSharma,
+    bio: "Software Engineer 2 @ Google • Ex-Amazon",
     socials: {
       linkedin: "#",
-      github: "#",
-      twitter: "#"
-    }
-  },
-  // Add more mentors to create multiple rows
-  {
-    name: "Michael Chang",
-    role: "IoT Specialist",
-    image: "https://via.placeholder.com/150",
-    expertise: "IoT & Embedded Systems",
-    socials: {
-      linkedin: "#",
-      github: "#",
-      twitter: "#"
-    }
-  },
-  {
-    name: "Emma Davis",
-    role: "Frontend Expert",
-    image: "https://via.placeholder.com/150",
-    expertise: "Modern Web Development",
-    socials: {
-      linkedin: "#",
-      github: "#",
-      twitter: "#"
-    }
-  },
-  {
-    name: "Raj Patel",
-    role: "Backend Lead",
-    image: "https://via.placeholder.com/150",
-    expertise: "Scalable Architecture",
-    socials: {
-      linkedin: "#",
-      github: "#",
-      twitter: "#"
-    }
-  },
-  {
-    name: "Nina Williams",
-    role: "Data Scientist",
-    image: "https://via.placeholder.com/150",
-    expertise: "Big Data & Analytics",
-    socials: {
-      linkedin: "#",
-      github: "#",
-      twitter: "#"
-    }
-  },
-  {
-    name: "Tom Anderson",
-    role: "AR/VR Expert",
-    image: "https://via.placeholder.com/150",
-    expertise: "Extended Reality",
-    socials: {
-      linkedin: "#",
-      github: "#",
       twitter: "#"
     }
   }
 ];
 
-// Split mentors into rows of 5 each
-const rows = [
-  mentors.slice(0, 5),
-  mentors.slice(5, 10)
-];
+const MentorCard = ({ mentor }) => (
+  <motion.div
+    whileHover={{ scale: 1.02 }}
+    className="inline-block flex-shrink-0 w-72 sm:w-80 bg-[#1a1a1a] rounded-xl p-6 sm:p-8 
+      border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
+      shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] 
+      transition-all duration-300"
+  >
+    <div className="relative mb-4">
+      <div className="w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-full overflow-hidden 
+        bg-black p-1 border border-[#A7FF40]/10"
+      >
+        <img
+          src={mentor.image}
+          alt={mentor.name}
+          className="w-full h-full object-cover rounded-full"
+        />
+      </div>
+      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 
+        bg-[#1a1a1a] text-[#A7FF40] text-xs px-3 sm:px-4 py-1 sm:py-1.5 
+        rounded-full font-medium border border-[#A7FF40]/40"
+      >
+        {mentor.role}
+      </div>
+    </div>
+    <h3 className="text-lg sm:text-xl font-bold text-white mb-2 text-center">{mentor.name}</h3>
+    <p className="text-gray-300 text-xs sm:text-sm mb-4 text-center h-12 sm:h-[60px] line-clamp-3">{mentor.bio}</p>
+    <div className="flex justify-center space-x-4">
+      <motion.a 
+        whileHover={{ scale: 1.2 }}
+        href={mentor.socials.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
+      >
+        <FaLinkedin size={18} />
+      </motion.a>
+      <motion.a 
+        whileHover={{ scale: 1.2 }}
+        href={mentor.socials.twitter}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
+      >
+        <FaTwitter size={18} />
+      </motion.a>
+    </div>
+  </motion.div>
+);
 
-function Mentor() {
-  const mentorTypes = [
-    {
-      role: "AI & ML Expert",
-      description: "Coming Soon",
-      icon: (
-        <svg className="w-12 h-12 text-[#A7FF40]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+const ComingSoonCard = () => (
+  <motion.div
+    whileHover={{ scale: 1.02 }}
+    className="inline-block flex-shrink-0 w-72 sm:w-80 bg-[#1a1a1a] rounded-xl p-6 sm:p-8 
+      border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
+      shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] 
+      transition-all duration-300"
+  >
+    <div className="relative mb-4">
+      <div className="w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-full overflow-hidden 
+        bg-black p-1 border border-[#A7FF40]/10 flex items-center justify-center"
+      >
+        <svg className="w-8 h-8 sm:w-12 sm:h-12 text-[#A7FF40]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
         </svg>
-      )
-    },
-    {
-      role: "Web3 Specialist",
-      description: "Coming Soon",
-      icon: (
-        <svg className="w-12 h-12 text-[#A7FF40]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-        </svg>
-      )
-    },
-    {
-      role: "Cloud Architect",
-      description: "Coming Soon",
-      icon: (
-        <svg className="w-12 h-12 text-[#A7FF40]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-        </svg>
-      )
-    },
-    {
-      role: "Security Expert",
-      description: "Coming Soon",
-      icon: (
-        <svg className="w-12 h-12 text-[#A7FF40]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
-      )
-    },
-    {
-      role: "UI/UX Designer",
-      description: "Coming Soon",
-      icon: (
-        <svg className="w-12 h-12 text-[#A7FF40]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-        </svg>
-      )
-    },
-    {
-      role: "Full Stack Developer",
-      description: "Coming Soon",
-      icon: (
-        <svg className="w-12 h-12 text-[#A7FF40]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-        </svg>
-      )
-    }
-  ];
+      </div>
+      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 
+        bg-[#1a1a1a] text-[#A7FF40] text-xs px-3 sm:px-4 py-1 sm:py-1.5 
+        rounded-full font-medium border border-[#A7FF40]/40"
+      >
+        Coming Soon
+      </div>
+    </div>
+    <h3 className="text-lg sm:text-xl font-bold text-white mb-2 text-center">Revealing Soon</h3>
+    <p className="text-gray-300 text-xs sm:text-sm mb-4 text-center h-12 sm:h-[60px]">
+      Stay tuned for more amazing mentors joining our team!
+    </p>
+  </motion.div>
+);
 
+const Mentor = () => {
   return (
     <section id="mentors" className="relative py-16 sm:py-20 bg-black">
       {/* Background Image */}
@@ -220,31 +183,120 @@ function Mentor() {
           </p>
         </motion.div>
 
-        {/* Coming Soon Message */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <div className="bg-[#1a1a1a] rounded-xl p-10 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300">
-            <div className="w-24 h-24 mx-auto mb-6 bg-black rounded-full flex items-center justify-center border border-[#A7FF40]/10">
-              <svg 
-                className="w-12 h-12 text-[#A7FF40]" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" 
-                />
-              </svg>
+        <div className="space-y-16">
+          <div className="overflow-hidden relative w-screen -mx-4">
+            <div 
+              className="flex gap-4 sm:gap-6 animate-scroll whitespace-nowrap hover:pause-animation"
+              style={{
+                animationDuration: '40s',
+                paddingLeft: '1rem'
+              }}
+            >
+              {/* First set of mentor cards */}
+              {mentors.map((mentor, index) => (
+                <motion.div
+                  key={`first-${index}`}
+                  whileHover={{ scale: 1.05 }}
+                  className="inline-block flex-shrink-0 w-72 sm:w-80 bg-[#1a1a1a] rounded-xl p-6 sm:p-8 
+                    border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
+                    shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] 
+                    transition-all duration-300"
+                >
+                  <div className="relative mb-4">
+                    <div className="w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-full overflow-hidden 
+                      bg-black p-1 border border-[#A7FF40]/10"
+                    >
+                      <img
+                        src={mentor.image}
+                        alt={mentor.name}
+                        className="w-full h-full object-cover rounded-full"
+                      />
+                    </div>
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 
+                      bg-[#1a1a1a] text-[#A7FF40] text-xs px-3 sm:px-4 py-1 sm:py-1.5 
+                      rounded-full font-medium border border-[#A7FF40]/40"
+                    >
+                      {mentor.role}
+                    </div>
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 text-center">{mentor.name}</h3>
+                  <p className="text-gray-300 text-xs sm:text-sm mb-4 text-center h-12 sm:h-[60px] line-clamp-3">{mentor.bio}</p>
+                  <div className="flex justify-center space-x-4">
+                    <motion.a 
+                      whileHover={{ scale: 1.2 }}
+                      href={mentor.socials.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
+                    >
+                      <FaLinkedin size={18} />
+                    </motion.a>
+                    <motion.a 
+                      whileHover={{ scale: 1.2 }}
+                      href={mentor.socials.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
+                    >
+                      <FaTwitter size={18} />
+                    </motion.a>
+                  </div>
+                </motion.div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {mentors.map((mentor, index) => (
+                <motion.div
+                  key={`second-${index}`}
+                  whileHover={{ scale: 1.05 }}
+                  className="inline-block flex-shrink-0 w-72 sm:w-80 bg-[#1a1a1a] rounded-xl p-6 sm:p-8 
+                    border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
+                    shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] 
+                    transition-all duration-300"
+                >
+                  <div className="relative mb-4">
+                    <div className="w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-full overflow-hidden 
+                      bg-black p-1 border border-[#A7FF40]/10"
+                    >
+                      <img
+                        src={mentor.image}
+                        alt={mentor.name}
+                        className="w-full h-full object-cover rounded-full"
+                      />
+                    </div>
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 
+                      bg-[#1a1a1a] text-[#A7FF40] text-xs px-3 sm:px-4 py-1 sm:py-1.5 
+                      rounded-full font-medium border border-[#A7FF40]/40"
+                    >
+                      {mentor.role}
+                    </div>
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 text-center">{mentor.name}</h3>
+                  <p className="text-gray-300 text-xs sm:text-sm mb-4 text-center h-12 sm:h-[60px] line-clamp-3">{mentor.bio}</p>
+                  <div className="flex justify-center space-x-4">
+                    <motion.a 
+                      whileHover={{ scale: 1.2 }}
+                      href={mentor.socials.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
+                    >
+                      <FaLinkedin size={18} />
+                    </motion.a>
+                    <motion.a 
+                      whileHover={{ scale: 1.2 }}
+                      href={mentor.socials.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
+                    >
+                      <FaTwitter size={18} />
+                    </motion.a>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       <style jsx>{`
@@ -253,6 +305,11 @@ function Mentor() {
           min-width: max-content;
           will-change: transform;
         }
+
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+
         @keyframes scroll {
           from { transform: translateX(0); }
           to { transform: translateX(calc(-50% - 0.75rem)); }
@@ -266,6 +323,7 @@ function Mentor() {
           border-radius: 50%;
           animation: twinkle 1s infinite;
         }
+
         @keyframes twinkle {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.3; }

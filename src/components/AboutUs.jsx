@@ -37,7 +37,7 @@ const AboutUs = () => {
     { label: "Participants", value: "250+" },
     { label: "Projects", value: "70+" },
     { label: "Mentors", value: "20+" },
-    { label: "Prize Pool", value: "1,50,000" },
+    { label: "Prize Pool", value: "₹ 1,50,000" },
   ];
 
   return (
