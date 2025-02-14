@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import bgDevSummit from "../assets/bgDevSummit.png";
 import { motion } from "framer-motion";
+import {
+  fadeInUp,
+  staggerContainer,
+  scaleOnHover,
+  sectionStyles,
+  SectionTransition,
+  FloatingParticles
+} from "../utils/animations";
 
 const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -32,68 +40,120 @@ const CountdownTimer = () => {
 
   return (
     <section className="relative py-16 sm:py-20 bg-black overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-30"
-        style={{ backgroundImage: `url(${bgDevSummit})` }}
-      />
+      {/* Enhanced Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-30"
+          style={{ backgroundImage: `url(${bgDevSummit})` }}
+        />
+        <div className="animated-bg" />
+        <FloatingParticles count={30} />
+      </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 text-white">
-            The Countdown Begins
-          </h2>
-          <p className="text-gray-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
-            Join us on 29 march, 2025 for an amazing hackathon experience
-          </p>
-        </motion.div>
+        <SectionTransition>
+          <motion.h2 
+            className="text-[32px] xs:text-4xl sm:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 text-center text-white"
+            variants={fadeInUp}
+          >
+            The{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A7FF40] to-[#65D000]">
+              Countdown
+            </span>{" "}
+            Begins
+          </motion.h2>
+          <motion.p 
+            className="text-gray-300 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto text-center mb-12 sm:mb-16"
+            variants={fadeInUp}
+          >
+            Join us on March 29, 2025 for an amazing hackathon experience
+          </motion.p>
+        </SectionTransition>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto mb-12">
+        <motion.div 
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.3 }}
+          className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto mb-12"
+        >
           {[
             { label: 'Days', value: timeLeft.days },
             { label: 'Hours', value: timeLeft.hours },
             { label: 'Minutes', value: timeLeft.minutes },
             { label: 'Seconds', value: timeLeft.seconds }
-          ].map((item) => (
+          ].map((item, index) => (
             <motion.div
               key={item.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="bg-[#1a1a1a] rounded-xl p-4 sm:p-6 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
-                shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-all duration-300"
+              variants={fadeInUp}
+              custom={index}
+              whileHover={{ scale: 1.03, y: -5 }}
+              className="bg-[#1a1a1a]/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 
+                border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
+                shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.15)] 
+                transition-all duration-300 relative overflow-hidden group"
             >
-              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#A7FF40] mb-2">
-                {String(item.value).padStart(2, '0')}
+              {/* Animated background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#A7FF40]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <motion.div 
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#A7FF40] mb-2 text-center"
+                  variants={fadeInUp}
+                >
+                  {String(item.value).padStart(2, '0')}
+                </motion.div>
+                <motion.div 
+                  className="text-sm sm:text-base text-gray-300 text-center"
+                  variants={fadeInUp}
+                >
+                  {item.label}
+                </motion.div>
               </div>
-              <div className="text-sm sm:text-base text-gray-300">{item.label}</div>
             </motion.div>
           ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center"
-        >
-          <a
-            href="#"
-            className="inline-flex items-center px-6 sm:px-8 py-3 bg-[#1a1a1a] text-[#A7FF40] border-2 
-              border-[#A7FF40] rounded-full font-semibold hover:bg-[#A7FF40] hover:text-black 
-              transition-all duration-300 text-sm sm:text-base cursor-not-allowed opacity-75"
-          >
-            Registration Opening Soon
-            <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
         </motion.div>
+
+        <SectionTransition>
+          <motion.div
+            variants={fadeInUp}
+            className="text-center"
+          >
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="#register"
+              className="inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 
+                bg-[#1a1a1a] text-[#A7FF40] border-2 border-[#A7FF40] rounded-full font-semibold 
+                hover:bg-[#A7FF40] hover:text-black transition-all duration-300
+                text-sm sm:text-base relative overflow-hidden group cursor-not-allowed opacity-75"
+              style={{
+                boxShadow: "0 0 10px rgba(167,255,64,0.6), 0 0 20px rgba(167,255,64,0.4)",
+              }}
+            >
+              <span className="relative z-10">Registration Opening Soon</span>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 bg-white" />
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </motion.a>
+          </motion.div>
+        </SectionTransition>
       </div>
+
+      <style jsx>{`
+        .animated-bg {
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(circle at 50% 50%, rgba(167, 255, 64, 0.1) 0%, transparent 50%);
+          opacity: 0.5;
+          animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); opacity: 0.5; }
+          50% { transform: scale(1.2); opacity: 0.3; }
+        }
+      `}</style>
     </section>
   );
 };
