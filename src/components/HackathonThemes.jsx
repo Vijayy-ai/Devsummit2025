@@ -9,36 +9,56 @@ import {
   SectionTransition,
   FloatingParticles
 } from "../utils/animations";
+import { AiOutlineRobot } from "react-icons/ai";
+import { MdDevices } from "react-icons/md";
+import { SiHiveBlockchain } from "react-icons/si";
+import { FaHospital, FaLightbulb } from "react-icons/fa";
+import { MdEco } from "react-icons/md";
 
 const HackathonThemes = () => {
   const themes = [
     {
-      title: "AI & Machine Learning",
-      description: "Build intelligent solutions using cutting-edge AI technologies",
-      icon: (
-        <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      )
+      id: 1,
+      title: "AI/ML",
+      description:
+        "Develop innovative solutions using Artificial Intelligence and Machine Learning to solve real-world problems.",
+      icon: <AiOutlineRobot className="text-4xl" />,
     },
     {
-      title: "Web3 & Blockchain",
-      description: "Create decentralized applications and smart contracts",
-      icon: (
-        <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-        </svg>
-      )
+      id: 2,
+      title: "IoT Applications",
+      description:
+        "Create smart solutions using Internet of Things technology to connect and enhance everyday devices and systems.",
+      icon: <MdDevices className="text-4xl" />,
     },
     {
-      title: "AR/VR Innovation",
-      description: "Design immersive experiences and virtual worlds",
-      icon: (
-        <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      )
-    }
+      id: 3,
+      title: "Blockchain/Web 3.0",
+      description:
+        "Build decentralized applications and explore innovative use cases of blockchain technology.",
+      icon: <SiHiveBlockchain className="text-4xl" />,
+    },
+    {
+      id: 4,
+      title: "Healthcare",
+      description:
+        "Develop solutions to improve healthcare delivery, patient care, and medical technology innovations.",
+      icon: <FaHospital className="text-4xl" />,
+    },
+    {
+      id: 5,
+      title: "Open Innovation",
+      description:
+        "Create solutions for any domain using cutting-edge technologies and creative problem-solving approaches.",
+      icon: <FaLightbulb className="text-4xl" />,
+    },
+    {
+      id: 6,
+      title: "Sustainable Development",
+      description:
+        "Build solutions focusing on environmental sustainability, renewable energy, and eco-friendly technologies.",
+      icon: <MdEco className="text-4xl" />,
+    },
   ];
 
   const ThemeCard = ({ theme, index, total }) => (

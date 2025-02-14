@@ -42,10 +42,10 @@ const AboutUs = () => {
   ];
 
   const stats = [
-    { label: "Participants", value: "500+" },
-    { label: "Projects", value: "100+" },
+    { label: "Participants", value: "300+" },
+    { label: "Projects", value: "70+" },
     { label: "Mentors", value: "20+" },
-    { label: "Prize Pool", value: "$10K" }
+    { label: "Prize Pool", value: "₹1,50,000" }
   ];
 
   return (

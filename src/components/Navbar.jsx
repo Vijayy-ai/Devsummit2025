@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/components/navbar.css";
+import { Link } from "react-router-dom";
+import devsummitLogo from "../assets/devsummit-logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,16 +70,15 @@ const Navbar = () => {
           } backdrop-blur-sm border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.15)]`}
         >
           {/* Logo */}
-          <motion.div 
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => scrollToSection("home")} 
-            className="relative z-10 cursor-pointer"
-          >
-            <div className="h-8 w-8 sm:h-10 sm:w-10 bg-gradient-to-r from-[#A7FF40] to-[#65D000] rounded-full flex items-center justify-center">
-              <span className="text-black font-bold text-xs sm:text-sm">DS</span>
-            </div>
-          </motion.div>
+          <Link to="/" className="flex items-center">
+            <motion.img
+              src={devsummitLogo}
+              alt="DevSummit Logo"
+              className="h-8 w-auto"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            />
+          </Link>
 
           {/* Mobile Menu Button */}
           <motion.button

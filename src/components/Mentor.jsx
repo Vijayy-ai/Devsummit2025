@@ -5,6 +5,8 @@ import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 import amitChandra from '../assets/mentors/Amit Chandra.jpeg';
 import abhimanyu from '../assets/mentors/abhimanyu.jpeg';
 import niharika from '../assets/mentors/Niharika.jpeg';
+import RishikaKinger from '../assets/mentors/Rishika Kinger.jpeg';
+import HarshitSharma from '../assets/mentors/Harshit Sharma.jpeg';
 import {
   fadeInUp,
   staggerContainer,
