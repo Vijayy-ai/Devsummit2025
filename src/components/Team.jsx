@@ -86,20 +86,90 @@ const teamMembers = [
   }
 ];
 
+const TeamCard = ({ member }) => (
+  <motion.div
+    variants={fadeInUp}
+    whileHover={{ scale: 1.03, y: -5 }}
+    className="inline-block flex-shrink-0 w-72 sm:w-80 bg-[#1a1a1a]/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 
+      border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
+      shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.15)] 
+      transition-all duration-300 relative overflow-hidden group"
+  >
+    {/* Animated background gradient */}
+    <div className="absolute inset-0 bg-gradient-to-br from-[#A7FF40]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    
+    <div className="relative z-10">
+      <div className="relative mb-4">
+        <motion.div 
+          className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden 
+            bg-black p-1 border border-[#A7FF40]/10 group-hover:border-[#A7FF40]/40
+            transition-all duration-300"
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <img
+            src={member.image}
+            alt={member.name}
+            className="w-full h-full object-cover rounded-full"
+          />
+        </motion.div>
+        <motion.div 
+          className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 
+            bg-[#1a1a1a] text-[#A7FF40] text-xs px-3 sm:px-4 py-1 sm:py-1.5 
+            rounded-full font-medium border border-[#A7FF40]/40
+            shadow-[0_0_10px_rgba(167,255,64,0.3)]
+            hover:scale-110 transition-transform duration-300"
+          style={{ transformOrigin: 'center' }}
+        >
+          {member.role}
+        </motion.div>
+      </div>
+      <motion.h3 
+        className="text-lg sm:text-xl font-bold text-white mb-2 text-center truncate"
+        variants={fadeInUp}
+      >
+        {member.name}
+      </motion.h3>
+      <motion.p 
+        className="text-gray-300 text-xs sm:text-sm mb-4 text-center h-8 sm:h-10 line-clamp-2"
+        variants={fadeInUp}
+      >
+        {member.bio}
+      </motion.p>
+      <div className="flex justify-center space-x-4">
+        <motion.a 
+          whileHover={{ scale: 1.2, y: -2 }}
+          href={member.socials.linkedin}
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
+        >
+          <FaLinkedin size={18} />
+        </motion.a>
+        <motion.a 
+          whileHover={{ scale: 1.2, y: -2 }}
+          href={member.socials.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
+        >
+          <FaGithub size={18} />
+        </motion.a>
+        <motion.a 
+          whileHover={{ scale: 1.2, y: -2 }}
+          href={member.socials.twitter}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
+        >
+          <FaTwitter size={18} />
+        </motion.a>
+      </div>
+    </div>
+  </motion.div>
+);
+
 const Team = () => {
-  const scrollContainerRef = useRef(null);
-
-  const scroll = (direction) => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      const scrollAmount = direction === 'left' ? -400 : 400;
-      container.scrollBy({
-        left: scrollAmount,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
     <section id="team" className="relative py-16 sm:py-20 px-4 overflow-hidden bg-black">
       {/* Enhanced Background */}
@@ -134,219 +204,23 @@ const Team = () => {
 
         <div className="space-y-16">
           <div className="relative">
-            {/* Navigation Arrows */}
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              whileHover={{ scale: 1.1 }}
-              onClick={() => scroll('left')}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center w-10 h-10 
-                bg-[#1a1a1a]/80 backdrop-blur-sm rounded-full 
-                border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
-                shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.15)] 
-                text-[#A7FF40] transition-all duration-300"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </motion.button>
-
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              whileHover={{ scale: 1.1 }}
-              onClick={() => scroll('right')}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center w-10 h-10 
-                bg-[#1a1a1a]/80 backdrop-blur-sm rounded-full 
-                border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
-                shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.15)] 
-                text-[#A7FF40] transition-all duration-300"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </motion.button>
-
             {/* Cards Container */}
-            <div 
-              ref={scrollContainerRef}
-              className="overflow-x-auto hide-scrollbar relative w-screen -mx-4"
-            >
-              <div 
-                className="flex gap-4 sm:gap-6 animate-scroll whitespace-nowrap"
+            <div className="overflow-x-hidden relative w-full">
+              <motion.div 
+                className="flex gap-4 sm:gap-6 animate-scroll pl-4 hover:pause-animation"
                 style={{
-                  animationDuration: '40s',
-                  paddingLeft: '1rem',
-                  paddingRight: '1rem'
+                  animationDuration: '40s'
                 }}
               >
-                {/* First set of cards */}
-                {teamMembers.map((member, index) => (
-                  <motion.div
-                    key={`first-${index}`}
-                    variants={fadeInUp}
-                    whileHover={{ scale: 1.03, y: -5 }}
-                    className="inline-block flex-shrink-0 w-72 sm:w-80 bg-[#1a1a1a]/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 
-                      border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
-                      shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.15)] 
-                      transition-all duration-300 relative overflow-hidden group"
-                  >
-                    {/* Animated background gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#A7FF40]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
-                    <div className="relative z-10">
-                      <div className="relative mb-4">
-                        <motion.div 
-                          className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden 
-                            bg-black p-1 border border-[#A7FF40]/10 group-hover:border-[#A7FF40]/40
-                            transition-all duration-300"
-                          whileHover={{ scale: 1.1, rotate: 360 }}
-                          transition={{ duration: 0.8 }}
-                        >
-                          <img
-                            src={member.image}
-                            alt={member.name}
-                            className="w-full h-full object-cover rounded-full"
-                          />
-                        </motion.div>
-                        <motion.div 
-                          className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 
-                            bg-[#1a1a1a] text-[#A7FF40] text-xs px-3 sm:px-4 py-1 sm:py-1.5 
-                            rounded-full font-medium border border-[#A7FF40]/40
-                            shadow-[0_0_10px_rgba(167,255,64,0.3)]"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          {member.role}
-                        </motion.div>
-                      </div>
-                      <motion.h3 
-                        className="text-lg sm:text-xl font-bold text-white mb-2 text-center truncate"
-                        variants={fadeInUp}
-                      >
-                        {member.name}
-                      </motion.h3>
-                      <motion.p 
-                        className="text-gray-300 text-xs sm:text-sm mb-4 text-center h-8 sm:h-10 line-clamp-2"
-                        variants={fadeInUp}
-                      >
-                        {member.bio}
-                      </motion.p>
-                      <div className="flex justify-center space-x-4">
-                        <motion.a 
-                          whileHover={{ scale: 1.2, y: -2 }}
-                          href={member.socials.linkedin}
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-                        >
-                          <FaLinkedin size={18} />
-                        </motion.a>
-                        <motion.a 
-                          whileHover={{ scale: 1.2, y: -2 }}
-                          href={member.socials.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-                        >
-                          <FaGithub size={18} />
-                        </motion.a>
-                        <motion.a 
-                          whileHover={{ scale: 1.2, y: -2 }}
-                          href={member.socials.twitter}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-                        >
-                          <FaTwitter size={18} />
-                        </motion.a>
-                      </div>
-                    </div>
-                  </motion.div>
+                {/* First set of team members */}
+                {teamMembers.map((member) => (
+                  <TeamCard key={`first-${member.name}`} member={member} />
                 ))}
                 {/* Duplicate set for seamless loop */}
-                {teamMembers.map((member, index) => (
-                  <motion.div
-                    key={`second-${index}`}
-                    variants={fadeInUp}
-                    whileHover={{ scale: 1.03, y: -5 }}
-                    className="inline-block flex-shrink-0 w-72 sm:w-80 bg-[#1a1a1a]/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 
-                      border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
-                      shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.15)] 
-                      transition-all duration-300 relative overflow-hidden group"
-                  >
-                    {/* Animated background gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#A7FF40]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
-                    <div className="relative z-10">
-                      <div className="relative mb-4">
-                        <motion.div 
-                          className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden 
-                            bg-black p-1 border border-[#A7FF40]/10 group-hover:border-[#A7FF40]/40
-                            transition-all duration-300"
-                          whileHover={{ scale: 1.1, rotate: 360 }}
-                          transition={{ duration: 0.8 }}
-                        >
-                          <img
-                            src={member.image}
-                            alt={member.name}
-                            className="w-full h-full object-cover rounded-full"
-                          />
-                        </motion.div>
-                        <motion.div 
-                          className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 
-                            bg-[#1a1a1a] text-[#A7FF40] text-xs px-3 sm:px-4 py-1 sm:py-1.5 
-                            rounded-full font-medium border border-[#A7FF40]/40
-                            shadow-[0_0_10px_rgba(167,255,64,0.3)]"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          {member.role}
-                        </motion.div>
-                      </div>
-                      <motion.h3 
-                        className="text-lg sm:text-xl font-bold text-white mb-2 text-center truncate"
-                        variants={fadeInUp}
-                      >
-                        {member.name}
-                      </motion.h3>
-                      <motion.p 
-                        className="text-gray-300 text-xs sm:text-sm mb-4 text-center h-8 sm:h-10 line-clamp-2"
-                        variants={fadeInUp}
-                      >
-                        {member.bio}
-                      </motion.p>
-                      <div className="flex justify-center space-x-4">
-                        <motion.a 
-                          whileHover={{ scale: 1.2, y: -2 }}
-                          href={member.socials.linkedin}
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-                        >
-                          <FaLinkedin size={18} />
-                        </motion.a>
-                        <motion.a 
-                          whileHover={{ scale: 1.2, y: -2 }}
-                          href={member.socials.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-                        >
-                          <FaGithub size={18} />
-                        </motion.a>
-                        <motion.a 
-                          whileHover={{ scale: 1.2, y: -2 }}
-                          href={member.socials.twitter}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-                        >
-                          <FaTwitter size={18} />
-                        </motion.a>
-                      </div>
-                    </div>
-                  </motion.div>
+                {teamMembers.map((member) => (
+                  <TeamCard key={`second-${member.name}`} member={member} />
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -411,10 +285,20 @@ const Team = () => {
           min-width: max-content;
           will-change: transform;
         }
-        @keyframes scroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(calc(-50% - 0.75rem)); }
+
+        .pause-animation {
+          animation-play-state: paused;
         }
+
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
         .animated-bg {
           position: absolute;
           inset: 0;

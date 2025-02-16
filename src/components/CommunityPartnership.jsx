@@ -43,7 +43,7 @@ const CommunityPartnership = () => {
     <motion.div
       variants={fadeInUp}
       whileHover={{ scale: 1.03, y: -5 }}
-      className="inline-block flex-shrink-0 w-72 sm:w-80 bg-[#1a1a1a]/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 
+      className="w-full max-w-[320px] bg-[#1a1a1a]/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 
         border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
         shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.15)] 
         transition-all duration-300 relative overflow-hidden group"
@@ -127,12 +127,12 @@ const CommunityPartnership = () => {
           >
             Platform Partner
           </motion.h3>
-          <div className="flex justify-center">
+          <div className="flex justify-center px-4">
             <PartnerCard partner={partners.find(p => p.type === "platform")} />
           </div>
         </motion.div>
 
-        {/* Community Partners Slider */}
+        {/* Community Partners Grid */}
         <motion.div
           variants={staggerContainer}
           initial="initial"
@@ -146,21 +146,12 @@ const CommunityPartnership = () => {
           >
             Community Partners
           </motion.h3>
-          <div className="overflow-hidden relative w-screen -mx-4">
-            <div 
-              className="flex gap-4 sm:gap-6 animate-scroll whitespace-nowrap"
-              style={{
-                animationDuration: '40s',
-                paddingLeft: '1rem'
-              }}
-            >
-              {/* First set of community partners */}
-              {partners.filter(p => p.type === "community").map((partner, index) => (
-                <PartnerCard key={`first-${index}`} partner={partner} />
-              ))}
-              {/* Duplicate set for seamless loop */}
-              {partners.filter(p => p.type === "community").map((partner, index) => (
-                <PartnerCard key={`second-${index}`} partner={partner} />
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl mx-auto">
+              {partners.filter(p => p.type === "community").map((partner) => (
+                <div className="flex justify-center">
+                  <PartnerCard key={partner.name} partner={partner} />
+                </div>
               ))}
             </div>
           </div>
@@ -170,7 +161,7 @@ const CommunityPartnership = () => {
         <SectionTransition>
           <motion.div
             variants={fadeInUp}
-            className="text-center"
+            className="text-center max-w-3xl mx-auto px-4"
           >
             <motion.div
               whileHover={{ scale: 1.02 }}
@@ -221,15 +212,6 @@ const CommunityPartnership = () => {
       </div>
 
       <style jsx>{`
-        .animate-scroll {
-          animation: scroll linear infinite;
-          min-width: max-content;
-          will-change: transform;
-        }
-        @keyframes scroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(calc(-50% - 0.75rem)); }
-        }
         .animated-bg {
           position: absolute;
           inset: 0;

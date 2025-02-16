@@ -87,8 +87,8 @@ const MentorCard = ({ mentor }) => (
           className="w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-full overflow-hidden 
             bg-black p-1 border border-[#A7FF40]/10 group-hover:border-[#A7FF40]/40
             transition-all duration-300"
-          whileHover={{ scale: 1.1, rotate: 360 }}
-          transition={{ duration: 0.8 }}
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.3 }}
         >
           <img
             src={mentor.image}
@@ -100,8 +100,10 @@ const MentorCard = ({ mentor }) => (
           className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 
             bg-[#1a1a1a] text-[#A7FF40] text-xs px-3 sm:px-4 py-1 sm:py-1.5 
             rounded-full font-medium border border-[#A7FF40]/40
-            shadow-[0_0_10px_rgba(167,255,64,0.3)]"
-          whileHover={{ scale: 1.1 }}
+            shadow-[0_0_10px_rgba(167,255,64,0.3)]
+            hover:scale-110 transition-transform duration-300
+            whitespace-nowrap overflow-hidden max-w-[90%] text-center truncate"
+          style={{ transformOrigin: 'center' }}
         >
           {mentor.role}
         </motion.div>
@@ -160,8 +162,8 @@ const ComingSoonCard = () => (
           className="w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-full overflow-hidden 
             bg-black p-1 border border-[#A7FF40]/10 group-hover:border-[#A7FF40]/40 flex items-center justify-center
             transition-all duration-300"
-          whileHover={{ scale: 1.1, rotate: 360 }}
-          transition={{ duration: 0.8 }}
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.3 }}
         >
           <svg className="w-8 h-8 sm:w-12 sm:h-12 text-[#A7FF40]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
@@ -194,19 +196,6 @@ const ComingSoonCard = () => (
 );
 
 const Mentor = () => {
-  const scrollContainerRef = useRef(null);
-
-  const scroll = (direction) => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      const scrollAmount = direction === 'left' ? -400 : 400;
-      container.scrollBy({
-        left: scrollAmount,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
     <section id="mentors" className="relative py-16 sm:py-20 bg-black overflow-hidden">
       {/* Enhanced Background */}
@@ -241,67 +230,29 @@ const Mentor = () => {
 
         <div className="space-y-16">
           <div className="relative">
-            {/* Navigation Arrows */}
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              whileHover={{ scale: 1.1 }}
-              onClick={() => scroll('left')}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center w-10 h-10 
-                bg-[#1a1a1a]/80 backdrop-blur-sm rounded-full 
-                border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
-                shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.15)] 
-                text-[#A7FF40] transition-all duration-300"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </motion.button>
-
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              whileHover={{ scale: 1.1 }}
-              onClick={() => scroll('right')}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center w-10 h-10 
-                bg-[#1a1a1a]/80 backdrop-blur-sm rounded-full 
-                border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
-                shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.15)] 
-                text-[#A7FF40] transition-all duration-300"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </motion.button>
-
             {/* Cards Container */}
-            <div 
-              ref={scrollContainerRef}
-              className="overflow-x-auto hide-scrollbar relative w-screen -mx-4"
-            >
-              <div 
-                className="flex gap-4 sm:gap-6 animate-scroll whitespace-nowrap"
+            <div className="overflow-x-hidden relative w-full">
+              <motion.div 
+                className="flex gap-4 sm:gap-6 animate-scroll pl-4 hover:pause-animation"
                 style={{
-                  animationDuration: '40s',
-                  paddingLeft: '1rem',
-                  paddingRight: '1rem'
+                  animationDuration: '40s'
                 }}
               >
-                {/* First set of cards */}
-                {mentors.map((mentor, index) => (
-                  <MentorCard key={`first-${index}`} mentor={mentor} />
+                {/* First set of mentors */}
+                {mentors.map((mentor) => (
+                  <MentorCard key={`first-${mentor.name}`} mentor={mentor} />
                 ))}
                 {[1, 2].map((_, index) => (
-                  <ComingSoonCard key={`coming-soon-${index}`} />
+                  <ComingSoonCard key={`first-coming-soon-${index}`} />
                 ))}
                 {/* Duplicate set for seamless loop */}
-                {mentors.map((mentor, index) => (
-                  <MentorCard key={`second-${index}`} mentor={mentor} />
+                {mentors.map((mentor) => (
+                  <MentorCard key={`second-${mentor.name}`} mentor={mentor} />
                 ))}
                 {[1, 2].map((_, index) => (
-                  <ComingSoonCard key={`duplicate-coming-soon-${index}`} />
+                  <ComingSoonCard key={`second-coming-soon-${index}`} />
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -314,14 +265,19 @@ const Mentor = () => {
           will-change: transform;
         }
 
+        .pause-animation {
+          animation-play-state: paused;
+        }
+
         .animate-scroll:hover {
           animation-play-state: paused;
         }
 
         @keyframes scroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(calc(-50% - 0.75rem)); }
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
         }
+
         .animated-bg {
           position: absolute;
           inset: 0;
@@ -329,14 +285,17 @@ const Mentor = () => {
           opacity: 0.5;
           animation: pulse 4s ease-in-out infinite;
         }
+
         @keyframes pulse {
           0%, 100% { transform: scale(1); opacity: 0.5; }
           50% { transform: scale(1.2); opacity: 0.3; }
         }
+
         .hide-scrollbar {
           scrollbar-width: none;
           -ms-overflow-style: none;
         }
+
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
         }

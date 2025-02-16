@@ -3,6 +3,7 @@ import bgImage from "../assets/bgDevSummit.png";
 import X from "../assets/X.png"
 import Linkedin from "../assets/Linkedin.png"
 import Instagram from "../assets/Instagram.png"
+import Discord from "../assets/discord.png"
 import { motion } from "framer-motion";
 import {
   fadeInUp,
@@ -159,6 +160,7 @@ function Footer() {
                   className="h-6 w-6 sm:h-8 sm:w-8"
                 />
               </motion.a>
+              
               <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -190,6 +192,23 @@ function Footer() {
                 <img
                   src={Linkedin}
                   alt="LinkedIn"
+                  className="h-6 w-6 sm:h-8 sm:w-8"
+                />
+              </motion.a>
+               <motion.a
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://discord.gg/hM6JrSKE"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#1a1a1a]/80 backdrop-blur-sm p-3 rounded-xl 
+                  border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
+                  shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.15)] 
+                  transition-all duration-300"
+              >
+                <img
+                  src={Discord}
+                  alt="Discord"
                   className="h-6 w-6 sm:h-8 sm:w-8"
                 />
               </motion.a>
