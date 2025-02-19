@@ -122,20 +122,25 @@ const CountdownTimer = () => {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="#register"
-              className="inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 
-                bg-[#1a1a1a] text-[#A7FF40] border-2 border-[#A7FF40] rounded-full font-semibold 
-                hover:bg-[#A7FF40] hover:text-black transition-all duration-300
-                text-sm sm:text-base relative overflow-hidden group cursor-not-allowed opacity-75"
+              href="https://www.hackquest.io/hackathons/DevSummit-2025"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 
+                bg-gradient-to-r from-[#A7FF40] to-[#65D000] 
+                text-black rounded-full font-semibold 
+                transition-all duration-300
+                text-sm sm:text-base 
+                relative overflow-hidden group
+                cursor-pointer
+                hover:shadow-[0_0_20px_rgba(167,255,64,0.8)]
+              "
               style={{
                 boxShadow: "0 0 10px rgba(167,255,64,0.6), 0 0 20px rgba(167,255,64,0.4)",
               }}
             >
-              <span className="relative z-10">Registration Opening Soon</span>
+              <span className="relative z-10">Register Now</span>
               <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 bg-white" />
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
             </motion.a>
           </motion.div>
         </SectionTransition>

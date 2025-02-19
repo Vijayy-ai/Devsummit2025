@@ -161,8 +161,8 @@ const Prizes = () => {
                 className="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-xl overflow-hidden bg-black/50 p-3 
                   border border-[#A7FF40]/20 group-hover:border-[#A7FF40]/40 flex items-center justify-center mb-5 sm:mb-6
                   relative z-10"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.8 }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
               >
                 <div className="w-full h-full flex items-center justify-center text-[#A7FF40]">
                   {prize.icon}
@@ -210,19 +210,25 @@ const Prizes = () => {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="#registration"
-            className="inline-flex items-center px-8 py-3 bg-[#1a1a1a] text-[#A7FF40] border-2 border-[#A7FF40] 
-              rounded-full font-semibold hover:bg-[#A7FF40] hover:text-black transition-all duration-300 
-              relative overflow-hidden group cursor-not-allowed"
+            href="https://www.hackquest.io/hackathons/DevSummit-2025"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 
+              bg-[#1a1a1a] text-[#A7FF40] border-2 border-[#A7FF40] 
+              rounded-full font-semibold 
+              hover:bg-[#A7FF40] hover:text-black 
+              transition-all duration-300
+              text-sm sm:text-base 
+              relative overflow-hidden group
+              cursor-pointer
+            "
             style={{
               boxShadow: "0 0 10px rgba(167,255,64,0.6), 0 0 20px rgba(167,255,64,0.4)",
             }}
           >
-            <span className="relative z-10">Registration Opening Soon</span>
+            <span className="relative z-10">Register Now</span>
             <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 bg-white" />
-            <svg className="w-5 h-5 ml-2 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
           </motion.a>
         </motion.div>
       </div>

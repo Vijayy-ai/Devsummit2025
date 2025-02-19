@@ -102,8 +102,8 @@ const AboutUs = () => {
                 className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-black/50 p-3 
                   border border-[#A7FF40]/20 flex items-center justify-center mb-5 sm:mb-6
                   group-hover:border-[#A7FF40]/40 transition-colors"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.8 }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
               >
                 <div className="w-full h-full flex items-center justify-center text-[#A7FF40]">
                   {feature.icon}

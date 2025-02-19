@@ -132,43 +132,6 @@ const FAQ = () => {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Contact CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16"
-        >
-          <motion.div 
-            className="bg-[#1a1a1a]/80 backdrop-blur-sm rounded-2xl p-8 border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
-              shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.15)] 
-              transition-all duration-300 relative overflow-hidden group"
-          >
-            {/* Decorative elements */}
-            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#A7FF40]/5 rounded-full blur-xl group-hover:bg-[#A7FF40]/10 transition-colors duration-300" />
-            <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#A7FF40]/5 rounded-full blur-xl group-hover:bg-[#A7FF40]/10 transition-colors duration-300" />
-            
-            <h3 className="text-2xl font-bold text-[#A7FF40] mb-4 relative z-10">
-              Still Have Questions?
-            </h3>
-            <p className="text-gray-300 mb-6 relative z-10">
-              Can't find the answer you're looking for? Please reach out to our team.
-            </p>
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="#contact"
-              className="inline-flex items-center px-8 py-3 bg-[#1a1a1a] text-[#A7FF40] border-2 border-[#A7FF40] 
-                rounded-full font-semibold hover:bg-[#A7FF40] hover:text-black transition-all duration-300 relative z-10"
-            >
-              Contact Us
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </motion.a>
-          </motion.div>
-        </motion.div>
       </div>
 
       <style jsx>{sectionStyles}</style>

@@ -123,14 +123,17 @@ const Sponsors = () => {
                 className="w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-xl overflow-hidden bg-black/50 p-4 
                   border border-[#A7FF40]/20 group-hover:border-[#A7FF40]/40 flex items-center justify-center mb-6
                   relative"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.8 }}
               >
-                <img
-                  src={titleSponsor.logo}
-                  alt={titleSponsor.name}
-                  className="w-full h-full object-contain"
-                />
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="w-full aspect-video flex items-center justify-center mb-4"
+                >
+                  <img
+                    src={titleSponsor.logo}
+                    alt={titleSponsor.name}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </motion.div>
               </motion.div>
               <motion.h4 
                 className="text-xl sm:text-2xl font-bold text-[#A7FF40] mb-2 text-center"
@@ -175,8 +178,6 @@ const Sponsors = () => {
                   className="w-16 h-16 mx-auto rounded-xl overflow-hidden bg-black/50 p-3 
                     border border-[#A7FF40]/20 group-hover:border-[#A7FF40]/40 flex items-center justify-center mb-5
                     relative"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.8 }}
                 >
                   <div className="w-full h-full flex items-center justify-center text-[#A7FF40]">
                     {tier.icon}

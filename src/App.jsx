@@ -7,6 +7,7 @@ import Timeline from "./components/Timeline";
 import Prizes from "./components/Prizes";
 import Mentors from "./components/Mentor";
 import Team from "./components/Team";
+import FacultyCoordinator from "./components/FacultyCoordinator";
 import Sponsors from "./components/Sponsors";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
@@ -45,6 +46,7 @@ function App() {
             </section>
             <section id="team">
               <Team />
+              <FacultyCoordinator />
             </section>
             <section id="sponsors">
               <Sponsors />

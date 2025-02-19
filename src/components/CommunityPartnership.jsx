@@ -56,8 +56,6 @@ const CommunityPartnership = () => {
           className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-xl overflow-hidden bg-black/50 p-2 
             border border-[#A7FF40]/20 group-hover:border-[#A7FF40]/40 flex items-center justify-center mb-5
             relative"
-          whileHover={{ rotate: 360 }}
-          transition={{ duration: 0.8 }}
         >
           <img
             src={partner.logo}

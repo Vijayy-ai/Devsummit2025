@@ -147,7 +147,7 @@ function Header() {
       className="relative min-h-[100dvh] w-full text-white overflow-hidden"
     >
       {/* Background with stars */}
-      <div 
+      <div
         className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
         style={{ backgroundImage: `url(${bgDevSummit})` }}
       />
@@ -155,8 +155,8 @@ function Header() {
       <div className="absolute inset-0 bg-black/40 z-[1]" />
 
       {/* Ellipse Background */}
-      <div 
-        style={{ backgroundImage: `url(${Ellipse})` }} 
+      <div
+        style={{ backgroundImage: `url(${Ellipse})` }}
         className="absolute top-0 left-0 h-full w-full min-h-[100dvh] bg-cover bg-center z-[2]"
       />
 
@@ -197,7 +197,7 @@ function Header() {
         >
           <div className="relative">
             <motion.h1
-              className="text-[36px] xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 sm:mb-4 leading-tight tracking-tight"
+              className="text-[36px] xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 sm:mb-1 leading-tight tracking-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -236,10 +236,10 @@ function Header() {
               </motion.span>
             </motion.h1>
           </div>
-          
+
           {/* Logo */}
           <motion.div
-            className="my-4 sm:my-6 transform hover:scale-105 transition-transform duration-300"
+            className="my-4 sm:my-2 transform hover:scale-105 transition-transform duration-300"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -253,61 +253,46 @@ function Header() {
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-4 sm:mt-6 w-full max-w-[300px] sm:max-w-none mx-auto"
+            className="flex justify-center mt-4 sm:mt-2 w-full max-w-[300px] sm:max-w-none mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            {/* Registration Button with Neon Gradient */}
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="#registration"
-              className="
-                w-full sm:w-[200px] h-11 sm:h-12 
-                rounded-3xl font-semibold text-[14px] sm:text-base 
-                flex items-center justify-center 
-                cursor-not-allowed relative overflow-hidden group
-                bg-gradient-to-r from-[#A7FF40] to-[#65D000]
-                text-black 
-                transition-all
-              "
-              style={{
-                // Subtle neon glow
-                boxShadow:
-                  "0 0 10px rgba(167,255,64,0.6), 0 0 20px rgba(167,255,64,0.4)",
-              }}
-            >
-              <span className="relative z-10">Registration Opening Soon</span>
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 bg-white" />
-            </motion.a>
 
-            {/* Discord Button (original style) */}
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="https://discord.gg/VtJ9Qk3p"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                w-full sm:w-[165px] h-11 sm:h-12 
-                text-[#A7FF40] border-2 border-[#A7FF40] 
-                rounded-3xl font-semibold 
-                hover:bg-[#A7FF40] hover:bg-opacity-10 
-                transition-all
-                flex items-center justify-center 
-                text-[14px] sm:text-base 
-                relative overflow-hidden group
-              "
-            >
-              <span className="relative z-10">Join Discord</span>
-              <div className="absolute inset-0 bg-[#A7FF40] opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-            </motion.a>
           </motion.div>
         </motion.div>
-          </div>
+      </div>
 
-      {/* Arrow near bottom (toned-down color) */}
+      {/* Register Button Container */}
+      <div className="absolute bottom-48 left-1/2 transform -translate-x-1/2 z-[20]">
+        <motion.a
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          href="https://www.hackquest.io/hackathons/DevSummit-2025"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="
+            inline-flex items-center justify-center
+            px-12 py-4
+            w-[200px] sm:w-[250px]
+            bg-gradient-to-r from-[#A7FF40] to-[#65D000]
+            text-black 
+            rounded-full 
+            font-semibold 
+            text-base sm:text-lg
+            transition-all
+            hover:shadow-[0_0_20px_rgba(167,255,64,0.8)]
+            cursor-pointer
+          "
+          style={{
+            boxShadow: "0 0 10px rgba(167,255,64,0.6), 0 0 20px rgba(167,255,64,0.4)",
+          }}
+        >
+          Register
+        </motion.a>
+      </div>
+
+      {/* Arrow near bottom */}
       <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-[20] pointer-events-auto">
         <ScrollDownIndicator />
       </div>

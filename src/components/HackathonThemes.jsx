@@ -76,10 +76,10 @@ const HackathonThemes = () => {
       {/* Icon container with rotation animation */}
       <motion.div 
         className="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-xl overflow-hidden bg-black/50 p-3 
-          border border-[#A7FF40]/20 group-hover:border-[#A7FF40]/40 flex items-center justify-center mb-5 sm:mb-6
-          relative z-10"
-        whileHover={{ rotate: 360 }}
-        transition={{ duration: 0.8 }}
+          border border-[#A7FF40]/10 group-hover:border-[#A7FF40]/40
+          transition-all duration-300"
+        whileHover={{ scale: 1.1 }}
+        transition={{ duration: 0.3 }}
       >
         <div className="w-full h-full flex items-center justify-center text-[#A7FF40]">
           {theme.icon}
