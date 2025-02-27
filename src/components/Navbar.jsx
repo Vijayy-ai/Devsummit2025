@@ -89,15 +89,15 @@ const Navbar = () => {
             className="md:hidden relative z-10 p-2 hover:bg-[#A7FF40]/10 rounded-full transition-colors"
             aria-label="Toggle Menu"
           >
-            <div className="w-5 h-5 sm:w-6 sm:h-6 relative">
+            <div className="w-5 h-5 sm:w-6 sm:h-6 relative flex items-center justify-center">
               <span className={`absolute h-0.5 w-full bg-[#A7FF40] transform transition-all duration-300 ${
-                isOpen ? 'rotate-45 top-2' : 'top-1'
+                isOpen ? 'rotate-45' : '-translate-y-2'
               }`}></span>
-              <span className={`absolute h-0.5 w-full bg-[#A7FF40] top-2 transition-opacity duration-300 ${
+              <span className={`absolute h-0.5 w-full bg-[#A7FF40] transition-opacity duration-300 ${
                 isOpen ? 'opacity-0' : 'opacity-100'
               }`}></span>
               <span className={`absolute h-0.5 w-full bg-[#A7FF40] transform transition-all duration-300 ${
-                isOpen ? '-rotate-45 top-2' : 'top-3'
+                isOpen ? '-rotate-45' : 'translate-y-2'
               }`}></span>
             </div>
           </motion.button>

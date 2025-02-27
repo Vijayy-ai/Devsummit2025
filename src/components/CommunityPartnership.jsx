@@ -23,19 +23,22 @@ const CommunityPartnership = () => {
       name: "Polygon Guild Jaipur",
       logo: "https://altcoinsbox.com/wp-content/uploads/2023/03/matic-logo.webp",
       description: "Web3 & Blockchain Community",
-      type: "community"
+      type: "community",
+      website: "https://polygon.technology/"
     },
     {
       name: "Hayperlan",
       logo: "https://cryptocurrencyjobs.co/startups/assets/logos/hyperlane.jpg",
       description: "Tech Innovation Hub",
-      type: "community"
+      type: "community",
+      website: "https://hyperlane.xyz/"
     },
     {
       name: "Geeky Hub Community",
       logo: "https://ugc.production.linktr.ee/Nr4lfuCToyRPTtwTCvFp_0wRPTPJgQKMnCH95?io=true&size=avatar-v3_0",
       description: "Developer Learning Community",
-      type: "community"
+      type: "community",
+      website: "https://www.geekyhub.in/"
     }
   ];
 
@@ -55,7 +58,10 @@ const CommunityPartnership = () => {
         <motion.div 
           className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-xl overflow-hidden bg-black/50 p-2 
             border border-[#A7FF40]/20 group-hover:border-[#A7FF40]/40 flex items-center justify-center mb-5
-            relative"
+            relative cursor-pointer"
+          onClick={() => partner.website && window.open(partner.website, '_blank')}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           <img
             src={partner.logo}

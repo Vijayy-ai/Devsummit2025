@@ -4,7 +4,7 @@ import bgDevSummit from "../assets/bgDevSummit.png";
 import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 import vijayImage from "../assets/team/vijay.jpeg";
 import yajvendraImage from "../assets/team/yajvendra.jpeg";
-import ramImage from "../assets/team/ram.jpeg";
+import rammImage from "../assets/team/ramm.jpeg";
 import rahulImage from "../assets/team/rahul.jpeg";
 import satyamImage from "../assets/team/satyam.jpeg";
 import rishabhImage from "../assets/team/rishabh.jpg";
@@ -43,7 +43,7 @@ const teamMembers = [
   {
     name: "Rambhajan Saini",
     role: "Lead Organizer",
-    image: ramImage,
+    image: rammImage,
     bio: "Developer with modern tech expertise",
     socials: {
       linkedin: "https://www.linkedin.com/in/rambhajan-saini/",
@@ -59,7 +59,7 @@ const teamMembers = [
     socials: {
       linkedin: "#",
       github: "#",
-      twitter: "https://x.com/Rishabh_ig"
+      twitter: "#"
     }
   },
   {
@@ -70,12 +70,12 @@ const teamMembers = [
     socials: {
       linkedin: "https://www.linkedin.com/in/satyam-jha2004/",
       github: "https://github.com/Satyam1616",
-      twitter: "https://x.com/Rishabh_ig"
+      twitter: "#"
     }
   },
   {
     name: "Rishabh",
-    role: "Content Lead",
+    role: "content & design lead",
     image: rishabhImage,
     bio: "Creating engaging content",
     socials: {
@@ -118,7 +118,7 @@ const TeamCard = ({ member }) => (
             bg-[#1a1a1a] text-[#A7FF40] text-xs px-3 sm:px-4 py-1 sm:py-1.5 
             rounded-full font-medium border border-[#A7FF40]/40
             shadow-[0_0_10px_rgba(167,255,64,0.3)]
-            hover:scale-110 transition-transform duration-300"
+            hover:scale-110 transition-transform duration-300 whitespace-nowrap max-w-[150px] truncate"
           style={{ transformOrigin: 'center' }}
         >
           {member.role}

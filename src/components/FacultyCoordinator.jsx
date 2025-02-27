@@ -27,7 +27,7 @@ const facultyCoordinators = [
     image: HukumSir,
     designation: "Assistant Professor, Department of Computer Science",
     socials: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/dr-hukum-saini-38357852/",
       twitter: "#"
     }
   },
@@ -36,7 +36,7 @@ const facultyCoordinators = [
     image: SudhanshuSir,
     designation: "Assistant Professor, Department of Computer Science",
     socials: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/sudhanshu-vashistha-728a0556/",
       twitter: "#"
     }
   }
