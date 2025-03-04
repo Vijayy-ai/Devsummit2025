@@ -8,6 +8,7 @@ import rammImage from "../assets/team/ramm.jpeg";
 import rahulImage from "../assets/team/rahul.jpeg";
 import satyamImage from "../assets/team/satyam.jpeg";
 import rishabhImage from "../assets/team/rishabh.jpg";
+import anshuImage from "../assets/team/anshu.jpg";
 import {
   fadeInUp,
   staggerContainer,
@@ -49,6 +50,17 @@ const teamMembers = [
       linkedin: "https://www.linkedin.com/in/rambhajan-saini/",
       github: "https://github.com/rambhajanmali",
       twitter: "https://x.com/ramm0x"
+    }
+  },
+  {
+    name: "Anshu Priya",
+    role: "Lead Organizer",
+    image: anshuImage,
+    bio: "Full-stack developer & community builder passionate about tech innovation",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/anshu-priya06/",
+      github: "https://github.com/anshupriya06",
+      twitter: "https://x.com/Anshu__Priya"
     }
   },
   {

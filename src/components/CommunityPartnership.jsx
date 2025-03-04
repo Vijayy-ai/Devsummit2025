@@ -17,7 +17,8 @@ const CommunityPartnership = () => {
       name: "HackQuest",
       logo: platformPartner,
       description: "Platform Partner",
-      type: "platform"
+      type: "platform",
+      website: "https://www.hackquest.io/"
     },
     {
       name: "Polygon Guild Jaipur",

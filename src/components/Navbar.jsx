@@ -102,17 +102,18 @@ const Navbar = () => {
             </div>
           </motion.button>
 
-          {/* Navigation Links */}
-          <AnimatePresence>
+          {/* Navigation Links and Mobile Menu Overlay Combined */}
+          <AnimatePresence mode="sync">
             <motion.div 
-              initial={{ opacity: 0, y: -10 }}
+              initial={{ opacity: 1, y: 0 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className={`absolute md:relative top-full left-0 w-full md:w-auto 
+              transition={{ duration: 0.2 }}
+              className={`absolute md:relative top-full md:top-auto left-0 w-full md:w-auto 
                 md:flex md:items-center md:space-x-1 lg:space-x-2 
                 ${isScrolled ? 'bg-[#1a1a1a]/80' : 'bg-[#1a1a1a]/95'} md:bg-transparent backdrop-blur-md md:backdrop-blur-none
-                transform transition-all duration-300 ease-in-out
-                ${isOpen ? 'translate-y-2 opacity-100 visible' : 'translate-y-[-10px] md:translate-y-0 opacity-0 md:opacity-100 invisible md:visible'}
+                transform transition-all duration-200 ease-in-out
+                ${isOpen ? 'translate-y-2 opacity-100 visible' : '-translate-y-4 md:translate-y-0 opacity-0 md:opacity-100 invisible md:visible'}
                 rounded-2xl md:rounded-none mt-2 md:mt-0 p-3 sm:p-4 md:p-0 border border-[#A7FF40]/20 md:border-0`}
             >
               {navItems.map(({ id, label }) => (
@@ -129,18 +130,6 @@ const Navbar = () => {
                   {label}
                 </motion.button>
               ))}
-
-              {/* Mobile Register Button */}
-              <motion.a 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="https://www.hackquest.io/hackathons/DevSummit-2025"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="md:hidden block w-full text-center mt-3 px-4 py-2 bg-gradient-to-r from-[#A7FF40] to-[#65D000] text-black rounded-full
-                text-sm font-semibold transition-all duration-300 shadow-[0_0_15px_rgba(167,255,64,0.3)]">
-                Register
-              </motion.a>
             </motion.div>
           </AnimatePresence>
 
@@ -157,19 +146,6 @@ const Navbar = () => {
           </motion.a>
         </motion.div>
       </div>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[-1] md:hidden"
-            onClick={() => setIsOpen(false)}
-          />
-        )}
-      </AnimatePresence>
     </motion.nav>
   );
 };

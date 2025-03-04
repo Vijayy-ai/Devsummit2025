@@ -28,16 +28,6 @@ const mentors = [
     }
   },
   {
-    name: "Abhimanyu Shekhawat",
-    role: "Co-founder Epoch Protocol",
-    image: abhimanyu,
-    bio: "Co-founder Epoch Protocol | Prev Co-founder Slick Wallet (acquired)",
-    socials: {
-      linkedin: "#",
-      twitter: "#"
-    }
-  },
-  {
     name: "Niharika",
     role: "Community Lead @Rise In",
     image: niharika,
