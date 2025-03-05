@@ -3,8 +3,7 @@ import { motion } from 'framer-motion';
 import bgDevSummit from '../assets/bgDevSummit.png';
 import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 import amitChandra from '../assets/mentors/Amit Chandra.jpeg';
-import abhimanyu from '../assets/mentors/abhimanyu.jpeg';
-import niharika from '../assets/mentors/Niharika.jpeg';
+import vilsijain from '../assets/mentors/vilsi jain.jpg';
 import RishikaKinger from '../assets/mentors/Rishika Kinger.jpeg';
 import HarshitSharma from '../assets/mentors/Harshit Sharma.jpeg';
 import {
@@ -23,18 +22,18 @@ const mentors = [
     image: amitChandra,
     bio: "Leading Blockchain Initiative for Govt of Rajasthan, India | Empowering 200+ Govt Officials, 300+ Faculties, 400+ Students & Startups | Strategic Advisor: LF Decentralized Trust & NOBSAA",
     socials: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/amitchandra13/",
       twitter: "#"
     }
   },
   {
-    name: "Niharika",
-    role: "Community Lead @Rise In",
-    image: niharika,
-    bio: "Handling India Community @Rise In | Leading Community Initiatives",
+    name: "Vilsi Jain",
+    role: "Software Engineer | Google WTM Ambassador ",
+    image: vilsijain,
+    bio: "Software Engineer | Google WTM Ambassador | Flutter Jaipur",
     socials: {
-      linkedin: "#",
-      twitter: "#"
+      linkedin: "https://www.linkedin.com/in/vilsijain/",
+      twitter: "https://x.com/VilsiJain"
     }
   },
   {
@@ -43,7 +42,7 @@ const mentors = [
     image: RishikaKinger,
     bio: "SWE @ Couchbase | Prev- Amazon",
     socials: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/rishikakinger/",
       twitter: "#"
     }
   },
@@ -53,7 +52,7 @@ const mentors = [
     image: HarshitSharma,
     bio: "Software Engineer 2 @ Google • Ex-Amazon",
     socials: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/you-know-who/",
       twitter: "#"
     }
   }

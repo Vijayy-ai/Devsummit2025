@@ -82,7 +82,7 @@ const teamMembers = [
     socials: {
       linkedin: "https://www.linkedin.com/in/satyam-jha2004/",
       github: "https://github.com/Satyam1616",
-      twitter: "#"
+      twitter: "https://x.com/SatyamJha165686"
     }
   },
   {

@@ -11,11 +11,6 @@ import {
 const CommunityPartners = () => {
   const partners = [
     {
-      name: "Hyperlane",
-      logo: "path/to/hyperlane-logo",
-      // ... other partner details
-    },
-    {
       name: "Polygon Guild Jaipur",
       logo: "path/to/polygon-logo",
       // ... other partner details

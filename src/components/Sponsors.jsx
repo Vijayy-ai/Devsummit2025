@@ -4,6 +4,7 @@ import bgDevSummit from "../assets/bgDevSummit.png";
 import appwrite1Logo from "../assets/appwrite 1.png";
 import xyzLogo from "../assets/xyz.png";
 import interviewbuddyLogo from "../assets/interviewbuddy.png";
+import keasbrainLogo from "../assets/keasbrain.jpg";
 import {
   fadeInUp,
   staggerContainer,
@@ -32,6 +33,12 @@ const Sponsors = () => {
       logo: interviewbuddyLogo,
       // description: "Decentralized Storage",
       website: "https://interviewbuddy.net/"
+    },
+    {
+      name: " KeasBrain Technologies Private Limited",
+      logo: keasbrainLogo,
+      // description: "Decentralized Storage",
+      website: "https://keasbrain.com/"
     },
    
     {

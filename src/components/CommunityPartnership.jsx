@@ -28,13 +28,6 @@ const CommunityPartnership = () => {
       website: "https://polygon.technology/"
     },
     {
-      name: "Hayperlan",
-      logo: "https://cryptocurrencyjobs.co/startups/assets/logos/hyperlane.jpg",
-      description: "Tech Innovation Hub",
-      type: "community",
-      website: "https://hyperlane.xyz/"
-    },
-    {
       name: "Geeky Hub Community",
       logo: "https://ugc.production.linktr.ee/Nr4lfuCToyRPTtwTCvFp_0wRPTPJgQKMnCH95?io=true&size=avatar-v3_0",
       description: "Developer Learning Community",
@@ -152,10 +145,10 @@ const CommunityPartnership = () => {
             Community Partners
           </motion.h3>
           <div className="flex justify-center">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 w-full max-w-4xl mx-auto">
               {partners.filter(p => p.type === "community").map((partner) => (
-                <div className="flex justify-center">
-                  <PartnerCard key={partner.name} partner={partner} />
+                <div className="flex justify-center" key={partner.name}>
+                  <PartnerCard partner={partner} />
                 </div>
               ))}
             </div>
