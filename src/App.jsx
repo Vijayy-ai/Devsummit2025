@@ -17,6 +17,7 @@ import ContactUs from "./components/ContactUs";
 import HackathonThemes from "./components/HackathonThemes";
 import { HACKATHON_DETAILS } from "./utils/constants";
 import useIntersectionObserver from "./hooks/useIntersectionObserver";
+import DigitalSwag from "./components/digitalswag";
 
 function App() {
   useIntersectionObserver();
@@ -31,6 +32,9 @@ function App() {
             <CountdownTimer targetDate={HACKATHON_DETAILS.date} />
             <section id="about">
               <AboutUs />
+            </section>
+            <section>
+              <DigitalSwag />
             </section>
             <section id="themes">
               <HackathonThemes />
@@ -60,6 +64,7 @@ function App() {
             <section id="contact">
               <ContactUs />
             </section>
+           
           </div>
         </main>
         <Footer />
