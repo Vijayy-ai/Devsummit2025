@@ -63,7 +63,7 @@ const ContactUs = () => {
                 <h4 className="text-[#A7FF40] text-lg font-semibold text-center mb-2">Email Us</h4>
                 <p className="text-gray-300 text-center">
                   <a href="mailto:devsummit@gmail.com" className="hover:text-[#A7FF40] transition-colors duration-300">
-                    devsummit@gmail.com
+                    ju.devsummit@gmail.com
                   </a>
                 </p>
               </div>
