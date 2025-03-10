@@ -88,7 +88,7 @@ const HackathonThemes = () => {
 
       {/* Content */}
       <motion.h3 
-        className="text-xl sm:text-2xl font-bold text-[#A7FF40] mb-3 text-center relative z-10"
+        className="text-xl sm:text-2xl font-bold text-[#A7FF40] mb-3 text-center relative z-10 break-words"
         variants={{
           initial: { opacity: 0, y: 20 },
           animate: { opacity: 1, y: 0 }
@@ -97,7 +97,7 @@ const HackathonThemes = () => {
         {theme.title}
       </motion.h3>
       <motion.p 
-        className="text-gray-300 text-sm sm:text-base text-center flex-grow relative z-10"
+        className="text-gray-300 text-sm sm:text-base text-center flex-grow relative z-10 break-words"
         variants={{
           initial: { opacity: 0 },
           animate: { opacity: 1 }
@@ -165,7 +165,7 @@ const HackathonThemes = () => {
         {/* Mobile/Tablet Sliding View */}
         <div className="lg:hidden overflow-hidden relative w-screen -mx-4">
           <motion.div 
-            className="flex gap-4 sm:gap-6 animate-scroll whitespace-nowrap pl-4"
+            className="flex gap-4 sm:gap-6 animate-scroll pl-4"
             style={{
               animationDuration: '40s'
             }}

@@ -178,7 +178,7 @@ const DigitalSwag = () => {
       loadedImages.forEach((img, index) => {
         const x = centerX + (index - 1) * spacing - logoWidth/2;
         const y = 50;
-        ctx.drawImage(img, x, y, logoWidth, 100);
+        ctx.drawImage(img, x, y, logoWidth, 80);
       });
       // Regenerate preview after logos are drawn
       setPreviewImage(canvasRef.current.toDataURL('image/png', 1.0));
@@ -223,7 +223,7 @@ const DigitalSwag = () => {
 
   const drawPhotoFrame = (ctx, centerX, centerY) => {
     // Draw main square frame with rounded corners
-    const frameSize = 500;
+    const frameSize = 600;
     ctx.beginPath();
     roundedRect(ctx, 
       centerX - frameSize/2,
@@ -249,19 +249,19 @@ const DigitalSwag = () => {
         ctx.shadowColor = '#A7FF40';
         ctx.drawImage(
           hackerImg,
-          centerX - frameSize/2 - 250, // Positioned left of frame
-          centerY - 280,  // Aligned with top of frame
-          100,  // Width
-          600   // Height to match original letter spacing
+          centerX - frameSize/2 - 250,
+          centerY - 280,
+          100,
+          600
         );
 
         // Right side HACKER
         ctx.drawImage(
           hackerImg,
-          centerX + frameSize/2 + 150, // Positioned right of frame
-          centerY - 280,  // Aligned with top of frame
-          100,  // Width
-          600   // Height to match original letter spacing
+          centerX + frameSize/2 + 150,
+          centerY - 280,
+          100,
+          600
         );
         ctx.shadowBlur = 0;
         ctx.restore();
@@ -316,7 +316,7 @@ const DigitalSwag = () => {
   };
 
   const drawEmptyFrame = (ctx, centerX, centerY) => {
-    const frameSize = 490;
+    const frameSize = 590;
     const x = centerX - frameSize/2;
     const y = centerY - frameSize/2;
 
@@ -438,7 +438,7 @@ const DigitalSwag = () => {
   };
 
   const drawUserImage = (ctx, centerX, centerY, userImg) => {
-    const frameSize = 490; // Changed from 580 to match drawEmptyFrame size
+    const frameSize = 590;
     ctx.save();
 
     // Create clip path for the image
@@ -456,19 +456,14 @@ const DigitalSwag = () => {
     const aspectRatio = userImg.width / userImg.height;
     let drawWidth, drawHeight;
 
-    // If image is wider than tall
     if (aspectRatio > 1) {
-      // If landscape, ensure height fills frame
       drawHeight = frameSize;
       drawWidth = drawHeight * aspectRatio;
-      // Center horizontally if too wide
       const x = centerX - (drawWidth / 2);
       ctx.drawImage(userImg, x, centerY - frameSize/2, drawWidth, drawHeight);
     } else {
-      // If portrait or square, ensure width fills frame
       drawWidth = frameSize;
       drawHeight = drawWidth / aspectRatio;
-      // Center vertically if too tall
       const y = centerY - (drawHeight / 2);
       ctx.drawImage(userImg, centerX - frameSize/2, y, drawWidth, drawHeight);
     }

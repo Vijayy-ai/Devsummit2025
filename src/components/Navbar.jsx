@@ -103,34 +103,63 @@ const Navbar = () => {
           </motion.button>
 
           {/* Navigation Links and Mobile Menu Overlay Combined */}
-          <AnimatePresence mode="sync">
-            <motion.div 
-              initial={{ opacity: 1, y: 0 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className={`absolute md:relative top-full md:top-auto left-0 w-full md:w-auto 
-                md:flex md:items-center md:space-x-1 lg:space-x-2 
-                ${isScrolled ? 'bg-[#1a1a1a]/80' : 'bg-[#1a1a1a]/95'} md:bg-transparent backdrop-blur-md md:backdrop-blur-none
-                transform transition-all duration-200 ease-in-out
-                ${isOpen ? 'translate-y-2 opacity-100 visible' : '-translate-y-4 md:translate-y-0 opacity-0 md:opacity-100 invisible md:visible'}
-                rounded-2xl md:rounded-none mt-2 md:mt-0 p-3 sm:p-4 md:p-0 border border-[#A7FF40]/20 md:border-0`}
-            >
-              {navItems.map(({ id, label }) => (
-                <motion.button
-                  key={id}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => scrollToSection(id)}
-                  className={`block md:inline-block w-full md:w-auto px-3 sm:px-4 py-2 rounded-full text-sm lg:text-base
-                    transition-all duration-300 hover:bg-[#A7FF40]/10
-                    ${activeSection === id ? 'text-[#A7FF40] bg-[#A7FF40]/10 font-medium shadow-[0_0_10px_rgba(167,255,64,0.2)]' : 'text-gray-300 hover:text-[#A7FF40]'}
-                    ${isOpen ? 'text-center mb-1 last:mb-0' : ''}`}
-                >
-                  {label}
-                </motion.button>
-              ))}
-            </motion.div>
+          <div className="hidden md:flex md:items-center md:space-x-1 lg:space-x-2">
+            {/* Desktop Navigation */}
+            {navItems.map(({ id, label }) => (
+              <motion.button
+                key={id}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection(id)}
+                className={`px-3 sm:px-4 py-2 rounded-full text-sm lg:text-base
+                  transition-all duration-200 ease-in-out
+                  hover:bg-[#A7FF40]/10
+                  ${activeSection === id ? 'text-[#A7FF40] bg-[#A7FF40]/10 font-medium shadow-[0_0_10px_rgba(167,255,64,0.2)]' : 'text-gray-300 hover:text-[#A7FF40]'}`}
+              >
+                {label}
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Mobile Navigation */}
+          <AnimatePresence mode="wait">
+            {isOpen && (
+              <motion.div 
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ 
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.2 }
+                }}
+                exit={{ 
+                  opacity: 0,
+                  y: -10,
+                  transition: { duration: 0.2 }
+                }}
+                className={`md:hidden absolute top-full left-0 w-full
+                  ${isScrolled ? 'bg-[#1a1a1a]/80' : 'bg-[#1a1a1a]/95'} 
+                  backdrop-blur-md
+                  transform transition-all duration-200 ease-in-out
+                  translate-y-2
+                  rounded-2xl mt-2 p-3 sm:p-4 border border-[#A7FF40]/20`}
+              >
+                {navItems.map(({ id, label }) => (
+                  <motion.button
+                    key={id}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => scrollToSection(id)}
+                    className={`block w-full px-3 sm:px-4 py-2 rounded-full text-sm lg:text-base
+                      transition-all duration-200 ease-in-out
+                      hover:bg-[#A7FF40]/10
+                      ${activeSection === id ? 'text-[#A7FF40] bg-[#A7FF40]/10 font-medium shadow-[0_0_10px_rgba(167,255,64,0.2)]' : 'text-gray-300 hover:text-[#A7FF40]'}
+                      text-center mb-1 last:mb-0`}
+                  >
+                    {label}
+                  </motion.button>
+                ))}
+              </motion.div>
+            )}
           </AnimatePresence>
 
           {/* Desktop Register Button */}
