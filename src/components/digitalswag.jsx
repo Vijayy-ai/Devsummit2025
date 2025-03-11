@@ -149,20 +149,24 @@ const DigitalSwag = () => {
   };
 
   const drawHeader = (ctx, centerX) => {
-    // Draw white angular header
+    // Draw white angular header that takes 50% width in center
+    const headerWidth = ctx.canvas.width * 0.65; // 50% of canvas width
+    const headerStart = centerX - headerWidth/2;
+    const headerEnd = centerX + headerWidth/2;
+    
     ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(ctx.canvas.width, 0);
-    ctx.lineTo(ctx.canvas.width - 200, 200);
-    ctx.lineTo(200, 200);
+    ctx.moveTo(headerStart, 0);
+    ctx.lineTo(headerEnd, 0);
+    ctx.lineTo(headerEnd - 100, 180);
+    ctx.lineTo(headerStart + 100, 180);
     ctx.closePath();
     ctx.fillStyle = '#FFFFFF';
     ctx.fill();
 
     // Draw the actual logos
-    const logos = [iicLogo, juLogo, naacLogo];
-    const logoWidth = 250;
-    const spacing = 300;
+    const logos = [naacLogo, juLogo, iicLogo];
+    const logoWidth = 170;
+    const spacing = 250;
     
     // Create an array of promises for loading all images
     const loadPromises = logos.map(logoSrc => {
@@ -482,7 +486,7 @@ const DigitalSwag = () => {
   };
 
   return (
-    <section className="relative py-16 sm:py-20 overflow-hidden bg-black">
+    <section className="relative py-24 sm:py-32 lg:py-40 overflow-hidden bg-black">
       {/* Background */}
       <div className="absolute inset-0 w-full h-full">
         <div 
