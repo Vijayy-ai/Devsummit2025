@@ -313,20 +313,20 @@ const DigitalSwag = () => {
     ctx.font = "bolder 65px Arial";
     ctx.fillStyle = "#A7FF40";
     ctx.textAlign = "center";
-    ctx.fillText("29-30 March", centerX, adjustedY - 1030);
+    ctx.fillText("29-30 March", centerX, adjustedY - 1000);
 
     // Draw "I'm joining the Arena🚀" text
     ctx.font = "bold 70px Arial";
     ctx.fillStyle = "#A7FF40";
     ctx.textAlign = "center";
-    ctx.fillText("I'm joining the Arena🚀", centerX, adjustedY - 100);
+    ctx.fillText("I'm joining the Arena🚀", centerX, adjustedY - 70);
 
     // Draw main tagline with equal spacing
     ctx.font = "bold 65px Arial";
     ctx.fillStyle = "#A7FF40";
     ctx.textAlign = "center";
     const tagline = "INNOVATE - COLLABORATE - COMPETE";
-    ctx.fillText(tagline, centerX, adjustedY - 10);
+    ctx.fillText(tagline, centerX, adjustedY + 45);
 
     // Add rocket emoji with adjusted position to align with the text
     ctx.font = "70px Arial"; // Adjusted to align with the text
