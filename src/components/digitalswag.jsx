@@ -1,26 +1,27 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import Logo from "../assets/Logo.webp";
 import bgDevSummit from "../assets/bgDevSummit.png";
 import EllipseGreen from "../assets/EllipseGreen.webp";
 import HackerText from "../assets/H A C K E R.webp";
+import previewImage from "../assets/previewImage.png";
+import iicLogo from "../assets/IIC-LOGO 1.webp";
+import juLogo from "../assets/UNIVERSITY NEW LOGO 3.png";
+import naacLogo from "../assets/agrade 2.webp";
+import Rectangel from "../assets/Rectangle 1079.webp";
+import starImage from "../assets/StarImage.webp";
 import {
   fadeInUp,
   staggerContainer,
   SectionTransition,
-  FloatingParticles
+  FloatingParticles,
 } from "../utils/animations";
-import iicLogo from '../assets/IIC-LOGO 1.webp';
-import juLogo from '../assets/UNIVERSITY NEW LOGO 3.png';
-import naacLogo from '../assets/agrade 2.webp';
-import Rectangel from '../assets/Rectangle 1079.webp'
-import starImage from '../assets/StarImage.webp';
 
 const DigitalSwag = () => {
   const [userImage, setUserImage] = useState(null);
-  const [userName, setUserName] = useState('');
-  const [previewImage, setPreviewImage] = useState(null);
+  const [userName, setUserName] = useState("");
   const canvasRef = useRef(null);
+  const [previewImage, setPreviewImage] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   // Optimize initial frame generation
@@ -37,12 +38,12 @@ const DigitalSwag = () => {
           loadImage(juLogo),
           loadImage(naacLogo),
           loadImage(Logo),
-          loadImage(HackerText)
+          loadImage(HackerText),
         ]);
-        
+
         generateSwag();
       } catch (error) {
-        console.error('Error loading images:', error);
+        console.error("Error loading images:", error);
       } finally {
         setIsLoading(false);
       }
@@ -72,11 +73,11 @@ const DigitalSwag = () => {
 
   const generateSwag = async () => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    
+    const ctx = canvas.getContext("2d");
+
     // Set canvas size (square format)
     canvas.width = 1500;
-    canvas.height = 1500;
+    canvas.height = 1800;
 
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
@@ -85,14 +86,14 @@ const DigitalSwag = () => {
     const ellipseImg = new Image();
     const rectangleImg = new Image();
     const starImg = new Image();
-    
+
     ellipseImg.src = EllipseGreen;
     rectangleImg.src = Rectangel;
     starImg.src = starImage;
 
     try {
       // Load all images sequentially
-      await new Promise(resolve => {
+      await new Promise((resolve) => {
         ellipseImg.onload = () => {
           ctx.globalAlpha = 1;
           ctx.drawImage(ellipseImg, 0, 0, canvas.width, canvas.height);
@@ -101,16 +102,16 @@ const DigitalSwag = () => {
         };
       });
 
-      await new Promise(resolve => {
+      await new Promise((resolve) => {
         rectangleImg.onload = () => {
           ctx.drawImage(rectangleImg, 0, 0, canvas.width, canvas.height);
           resolve();
         };
       });
 
-      await new Promise(resolve => {
+      await new Promise((resolve) => {
         starImg.onload = () => {
-          ctx.globalAlpha = 0.7;
+          ctx.globalAlpha = 0.3; // Increased the green dark color
           ctx.drawImage(starImg, 0, 0, canvas.width, canvas.height);
           ctx.globalAlpha = 1.0;
           resolve();
@@ -126,11 +127,16 @@ const DigitalSwag = () => {
 
       if (userImage) {
         const userImg = new Image();
-        await new Promise(resolve => {
+        await new Promise((resolve) => {
           userImg.onload = () => {
             drawEmptyFrame(ctx, centerX, centerY);
             drawUserImage(ctx, centerX, centerY, userImg);
-            drawNameSection(ctx, userName || 'ENTER NAME HERE', centerX, centerY + 380);
+            drawNameSection(
+              ctx,
+              userName || "ENTER NAME HERE",
+              centerX,
+              centerY + 380
+            );
             drawBottomTagline(ctx, centerX, canvas.height - 150);
             setPreviewImage(canvas.toDataURL('image/png', 1.0));
             resolve();
@@ -139,37 +145,42 @@ const DigitalSwag = () => {
         });
       } else {
         drawEmptyFrame(ctx, centerX, centerY);
-        drawNameSection(ctx, userName || 'ENTER NAME HERE', centerX, centerY + 380);
+        drawNameSection(
+          ctx,
+          userName || "ENTER NAME HERE",
+          centerX,
+          centerY + 380
+        );
         drawBottomTagline(ctx, centerX, canvas.height - 150);
         setPreviewImage(canvas.toDataURL('image/png', 1.0));
       }
     } catch (error) {
-      console.error('Error generating swag:', error);
+      console.error("Error generating swag:", error);
     }
   };
 
   const drawHeader = (ctx, centerX) => {
     // Draw white angular header that takes 50% width in center
     const headerWidth = ctx.canvas.width * 0.65; // 50% of canvas width
-    const headerStart = centerX - headerWidth/2;
-    const headerEnd = centerX + headerWidth/2;
-    
+    const headerStart = centerX - headerWidth / 2;
+    const headerEnd = centerX + headerWidth / 2;
+
     ctx.beginPath();
     ctx.moveTo(headerStart, 0);
     ctx.lineTo(headerEnd, 0);
     ctx.lineTo(headerEnd - 100, 180);
     ctx.lineTo(headerStart + 100, 180);
     ctx.closePath();
-    ctx.fillStyle = '#FFFFFF';
+    ctx.fillStyle = "#FFFFFF";
     ctx.fill();
 
     // Draw the actual logos
     const logos = [naacLogo, juLogo, iicLogo];
-    const logoWidth = 170;
+    const logoWidth = 200; // Adjusted logo width
     const spacing = 250;
-    
+
     // Create an array of promises for loading all images
-    const loadPromises = logos.map(logoSrc => {
+    const loadPromises = logos.map((logoSrc) => {
       return new Promise((resolve) => {
         const img = new Image();
         img.onload = () => resolve(img);
@@ -178,13 +189,12 @@ const DigitalSwag = () => {
     });
 
     // Wait for all images to load, then draw them
-    Promise.all(loadPromises).then(loadedImages => {
+    Promise.all(loadPromises).then((loadedImages) => {
       loadedImages.forEach((img, index) => {
-        const x = centerX + (index - 1) * spacing - logoWidth/2;
+        const x = centerX + (index - 1) * spacing - logoWidth / 2;
         const y = 50;
         ctx.drawImage(img, x, y, logoWidth, 80);
       });
-      // Regenerate preview after logos are drawn
       setPreviewImage(canvasRef.current.toDataURL('image/png', 1.0));
     });
   };
@@ -196,13 +206,11 @@ const DigitalSwag = () => {
       // Draw the logo image
       const logoWidth = 1100;
       const logoHeight = 200;
-      const logoX = centerX - logoWidth/2;
+      const logoX = centerX - logoWidth / 2;
       const logoY = 250; // Increased from 280 to add more bottom padding
       ctx.drawImage(devSummitLogo, logoX, logoY, logoWidth, logoHeight);
-
-      // Regenerate preview after logo is drawn
-      setPreviewImage(canvasRef.current.toDataURL('image/png', 1.0));
     };
+    setPreviewImage(canvasRef.current.toDataURL('image/png', 1.0));
   };
 
   const drawBanner = (ctx, centerX, y, text) => {
@@ -214,13 +222,13 @@ const DigitalSwag = () => {
     ctx.lineTo(centerX + 320, y);
     ctx.lineTo(centerX - 320, y);
     ctx.closePath();
-    ctx.fillStyle = '#A7FF40';
+    ctx.fillStyle = "#A7FF40";
     ctx.fill();
 
     // Add text
-    ctx.font = 'bold 50px Arial';
-    ctx.fillStyle = '#000000';
-    ctx.textAlign = 'center';
+    ctx.font = "bold 50px Arial";
+    ctx.fillStyle = "#000000";
+    ctx.textAlign = "center";
     ctx.fillText(text, centerX, y - 5);
     ctx.restore();
   };
@@ -229,14 +237,15 @@ const DigitalSwag = () => {
     // Draw main square frame with rounded corners
     const frameSize = 600;
     ctx.beginPath();
-    roundedRect(ctx, 
-      centerX - frameSize/2,
-      centerY - frameSize/2,
+    roundedRect(
+      ctx,
+      centerX - frameSize / 2,
+      centerY - frameSize / 2,
       frameSize,
       frameSize,
       20
     );
-    ctx.strokeStyle = '#A7FF40';
+    ctx.strokeStyle = "#A7FF40";
     ctx.lineWidth = 5;
     ctx.stroke();
 
@@ -250,10 +259,10 @@ const DigitalSwag = () => {
         // Left side HACKER
         ctx.save();
         ctx.shadowBlur = 0;
-        ctx.shadowColor = '#A7FF40';
+        ctx.shadowColor = "#A7FF40";
         ctx.drawImage(
           hackerImg,
-          centerX - frameSize/2 - 250,
+          centerX - frameSize / 2 - 250,
           centerY - 280,
           100,
           600
@@ -262,7 +271,7 @@ const DigitalSwag = () => {
         // Right side HACKER
         ctx.drawImage(
           hackerImg,
-          centerX + frameSize/2 + 150,
+          centerX + frameSize / 2 + 150,
           centerY - 280,
           100,
           600
@@ -277,36 +286,50 @@ const DigitalSwag = () => {
   const drawNameSection = (ctx, name, centerX, y) => {
     // Draw name container with rounded ends
     ctx.beginPath();
-    roundedRect(ctx,
+    roundedRect(
+      ctx,
       centerX - 300, // Increased width by making it start further left
       y - 50, // Increased top padding
       600, // Increased width from 500 to 600
       100, // Increased height from 80 to 100
       30
     );
-    ctx.fillStyle = '#A7FF40';
+    ctx.fillStyle = "#A7FF40";
     ctx.fill();
 
     // Add name text
-    ctx.font = 'bold 60px Arial';
-    ctx.fillStyle = '#000000';
-    ctx.textAlign = 'center';
+    ctx.font = "bold 60px Arial";
+    ctx.fillStyle = "#000000";
+    ctx.textAlign = "center";
     ctx.fillText(name, centerX, y + 25); // Adjusted vertical position to center in taller box
   };
 
   const drawBottomTagline = (ctx, centerX, y) => {
     // Add bottom margin by adjusting y position
-    const bottomMargin = 50;
+    const bottomMargin = 120;
     const adjustedY = y - bottomMargin;
 
-    ctx.font = 'bold 65px Arial';
-    ctx.fillStyle = '#A7FF40';
-    ctx.textAlign = 'center';
-    ctx.fillText('INNOVATE - COLLABORATE - COMPETE', centerX, adjustedY);
-    
-    // Add rocket emoji
-    ctx.font = '60px Arial';
-    ctx.fillText('🚀', centerX + 690, adjustedY);
+    // Draw "29 - 30" text above the image
+    ctx.font = "bolder 65px Arial";
+    ctx.fillStyle = "#A7FF40";
+    ctx.textAlign = "center";
+    ctx.fillText("29-30 March", centerX, adjustedY - 1030);
+
+    // Draw "I'm joining the Arena🚀" text
+    ctx.font = "bold 70px Arial";
+    ctx.fillStyle = "#A7FF40";
+    ctx.textAlign = "center";
+    ctx.fillText("I'm joining the Arena🚀", centerX, adjustedY - 100);
+
+    // Draw main tagline with equal spacing
+    ctx.font = "bold 65px Arial";
+    ctx.fillStyle = "#A7FF40";
+    ctx.textAlign = "center";
+    const tagline = "INNOVATE - COLLABORATE - COMPETE";
+    ctx.fillText(tagline, centerX, adjustedY - 10);
+
+    // Add rocket emoji with adjusted position to align with the text
+    ctx.font = "70px Arial"; // Adjusted to align with the text
   };
 
   const roundedRect = (ctx, x, y, width, height, radius) => {
@@ -321,8 +344,8 @@ const DigitalSwag = () => {
 
   const drawEmptyFrame = (ctx, centerX, centerY) => {
     const frameSize = 590;
-    const x = centerX - frameSize/2;
-    const y = centerY - frameSize/2;
+    const x = centerX - frameSize / 2;
+    const y = centerY - frameSize / 2;
 
     // Create clipping path for the frame
     ctx.save();
@@ -332,13 +355,17 @@ const DigitalSwag = () => {
 
     // Create galaxy gradient background - updated to black colors
     const galaxyGradient = ctx.createRadialGradient(
-      centerX, centerY, 0,
-      centerX, centerY, frameSize/2
+      centerX,
+      centerY,
+      0,
+      centerX,
+      centerY,
+      frameSize / 2
     );
-    galaxyGradient.addColorStop(0, '#000000');    // Black center
-    galaxyGradient.addColorStop(0.5, '#111111');  // Very dark gray mid
-    galaxyGradient.addColorStop(1, '#000000');    // Black edge
-    
+    galaxyGradient.addColorStop(0, "#000000"); // Black center
+    galaxyGradient.addColorStop(0.5, "#111111"); // Very dark gray mid
+    galaxyGradient.addColorStop(1, "#000000"); // Black edge
+
     ctx.fillStyle = galaxyGradient;
     ctx.fillRect(x, y, frameSize, frameSize);
 
@@ -364,12 +391,16 @@ const DigitalSwag = () => {
 
       // Create glow effect
       const glow = ctx.createRadialGradient(
-        starX, starY, 0,
-        starX, starY, starSize * 3
+        starX,
+        starY,
+        0,
+        starX,
+        starY,
+        starSize * 3
       );
-      glow.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
-      glow.addColorStop(0.5, 'rgba(255, 255, 255, 0.3)');
-      glow.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      glow.addColorStop(0, "rgba(255, 255, 255, 0.8)");
+      glow.addColorStop(0.5, "rgba(255, 255, 255, 0.3)");
+      glow.addColorStop(1, "rgba(255, 255, 255, 0)");
 
       ctx.beginPath();
       ctx.fillStyle = glow;
@@ -378,7 +409,7 @@ const DigitalSwag = () => {
 
       // Star center
       ctx.beginPath();
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+      ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
       ctx.arc(starX, starY, starSize, 0, Math.PI * 2);
       ctx.fill();
     }
@@ -388,24 +419,28 @@ const DigitalSwag = () => {
       const nebulaX = x + Math.random() * frameSize;
       const nebulaY = y + Math.random() * frameSize;
       const radius = Math.random() * 150 + 50;
-      
+
       // Random nebula colors
       const colors = [
-        'rgba(138, 43, 226, 0.2)',  // Purple
-        'rgba(0, 0, 255, 0.2)',     // Blue
-        'rgba(255, 0, 255, 0.2)',   // Pink
-        'rgba(75, 0, 130, 0.2)'     // Indigo
+        "rgba(138, 43, 226, 0.2)", // Purple
+        "rgba(0, 0, 255, 0.2)", // Blue
+        "rgba(255, 0, 255, 0.2)", // Pink
+        "rgba(75, 0, 130, 0.2)", // Indigo
       ];
-      
+
       const nebulaGradient = ctx.createRadialGradient(
-        nebulaX, nebulaY, 0,
-        nebulaX, nebulaY, radius
+        nebulaX,
+        nebulaY,
+        0,
+        nebulaX,
+        nebulaY,
+        radius
       );
       const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      
+
       nebulaGradient.addColorStop(0, randomColor);
-      nebulaGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      
+      nebulaGradient.addColorStop(1, "rgba(0, 0, 0, 0)");
+
       ctx.fillStyle = nebulaGradient;
       ctx.beginPath();
       ctx.arc(nebulaX, nebulaY, radius, 0, Math.PI * 2);
@@ -421,13 +456,14 @@ const DigitalSwag = () => {
 
       ctx.beginPath();
       const gradient = ctx.createLinearGradient(
-        startX, startY,
+        startX,
+        startY,
         startX + Math.cos(angle) * length,
         startY + Math.sin(angle) * length
       );
-      gradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
-      gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-      
+      gradient.addColorStop(0, "rgba(255, 255, 255, 0.8)");
+      gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+
       ctx.strokeStyle = gradient;
       ctx.lineWidth = 2;
       ctx.moveTo(startX, startY);
@@ -447,9 +483,10 @@ const DigitalSwag = () => {
 
     // Create clip path for the image
     ctx.beginPath();
-    roundedRect(ctx,
-      centerX - frameSize/2,
-      centerY - frameSize/2,
+    roundedRect(
+      ctx,
+      centerX - frameSize / 2,
+      centerY - frameSize / 2,
       frameSize,
       frameSize,
       20
@@ -463,33 +500,35 @@ const DigitalSwag = () => {
     if (aspectRatio > 1) {
       drawHeight = frameSize;
       drawWidth = drawHeight * aspectRatio;
-      const x = centerX - (drawWidth / 2);
-      ctx.drawImage(userImg, x, centerY - frameSize/2, drawWidth, drawHeight);
+      const x = centerX - drawWidth / 2;
+      ctx.drawImage(userImg, x, centerY - frameSize / 2, drawWidth, drawHeight);
     } else {
       drawWidth = frameSize;
       drawHeight = drawWidth / aspectRatio;
-      const y = centerY - (drawHeight / 2);
-      ctx.drawImage(userImg, centerX - frameSize/2, y, drawWidth, drawHeight);
+      const y = centerY - drawHeight / 2;
+      ctx.drawImage(userImg, centerX - frameSize / 2, y, drawWidth, drawHeight);
     }
 
     ctx.restore();
   };
 
   const downloadSwag = () => {
-    if (previewImage) {
-      const link = document.createElement('a');
-      const fileName = `devsummit-2025-${userName.toLowerCase().replace(/\s+/g, '-')}.png`;
-      link.download = fileName;
-      link.href = previewImage.replace('image/png', 'image/octet-stream');
-      link.click();
-    }
+    const link = document.createElement("a");
+    const fileName = `devsummit-2025-${userName
+      .toLowerCase()
+      .replace(/\s+/g, "-")}.png`;
+    link.download = fileName;
+    link.href = canvasRef.current
+      .toDataURL("image/png", 1.0)
+      .replace("image/png", "image/octet-stream");
+    link.click();
   };
 
   return (
     <section className="relative py-24 sm:py-32 lg:py-40 overflow-hidden bg-black">
       {/* Background */}
       <div className="absolute inset-0 w-full h-full">
-        <div 
+        <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-30"
           style={{ backgroundImage: `url(${bgDevSummit})` }}
         />
@@ -500,7 +539,7 @@ const DigitalSwag = () => {
       {/* Content */}
       <div className="container relative z-10 mx-auto px-4">
         <SectionTransition>
-          <motion.h2 
+          <motion.h2
             className="text-[32px] xs:text-4xl sm:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 text-center text-white"
             variants={fadeInUp}
           >
@@ -509,7 +548,7 @@ const DigitalSwag = () => {
               Digital Swag
             </span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-gray-300 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto text-center mb-12"
             variants={fadeInUp}
           >
@@ -526,14 +565,14 @@ const DigitalSwag = () => {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Preview Section */}
-            <div className="md:order-2 bg-[#1a1a1a]/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 
-              border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 transition-all duration-300">
+            <div
+              className="md:order-2 bg-[#1a1a1a]/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 
+              border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 transition-all duration-300"
+            >
               <div className="text-center">
                 <h3 className="text-white text-xl mb-4">Preview</h3>
-                <div className="relative aspect-square w-full
-                  max-w-sm mx-auto mb-4 
-                  bg-black/30 rounded-lg overflow-hidden">
-                  {isLoading ? (
+                <div className="relative aspect-3/2 w-full max-w-sm mx-auto mb-4 bg-black/30 rounded-lg overflow-hidden">
+                {isLoading ? (
                     <div className="flex items-center justify-center h-full">
                       <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#A7FF40]"></div>
                     </div>
@@ -556,8 +595,10 @@ const DigitalSwag = () => {
             </div>
 
             {/* Input Section - Changed order for mobile */}
-            <div className="md:order-1 bg-[#1a1a1a]/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 
-              border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 transition-all duration-300">
+            <div
+              className="md:order-1 bg-[#1a1a1a]/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 
+              border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 transition-all duration-300"
+            >
               <div className="space-y-6">
                 <div>
                   <label className="block text-white mb-2">Your Name</label>
@@ -570,7 +611,7 @@ const DigitalSwag = () => {
                     placeholder="Enter your name"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-white mb-2">Your Photo</label>
                   <input
@@ -595,21 +636,30 @@ const DigitalSwag = () => {
           </div>
         </motion.div>
       </div>
-
       {/* Hidden canvas for image generation */}
-      <canvas ref={canvasRef} style={{ display: 'none' }} />
-
+      <canvas ref={canvasRef} style={{ display: "none" }} />
       <style jsx>{`
         .animated-bg {
           position: absolute;
           inset: 0;
-          background: radial-gradient(circle at 50% 50%, rgba(167, 255, 64, 0.1) 0%, transparent 50%);
+          background: radial-gradient(
+            circle at 50% 50%,
+            rgba(167, 255, 64, 0.1) 0%,
+            transparent 50%
+          );
           opacity: 0.5;
           animation: pulse 4s ease-in-out infinite;
         }
         @keyframes pulse {
-          0%, 100% { transform: scale(1); opacity: 0.5; }
-          50% { transform: scale(1.2); opacity: 0.3; }
+          0%,
+          100% {
+            transform: scale(1);
+            opacity: 0.5;
+          }
+          50% {
+            transform: scale(1.2);
+            opacity: 0.3;
+          }
         }
       `}</style>
     </section>

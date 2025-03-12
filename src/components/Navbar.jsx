@@ -45,6 +45,7 @@ const Navbar = () => {
 
   const navItems = [
     { id: "about", label: "About" },
+    {id: "digitalswag", label: "Digital Swags"},
     { id: "themes", label: "Themes" },
     { id: "timeline", label: "Timeline" },
     { id: "prizes", label: "Prizes" },

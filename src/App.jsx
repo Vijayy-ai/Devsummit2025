@@ -33,7 +33,7 @@ function App() {
             <section id="about">
               <AboutUs />
             </section>
-            <section>
+            <section id="digitalswag">
               <DigitalSwag />
             </section>
             <section id="themes">
