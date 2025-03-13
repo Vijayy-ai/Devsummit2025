@@ -4,11 +4,25 @@ import bgDevSummit from "../assets/bgDevSummit.png";
 import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 import vijayImage from "../assets/team/vijay.jpeg";
 import yajvendraImage from "../assets/team/yajvendra.jpeg";
-import rammImage from "../assets/team/ramm.jpeg";
 import rahulImage from "../assets/team/rahul.jpeg";
+import ramImage from "../assets/team/ramm.jpeg";
 import satyamImage from "../assets/team/satyam.jpeg";
 import rishabhImage from "../assets/team/rishabh.jpg";
 import anshuImage from "../assets/team/anshu.jpg";
+import mansiImage from "../assets/team/Mansi (1).jpg";
+import pradeetaImage from "../assets/team/pradeepta.jpg";
+import aanchalImage from "../assets/team/aanchal.jpg";
+import vikashImage from "../assets/team/vikash.jpg";
+import chandanImage from "../assets/team/chandan kumar.jpg";
+import akashImage from "../assets/team/akash kumawat.png";
+import ananyaImage from "../assets/team/ananya.jpg";
+import ashishImage from "../assets/team/ashish ranjan.jpg";
+import uditImage from "../assets/team/udit ranjan.jpg";
+import shahbazImage from "../assets/team/shahbaz.jpg";
+import jaydeepImage from "../assets/team/jaydeep.jpg";
+import alokImage from "../assets/team/alok.jpg";
+import vikaskundiyaImage from "../assets/team/vikas-kundiya.jpg";
+
 import {
   fadeInUp,
   staggerContainer,
@@ -18,7 +32,8 @@ import {
   FloatingParticles
 } from "../utils/animations";
 
-const teamMembers = [
+// Lead Organizers
+const leadOrganizers = [
   {
     name: "Vijay",
     role: "Lead Organizer",
@@ -42,28 +57,6 @@ const teamMembers = [
     }
   },
   {
-    name: "Rambhajan Saini",
-    role: "Lead Organizer",
-    image: rammImage,
-    bio: "Developer with modern tech expertise",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/rambhajan-saini/",
-      github: "https://github.com/rambhajanmali",
-      twitter: "https://x.com/ramm0x"
-    }
-  },
-  {
-    name: "Anshu Priya",
-    role: "Lead Organizer",
-    image: anshuImage,
-    bio: "Full-stack developer & community builder passionate about tech innovation",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/anshu-priya06/",
-      github: "https://github.com/anshupriya06",
-      twitter: "https://x.com/Anshu__Priya"
-    }
-  },
-  {
     name: "Rahul Kumar Shah",
     role: "Lead Organizer",
     image: rahulImage,
@@ -73,12 +66,27 @@ const teamMembers = [
       github: "#",
       twitter: "#"
     }
+  }
+];
+
+// Organizers
+const organizers = [
+  {
+    name: "Ram",
+    role: "Organizer",
+    image: ramImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
   },
   {
     name: "Satyam Jha",
-    role: "Marketing Lead",
+    role: "Organizer",
     image: satyamImage,
-    bio: "Spreading the word about DevSummit",
+    bio: "",
     socials: {
       linkedin: "https://www.linkedin.com/in/satyam-jha2004/",
       github: "https://github.com/Satyam1616",
@@ -87,13 +95,171 @@ const teamMembers = [
   },
   {
     name: "Rishabh",
-    role: "content & design lead",
+    role: "Organizer",
     image: rishabhImage,
-    bio: "Creating engaging content",
+    bio: "",
     socials: {
       linkedin: "https://www.linkedin.com/in/rishabh-amuly07/",
       github: "https://github.com/Rishabh5002",
       twitter: "https://x.com/Rishabh_ig"
+    }
+  },
+  {
+    name: "Ananya",
+    role: "Organizer",
+    image: ananyaImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Mansi",
+    role: "Organizer",
+    image: mansiImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Pradeepta",
+    role: "Organizer",
+    image: pradeetaImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Aanchal",
+    role: "Organizer",
+    image: aanchalImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Anshu Priya",
+    role: "Organizer",
+    image: anshuImage,
+    bio: "",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/anshu-priya06/",
+      github: "https://github.com/anshupriya06",
+      twitter: "https://x.com/Anshu__Priya"
+    }
+  },
+  {
+    name: "Vikash Kundiya",
+    role: "Organizer",
+    image: vikaskundiyaImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Chandan Kumar",
+    role: "Organizer",
+    image: chandanImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Akash Kumawat",
+    role: "Organizer",
+    image: akashImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  }
+];
+
+// Core Team
+const coreTeam = [
+  {
+    name: "Vikash",
+    role: "Core Team",
+    image: vikashImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Ashish Ranjan",
+    role: "Core Team",
+    image: ashishImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Udit Ranjan",
+    role: "Core Team",
+    image: uditImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Shahbaz",
+    role: "Core Team",
+    image: shahbazImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Jaydeep",
+    role: "Core Team",
+    image: jaydeepImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Alok",
+    role: "Core Team",
+    image: alokImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
     }
   }
 ];
@@ -113,9 +279,9 @@ const TeamCard = ({ member }) => (
     <div className="relative z-10">
       <div className="relative mb-4">
         <motion.div 
-          className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden 
+          className={`${member.bio ? 'w-20 h-20 sm:w-24 sm:h-24' : 'w-24 h-24 sm:w-32 sm:h-32'} mx-auto rounded-full overflow-hidden 
             bg-black p-1 border border-[#A7FF40]/10 group-hover:border-[#A7FF40]/40
-            transition-all duration-300"
+            transition-all duration-300`}
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.3 }}
         >
@@ -137,18 +303,20 @@ const TeamCard = ({ member }) => (
         </motion.div>
       </div>
       <motion.h3 
-        className="text-lg sm:text-xl font-bold text-white mb-2 text-center truncate"
+        className={`${member.bio ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'} font-bold text-white mb-2 text-center truncate`}
         variants={fadeInUp}
       >
         {member.name}
       </motion.h3>
-      <motion.p 
-        className="text-gray-300 text-xs sm:text-sm mb-4 text-center h-8 sm:h-10 line-clamp-2"
-        variants={fadeInUp}
-      >
-        {member.bio}
-      </motion.p>
-      <div className="flex justify-center space-x-4">
+      {member.bio && (
+        <motion.p 
+          className="text-gray-300 text-xs sm:text-sm mb-4 text-center h-8 sm:h-10 line-clamp-2"
+          variants={fadeInUp}
+        >
+          {member.bio}
+        </motion.p>
+      )}
+      <div className={`flex justify-center space-x-6 ${!member.bio ? 'mt-6' : ''}`}>
         <motion.a 
           whileHover={{ scale: 1.2, y: -2 }}
           href={member.socials.linkedin}
@@ -156,7 +324,7 @@ const TeamCard = ({ member }) => (
           rel="noopener noreferrer"
           className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
         >
-          <FaLinkedin size={18} />
+          <FaLinkedin size={member.bio ? 18 : 22} />
         </motion.a>
         <motion.a 
           whileHover={{ scale: 1.2, y: -2 }}
@@ -165,7 +333,7 @@ const TeamCard = ({ member }) => (
           rel="noopener noreferrer"
           className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
         >
-          <FaGithub size={18} />
+          <FaGithub size={member.bio ? 18 : 22} />
         </motion.a>
         <motion.a 
           whileHover={{ scale: 1.2, y: -2 }}
@@ -174,11 +342,74 @@ const TeamCard = ({ member }) => (
           rel="noopener noreferrer"
           className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
         >
-          <FaTwitter size={18} />
+          <FaTwitter size={member.bio ? 18 : 22} />
         </motion.a>
       </div>
     </div>
   </motion.div>
+);
+
+const TeamSection = ({ title, description, members, isScrolling }) => (
+  <div className="mb-20">
+    <motion.h3 
+      className="text-3xl sm:text-4xl font-bold mb-4 text-center text-white"
+      variants={fadeInUp}
+    >
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A7FF40] to-[#65D000]">
+        {title}
+      </span>
+    </motion.h3>
+    <motion.p 
+      className="text-gray-300 text-base max-w-2xl mx-auto text-center mb-12"
+      variants={fadeInUp}
+    >
+      {description}
+    </motion.p>
+    
+    {isScrolling ? (
+      // Scrolling layout for Core Team
+      <div className="overflow-x-hidden relative w-full">
+        <motion.div 
+          className="flex gap-4 sm:gap-6 animate-scroll pl-4 hover:pause-animation"
+          style={{
+            animationDuration: '40s'
+          }}
+        >
+          {/* First set of members */}
+          {members.map((member) => (
+            <TeamCard key={`first-${member.name}`} member={member} />
+          ))}
+          {/* Duplicate set for seamless loop */}
+          {members.map((member) => (
+            <TeamCard key={`second-${member.name}`} member={member} />
+          ))}
+        </motion.div>
+      </div>
+    ) : (
+      // Grid layout for Lead Organizers and Organizers
+      <div className="flex justify-center">
+        {members.length <= 3 ? (
+          // Special layout for Lead Organizers (3 or fewer members)
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8 w-full max-w-6xl">
+            {members.map((member) => (
+              <div key={member.name} className="flex justify-center">
+                <TeamCard member={member} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          // Grid layout for Organizers
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 w-full max-w-7xl mx-auto">
+            {members.map((member) => (
+              <div key={member.name} className="flex justify-center">
+                <TeamCard member={member} />
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    )}
+  </div>
 );
 
 const Team = () => {
@@ -215,26 +446,29 @@ const Team = () => {
         </SectionTransition>
 
         <div className="space-y-16">
-          <div className="relative">
-            {/* Cards Container */}
-            <div className="overflow-x-hidden relative w-full">
-              <motion.div 
-                className="flex gap-4 sm:gap-6 animate-scroll pl-4 hover:pause-animation"
-                style={{
-                  animationDuration: '40s'
-                }}
-              >
-                {/* First set of team members */}
-                {teamMembers.map((member) => (
-                  <TeamCard key={`first-${member.name}`} member={member} />
-                ))}
-                {/* Duplicate set for seamless loop */}
-                {teamMembers.map((member) => (
-                  <TeamCard key={`second-${member.name}`} member={member} />
-                ))}
-              </motion.div>
-            </div>
-          </div>
+          {/* Lead Organizers Section */}
+          <TeamSection 
+            title="Lead Organizers" 
+            description="Our visionary leaders driving DevSummit forward" 
+            members={leadOrganizers} 
+            isScrolling={false} 
+          />
+
+          {/* Organizers Section */}
+          <TeamSection 
+            title="Organizers" 
+            description="The dedicated team making DevSummit possible" 
+            members={organizers} 
+            isScrolling={false} 
+          />
+
+          {/* Core Team Section */}
+          <TeamSection 
+            title="Core Team" 
+            description="Our technical backbone working behind the scenes" 
+            members={coreTeam} 
+            isScrolling={true} 
+          />
         </div>
       </div>
 
