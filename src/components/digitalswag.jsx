@@ -1,10 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef} from "react";
 import { motion } from "framer-motion";
 import Logo from "../assets/Logo.webp";
 import bgDevSummit from "../assets/bgDevSummit.png";
 import EllipseGreen from "../assets/EllipseGreen.webp";
 import HackerText from "../assets/H A C K E R.webp";
-import previewImage from "../assets/previewImage.png";
+
 import iicLogo from "../assets/IIC-LOGO 1.webp";
 import juLogo from "../assets/UNIVERSITY NEW LOGO 3.png";
 import naacLogo from "../assets/agrade 2.webp";
@@ -82,6 +82,9 @@ const DigitalSwag = () => {
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
 
+    // Clear previous drawings to prevent color blending issues
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     // Draw background rectangle image
     const ellipseImg = new Image();
     const rectangleImg = new Image();
@@ -108,6 +111,10 @@ const DigitalSwag = () => {
           resolve();
         };
       });
+
+      // Ensure proper green tone application
+      ctx.fillStyle = "rgba(11, 61, 11, 0.3)"; // Add a dark green tint layer
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       await new Promise((resolve) => {
         starImg.onload = () => {
@@ -174,27 +181,63 @@ const DigitalSwag = () => {
     ctx.fillStyle = "#FFFFFF";
     ctx.fill();
 
-    // Draw the actual logos
-    const logos = [naacLogo, juLogo, iicLogo];
-    const logoWidth = 200; // Adjusted logo width
-    const spacing = 250;
+    // Draw logos with proper aspect ratios
+    const loadPromises = [];
 
-    // Create an array of promises for loading all images
-    const loadPromises = logos.map((logoSrc) => {
-      return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(img);
-        img.src = logoSrc;
-      });
-    });
+    // Load all three logos
+    const naacImg = new Image();
+    const juImg = new Image();
+    const iicImg = new Image();
 
-    // Wait for all images to load, then draw them
-    Promise.all(loadPromises).then((loadedImages) => {
-      loadedImages.forEach((img, index) => {
-        const x = centerX + (index - 1) * spacing - logoWidth / 2;
-        const y = 50;
-        ctx.drawImage(img, x, y, logoWidth, 80);
-      });
+    naacImg.src = naacLogo;
+    juImg.src = juLogo;
+    iicImg.src = iicLogo;
+
+    // Set heights for each logo with adjusted sizes
+    const naacHeight = 80;
+    const juHeight = 80;
+    const iicHeight = 80;
+
+    // Calculate widths based on original aspect ratios
+    let naacWidth, juWidth, iicWidth;
+
+    // Wait for all images to load, then calculate proper dimensions and draw
+    return Promise.all([
+      new Promise(resolve => {
+        naacImg.onload = () => {
+          // Calculate width based on original aspect ratio
+          naacWidth = (naacImg.width / naacImg.height) * naacHeight;
+          resolve();
+        };
+      }),
+      new Promise(resolve => {
+        juImg.onload = () => {
+          // Calculate width based on original aspect ratio
+          juWidth = (juImg.width / juImg.height) * juHeight;
+          resolve();
+        };
+      }),
+      new Promise(resolve => {
+        iicImg.onload = () => {
+          // Calculate width based on original aspect ratio
+          iicWidth = (iicImg.width / iicImg.height) * iicHeight;
+          resolve();
+        };
+      })
+    ]).then(() => {
+      // Calculate total width needed for all logos with spacing
+      const spacing = 50;
+      const totalWidth = naacWidth + juWidth + iicWidth + spacing * 2;
+
+      // Calculate starting X position to center all logos
+      const startX = centerX - totalWidth / 2;
+
+      // Draw all logos with proper positioning
+      ctx.drawImage(naacImg, startX, 50, naacWidth, naacHeight);
+      ctx.drawImage(juImg, startX + naacWidth + spacing, 50, juWidth, juHeight);
+      ctx.drawImage(iicImg, startX + naacWidth + juWidth + spacing * 2, 50, iicWidth, iicHeight);
+
+      // Update preview
       setPreviewImage(canvasRef.current.toDataURL('image/png', 1.0));
     });
   };
@@ -245,9 +288,17 @@ const DigitalSwag = () => {
       frameSize,
       20
     );
-    ctx.strokeStyle = "#A7FF40";
-    ctx.lineWidth = 5;
+    ctx.strokeStyle = "#A7FF40"; // Bright neon green
+    ctx.lineWidth = 7; // Make the border thicker
     ctx.stroke();
+
+    // Add a glow effect to the frame
+    ctx.save();
+    ctx.shadowColor = "#A7FF40";
+    ctx.shadowBlur = 15;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.restore();
 
     // Load and draw HACKER text images on both sides
     const hackerImg = new Image();
@@ -258,8 +309,6 @@ const DigitalSwag = () => {
       hackerImg.onload = () => {
         // Left side HACKER
         ctx.save();
-        ctx.shadowBlur = 0;
-        ctx.shadowColor = "#A7FF40";
         ctx.drawImage(
           hackerImg,
           centerX - frameSize / 2 - 250,
@@ -276,7 +325,6 @@ const DigitalSwag = () => {
           100,
           600
         );
-        ctx.shadowBlur = 0;
         ctx.restore();
         resolve();
       };
@@ -294,7 +342,19 @@ const DigitalSwag = () => {
       100, // Increased height from 80 to 100
       30
     );
-    ctx.fillStyle = "#A7FF40";
+    ctx.fillStyle = "#A7FF40"; // Bright neon green
+    ctx.fill();
+
+    // Add a slight gradient for depth
+    const gradient = ctx.createLinearGradient(
+      centerX - 300,
+      y - 50,
+      centerX - 300,
+      y + 50
+    );
+    gradient.addColorStop(0, "#A7FF40");
+    gradient.addColorStop(1, "#65D000");
+    ctx.fillStyle = gradient;
     ctx.fill();
 
     // Add name text
@@ -315,6 +375,10 @@ const DigitalSwag = () => {
     ctx.textAlign = "center";
     ctx.fillText("29-30 March", centerX, adjustedY - 1000);
 
+    // Add shadow effect for better visibility
+    ctx.shadowColor = "rgba(167, 255, 64, 0.8)";
+    ctx.shadowBlur = 10;
+    
     // Draw "I'm joining the Arena🚀" text
     ctx.font = "bold 70px Arial";
     ctx.fillStyle = "#A7FF40";
@@ -327,9 +391,9 @@ const DigitalSwag = () => {
     ctx.textAlign = "center";
     const tagline = "INNOVATE - COLLABORATE - COMPETE";
     ctx.fillText(tagline, centerX, adjustedY + 45);
-
-    // Add rocket emoji with adjusted position to align with the text
-    ctx.font = "70px Arial"; // Adjusted to align with the text
+    
+    // Clear shadow
+    ctx.shadowBlur = 0;
   };
 
   const roundedRect = (ctx, x, y, width, height, radius) => {
@@ -353,20 +417,18 @@ const DigitalSwag = () => {
     roundedRect(ctx, x, y, frameSize, frameSize, 20);
     ctx.clip();
 
-    // Create galaxy gradient background - updated to black colors
-    const galaxyGradient = ctx.createRadialGradient(
+    // Create deep green background matching the example images
+    const bgGradient = ctx.createLinearGradient(
       centerX,
-      centerY,
-      0,
+      y,
       centerX,
-      centerY,
-      frameSize / 2
+      y + frameSize
     );
-    galaxyGradient.addColorStop(0, "#000000"); // Black center
-    galaxyGradient.addColorStop(0.5, "#111111"); // Very dark gray mid
-    galaxyGradient.addColorStop(1, "#000000"); // Black edge
+    bgGradient.addColorStop(0, "#0B3D0B"); // Dark green top
+    bgGradient.addColorStop(0.5, "#0F5E0F"); // Mid green center
+    bgGradient.addColorStop(1, "#0B3D0B"); // Dark green bottom
 
-    ctx.fillStyle = galaxyGradient;
+    ctx.fillStyle = bgGradient;
     ctx.fillRect(x, y, frameSize, frameSize);
 
     // Add stars to the frame
@@ -414,100 +476,52 @@ const DigitalSwag = () => {
       ctx.fill();
     }
 
-    // Add colorful nebula effects
-    for (let i = 0; i < 3; i++) {
-      const nebulaX = x + Math.random() * frameSize;
-      const nebulaY = y + Math.random() * frameSize;
-      const radius = Math.random() * 150 + 50;
-
-      // Random nebula colors
-      const colors = [
-        "rgba(138, 43, 226, 0.2)", // Purple
-        "rgba(0, 0, 255, 0.2)", // Blue
-        "rgba(255, 0, 255, 0.2)", // Pink
-        "rgba(75, 0, 130, 0.2)", // Indigo
-      ];
-
-      const nebulaGradient = ctx.createRadialGradient(
-        nebulaX,
-        nebulaY,
-        0,
-        nebulaX,
-        nebulaY,
-        radius
-      );
-      const randomColor = colors[Math.floor(Math.random() * colors.length)];
-
-      nebulaGradient.addColorStop(0, randomColor);
-      nebulaGradient.addColorStop(1, "rgba(0, 0, 0, 0)");
-
-      ctx.fillStyle = nebulaGradient;
-      ctx.beginPath();
-      ctx.arc(nebulaX, nebulaY, radius, 0, Math.PI * 2);
-      ctx.fill();
-    }
-
-    // Add shooting stars
-    for (let i = 0; i < 3; i++) {
-      const startX = x + Math.random() * frameSize;
-      const startY = y + Math.random() * frameSize;
-      const angle = Math.random() * Math.PI * 2;
-      const length = Math.random() * 50 + 30;
-
-      ctx.beginPath();
-      const gradient = ctx.createLinearGradient(
-        startX,
-        startY,
-        startX + Math.cos(angle) * length,
-        startY + Math.sin(angle) * length
-      );
-      gradient.addColorStop(0, "rgba(255, 255, 255, 0.8)");
-      gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
-
-      ctx.strokeStyle = gradient;
-      ctx.lineWidth = 2;
-      ctx.moveTo(startX, startY);
-      ctx.lineTo(
-        startX + Math.cos(angle) * length,
-        startY + Math.sin(angle) * length
-      );
-      ctx.stroke();
-    }
-
     ctx.restore();
   };
 
   const drawUserImage = (ctx, centerX, centerY, userImg) => {
     const frameSize = 590;
+    const frameX = centerX - frameSize / 2;
+    const frameY = centerY - frameSize / 2;
+    
+    // Create clip path for the frame
     ctx.save();
-
-    // Create clip path for the image
     ctx.beginPath();
     roundedRect(
       ctx,
-      centerX - frameSize / 2,
-      centerY - frameSize / 2,
+      frameX,
+      frameY,
       frameSize,
       frameSize,
       20
     );
     ctx.clip();
 
-    // Calculate image dimensions maintaining aspect ratio
+    // Calculate dimensions to center-crop the image
+    // This ensures the image fills the entire frame area regardless of dimensions
     const aspectRatio = userImg.width / userImg.height;
-    let drawWidth, drawHeight;
-
+    let sourceX = 0;
+    let sourceY = 0;
+    let sourceWidth = userImg.width;
+    let sourceHeight = userImg.height;
+    
+    // Center crop the source image if needed
     if (aspectRatio > 1) {
-      drawHeight = frameSize;
-      drawWidth = drawHeight * aspectRatio;
-      const x = centerX - drawWidth / 2;
-      ctx.drawImage(userImg, x, centerY - frameSize / 2, drawWidth, drawHeight);
-    } else {
-      drawWidth = frameSize;
-      drawHeight = drawWidth / aspectRatio;
-      const y = centerY - drawHeight / 2;
-      ctx.drawImage(userImg, centerX - frameSize / 2, y, drawWidth, drawHeight);
+      // Image is wider than tall - crop the sides
+      sourceWidth = userImg.height;
+      sourceX = (userImg.width - sourceWidth) / 2;
+    } else if (aspectRatio < 1) {
+      // Image is taller than wide - crop the top/bottom
+      sourceHeight = userImg.width;
+      sourceY = (userImg.height - sourceHeight) / 2;
     }
+    
+    // Draw the cropped image to fill the frame completely
+    ctx.drawImage(
+      userImg,
+      sourceX, sourceY, sourceWidth, sourceHeight, // Source rectangle
+      frameX, frameY, frameSize, frameSize // Destination rectangle
+    );
 
     ctx.restore();
   };
@@ -518,9 +532,11 @@ const DigitalSwag = () => {
       .toLowerCase()
       .replace(/\s+/g, "-")}.png`;
     link.download = fileName;
-    link.href = canvasRef.current
-      .toDataURL("image/png", 1.0)
-      .replace("image/png", "image/octet-stream");
+    
+    // Force high quality output with maximum quality setting
+    const quality = 1.0;
+    const dataUrl = canvasRef.current.toDataURL("image/png", quality);
+    link.href = dataUrl.replace("image/png", "image/octet-stream");
     link.click();
   };
 
@@ -571,7 +587,7 @@ const DigitalSwag = () => {
             >
               <div className="text-center">
                 <h3 className="text-white text-xl mb-4">Preview</h3>
-                <div className="relative aspect-3/2 w-full max-w-sm mx-auto mb-4 bg-black/30 rounded-lg overflow-hidden">
+                <div className="relative aspect-4/5 w-full max-w-sm mx-auto mb-4 bg-black/30 rounded-lg overflow-hidden">
                 {isLoading ? (
                     <div className="flex items-center justify-center h-full">
                       <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#A7FF40]"></div>
@@ -597,37 +613,68 @@ const DigitalSwag = () => {
             {/* Input Section - Changed order for mobile */}
             <div
               className="md:order-1 bg-[#1a1a1a]/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 
-              border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 transition-all duration-300"
+              border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 transition-all duration-300
+              flex flex-col justify-between"
             >
               <div className="space-y-6">
                 <div>
-                  <label className="block text-white mb-2">Your Name</label>
+                  <label className="block text-white text-lg font-semibold mb-2">Your Name</label>
                   <input
                     type="text"
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
-                    className="w-full px-4 py-2 rounded-lg bg-black/50 border border-[#A7FF40]/20 
-                      text-white focus:border-[#A7FF40] focus:outline-none"
+                    className="w-full px-4 py-3 rounded-lg bg-black/50 border border-[#A7FF40]/20 
+                      text-white focus:border-[#A7FF40] focus:outline-none text-lg"
                     placeholder="Enter your name"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-white mb-2">Your Photo</label>
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageUpload}
-                    className="w-full text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full 
-                      file:border-0 file:text-sm file:font-semibold file:bg-[#A7FF40]/20 
-                      file:text-[#A7FF40] hover:file:bg-[#A7FF40]/30"
-                  />
+                  <label className="block text-white text-lg font-semibold mb-2">Your Photo</label>
+                  <div className="flex flex-col space-y-4">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      className="w-full text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full 
+                        file:border-0 file:text-sm file:font-semibold file:bg-[#A7FF40]/20 
+                        file:text-[#A7FF40] hover:file:bg-[#A7FF40]/30"
+                    />
+                    
+                    {userImage && (
+                      <div className="mt-2 p-2 border border-dashed border-[#A7FF40]/30 rounded-lg flex justify-center">
+                        <img 
+                          src={userImage} 
+                          alt="Selected" 
+                          className="h-16 w-16 object-cover rounded-full"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <div className="pt-4">
+                  <h4 className="text-white text-sm mb-3">Badge Preview</h4>
+                  <ul className="text-gray-300 text-xs space-y-2 pl-4">
+                    <li className="flex items-center">
+                      <span className="mr-2 text-[#A7FF40]">✓</span> Your profile picture
+                    </li>
+                    <li className="flex items-center">
+                      <span className="mr-2 text-[#A7FF40]">✓</span> Your name displayed
+                    </li>
+                    <li className="flex items-center">
+                      <span className="mr-2 text-[#A7FF40]">✓</span> DevSummit 2025 branding
+                    </li>
+                    <li className="flex items-center">
+                      <span className="mr-2 text-[#A7FF40]">✓</span> High quality shareable image
+                    </li>
+                  </ul>
                 </div>
 
                 <button
                   onClick={generateSwag}
-                  className="w-full px-6 py-3 bg-[#A7FF40] text-black rounded-lg font-semibold 
-                    hover:bg-[#8FE032] transition-colors duration-300"
+                  className="w-full px-6 py-4 bg-[#A7FF40] text-black rounded-lg font-semibold 
+                    hover:bg-[#8FE032] transition-colors duration-300 text-lg shadow-lg shadow-[#A7FF40]/20"
                 >
                   Generate Swag
                 </button>
