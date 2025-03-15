@@ -118,9 +118,9 @@ const DigitalSwag = () => {
 
       await new Promise((resolve) => {
         starImg.onload = () => {
-          ctx.globalAlpha = 0.3; // Increased the green dark color
+          // ctx.globalAlpha = 0.3; // Increased the green dark color
           ctx.drawImage(starImg, 0, 0, canvas.width, canvas.height);
-          ctx.globalAlpha = 1.0;
+          // ctx.globalAlpha = 1.0;
           resolve();
         };
       });
