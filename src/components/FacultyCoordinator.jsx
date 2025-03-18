@@ -25,7 +25,7 @@ const facultyCoordinators = [
   {
     name: "Dr. Hukum Saini",
     image: HukumSir,
-    designation: "Assistant Professor, Department of Computer Science",
+    designation: "Associate Professor, Department of Computer Science",
     socials: {
       linkedin: "https://www.linkedin.com/in/dr-hukum-saini-38357852/",
       twitter: "#"
