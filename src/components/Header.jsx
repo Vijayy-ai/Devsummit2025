@@ -264,7 +264,7 @@ function Header() {
       </div>
 
       {/* Register Button Container */}
-      <div className="absolute bottom-48 left-1/2 transform -translate-x-1/2 z-[20]">
+      <div className="absolute bottom-44 left-1/2 transform -translate-x-1/2 z-[20]">
         <motion.a
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -282,13 +282,13 @@ function Header() {
             text-base sm:text-lg
             transition-all
             hover:shadow-[0_0_20px_rgba(167,255,64,0.8)]
-            cursor-pointer
+            cursor-pointer text-nowrap
           "
           style={{
             boxShadow: "0 0 10px rgba(167,255,64,0.6), 0 0 20px rgba(167,255,64,0.4)",
           }}
         >
-          Register
+          Registration closed
         </motion.a>
       </div>
 

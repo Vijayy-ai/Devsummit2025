@@ -114,7 +114,7 @@ const CountdownTimer = () => {
           ))}
         </motion.div>
 
-        <SectionTransition>
+        {/* <SectionTransition>
           <motion.div
             variants={fadeInUp}
             className="text-center"
@@ -143,7 +143,7 @@ const CountdownTimer = () => {
               <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 bg-white" />
             </motion.a>
           </motion.div>
-        </SectionTransition>
+        </SectionTransition> */}
       </div>
 
       <style jsx>{`

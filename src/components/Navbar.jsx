@@ -172,7 +172,7 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className="hidden md:flex h-8 sm:h-10 px-4 sm:px-6 bg-gradient-to-r from-[#A7FF40] to-[#65D000] text-black rounded-full items-center
             text-sm font-semibold transition-all duration-300 shadow-[0_0_15px_rgba(167,255,64,0.3)]">
-            Register
+            Registration closed
           </motion.a>
         </motion.div>
       </div>

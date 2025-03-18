@@ -199,38 +199,7 @@ const Prizes = () => {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Register CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16"
-        >
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="https://www.hackquest.io/hackathons/DevSummit-2025"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 
-              bg-[#1a1a1a] text-[#A7FF40] border-2 border-[#A7FF40] 
-              rounded-full font-semibold 
-              hover:bg-[#A7FF40] hover:text-black 
-              transition-all duration-300
-              text-sm sm:text-base 
-              relative overflow-hidden group
-              cursor-pointer
-            "
-            style={{
-              boxShadow: "0 0 10px rgba(167,255,64,0.6), 0 0 20px rgba(167,255,64,0.4)",
-            }}
-          >
-            <span className="relative z-10">Register Now</span>
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 bg-white" />
-          </motion.a>
-        </motion.div>
+        
       </div>
 
       <style jsx>{sectionStyles}</style>

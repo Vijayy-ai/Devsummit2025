@@ -303,7 +303,7 @@ const TeamCard = ({ member }) => (
         </motion.div>
       </div>
       <motion.h3 
-        className={`${member.bio ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'} font-bold text-white mb-2 text-center truncate`}
+        className="text-lg sm:text-xl font-bold text-white mb-2 text-center"
         variants={fadeInUp}
       >
         {member.name}

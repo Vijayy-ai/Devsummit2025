@@ -97,25 +97,27 @@ const Sponsors = () => {
                   shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.2)] 
                   transition-all duration-300 group relative overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#A7FF40]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative z-10">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-white
-                    border-2 border-[#A7FF40]/10 group-hover:border-[#A7FF40]/30 
-                    transition-all duration-300 overflow-hidden
-                    shadow-[0_0_15px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_20px_rgba(167,255,64,0.15)]
-                    flex items-center justify-center p-4">
-                    <img
-                      src={juLogo}
-                      alt="Jagannath University"
-                      className="w-full h-full object-contain"
-                    />
+                <a href="https://www.jagannathuniversity.org/" target="_blank" rel="noopener noreferrer">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#A7FF40]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative z-10">
+                    <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-white
+                      border-2 border-[#A7FF40]/10 group-hover:border-[#A7FF40]/30 
+                      transition-all duration-300 overflow-hidden
+                      shadow-[0_0_15px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_20px_rgba(167,255,64,0.15)]
+                      flex items-center justify-center p-4">
+                      <img
+                        src={juLogo}
+                        alt="Jagannath University"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <h3 className="text-[#A7FF40] text-center text-sm sm:text-base font-semibold
+                      group-hover:text-white transition-colors duration-300">
+                      Jagannath University Jaipur
+                    </h3>
                   </div>
-                  <h3 className="text-[#A7FF40] text-center text-sm sm:text-base font-semibold
-                    group-hover:text-white transition-colors duration-300">
-                    Jagannath University Jaipur
-                  </h3>
-                </div>
+                </a>
               </motion.div>
 
               <motion.div
@@ -126,25 +128,27 @@ const Sponsors = () => {
                   shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.2)] 
                   transition-all duration-300 group relative overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#A7FF40]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative z-10">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-white
-                    border-2 border-[#A7FF40]/10 group-hover:border-[#A7FF40]/30 
-                    transition-all duration-300 overflow-hidden
-                    shadow-[0_0_15px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_20px_rgba(167,255,64,0.15)]
-                    flex items-center justify-center p-4">
-                    <img
-                      src={iicLogo}
-                      alt="IIC Cell"
-                      className="w-full h-full object-contain"
-                    />
+                <a href="https://www.iic.gov.in/" target="_blank" rel="noopener noreferrer">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#A7FF40]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative z-10">
+                    <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-white
+                      border-2 border-[#A7FF40]/10 group-hover:border-[#A7FF40]/30 
+                      transition-all duration-300 overflow-hidden
+                      shadow-[0_0_15px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_20px_rgba(167,255,64,0.15)]
+                      flex items-center justify-center p-4">
+                      <img
+                        src={iicLogo}
+                        alt="IIC Cell"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <h3 className="text-[#A7FF40] text-center text-sm sm:text-base font-semibold
+                      group-hover:text-white transition-colors duration-300">
+                      Institution's Innovation Council
+                    </h3>
                   </div>
-                  <h3 className="text-[#A7FF40] text-center text-sm sm:text-base font-semibold
-                    group-hover:text-white transition-colors duration-300">
-                    Institution's Innovation Council
-                  </h3>
-                </div>
+                </a>
               </motion.div>
 
               <motion.div
@@ -155,25 +159,27 @@ const Sponsors = () => {
                   shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.2)] 
                   transition-all duration-300 group relative overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#A7FF40]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative z-10">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-white
-                    border-2 border-[#A7FF40]/10 group-hover:border-[#A7FF40]/30 
-                    transition-all duration-300 overflow-hidden
-                    shadow-[0_0_15px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_20px_rgba(167,255,64,0.15)]
-                    flex items-center justify-center p-4">
-                    <img
-                      src={istartLogo}
-                      alt="IStart"
-                      className="w-full h-full object-contain"
-                    />
+                <a href="https://istart.rajasthan.gov.in/" target="_blank" rel="noopener noreferrer">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#A7FF40]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative z-10">
+                    <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-white
+                      border-2 border-[#A7FF40]/10 group-hover:border-[#A7FF40]/30 
+                      transition-all duration-300 overflow-hidden
+                      shadow-[0_0_15px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_20px_rgba(167,255,64,0.15)]
+                      flex items-center justify-center p-4">
+                      <img
+                        src={istartLogo}
+                        alt="IStart"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <h3 className="text-[#A7FF40] text-center text-sm sm:text-base font-semibold
+                      group-hover:text-white transition-colors duration-300">
+                      iStart
+                    </h3>
                   </div>
-                  <h3 className="text-[#A7FF40] text-center text-sm sm:text-base font-semibold
-                    group-hover:text-white transition-colors duration-300">
-                    iStart
-                  </h3>
-                </div>
+                </a>
               </motion.div>
 
               <motion.div
@@ -184,25 +190,27 @@ const Sponsors = () => {
                   shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.2)] 
                   transition-all duration-300 group relative overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#A7FF40]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative z-10">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-white
-                    border-2 border-[#A7FF40]/10 group-hover:border-[#A7FF40]/30 
-                    transition-all duration-300 overflow-hidden
-                    shadow-[0_0_15px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_20px_rgba(167,255,64,0.15)]
-                    flex items-center justify-center p-4">
-                    <img
-                      src={DoitcLogo}
-                      alt="Dept. of IT & Communication"
-                      className="w-full h-full object-contain"
-                    />
+                <a href="https://doitc.rajasthan.gov.in/" target="_blank" rel="noopener noreferrer">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#A7FF40]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative z-10">
+                    <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-white
+                      border-2 border-[#A7FF40]/10 group-hover:border-[#A7FF40]/30 
+                      transition-all duration-300 overflow-hidden
+                      shadow-[0_0_15px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_20px_rgba(167,255,64,0.15)]
+                      flex items-center justify-center p-4">
+                      <img
+                        src={DoitcLogo}
+                        alt="Dept. of IT & Communication"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <h3 className="text-[#A7FF40] text-center text-sm sm:text-base font-semibold
+                      group-hover:text-white transition-colors duration-300">
+                      Dept. of IT & Communication
+                    </h3>
                   </div>
-                  <h3 className="text-[#A7FF40] text-center text-sm sm:text-base font-semibold
-                    group-hover:text-white transition-colors duration-300">
-                    Dept. of IT & Communication
-                  </h3>
-                </div>
+                </a>
               </motion.div>
             </div>
           </motion.div>
