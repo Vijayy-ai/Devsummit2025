@@ -265,12 +265,7 @@ function Header() {
 
       {/* Register Button Container */}
       <div className="absolute bottom-44 left-1/2 transform -translate-x-1/2 z-[20]">
-        <motion.a
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          href="https://www.hackquest.io/hackathons/DevSummit-2025"
-          target="_blank"
-          rel="noopener noreferrer"
+        <motion.div
           className="
             inline-flex items-center justify-center
             px-12 py-4
@@ -281,15 +276,14 @@ function Header() {
             font-semibold 
             text-base sm:text-lg
             transition-all
-            hover:shadow-[0_0_20px_rgba(167,255,64,0.8)]
-            cursor-pointer text-nowrap
+            cursor-default text-nowrap
           "
           style={{
             boxShadow: "0 0 10px rgba(167,255,64,0.6), 0 0 20px rgba(167,255,64,0.4)",
           }}
         >
           Registration closed
-        </motion.a>
+        </motion.div>
       </div>
 
       {/* Arrow near bottom */}

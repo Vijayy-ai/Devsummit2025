@@ -52,7 +52,7 @@ const leadOrganizers = [
     bio: "Driving community engagement and operations",
     socials: {
       linkedin: "https://www.linkedin.com/in/yajvendrasaini/",
-      github: "https://github.com/YAJVEndraSaini/",
+      github: "https://github.com/YajvendraSaini/",
       twitter: "https://x.com/YajvendraSaini"
     }
   },
@@ -62,7 +62,7 @@ const leadOrganizers = [
     image: rahulImage,
     bio: "Managing hackathon operations",
     socials: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/rahul-kumar-shah-847199253/",
       github: "#",
       twitter: "#"
     }
@@ -110,9 +110,9 @@ const organizers = [
     image: ananyaImage,
     bio: "",
     socials: {
-      linkedin: "#",
-      github: "#",
-      twitter: "#"
+      linkedin: "https://www.linkedin.com/in/ananya-pandey-b9801b239/",
+      github: "https://github.com/Ananya10x",
+      twitter: "https://x.com/AnanyaPandey05?t=0nChPWrDokhNlvkj-SGlow&s=09"
     }
   },
   {
@@ -121,9 +121,9 @@ const organizers = [
     image: mansiImage,
     bio: "",
     socials: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/aimansi/",
       github: "#",
-      twitter: "#"
+      twitter: "https://x.com/Mansi_6921"
     }
   },
   {
@@ -132,9 +132,9 @@ const organizers = [
     image: pradeetaImage,
     bio: "",
     socials: {
-      linkedin: "#",
-      github: "#",
-      twitter: "#"
+      linkedin: "https://www.linkedin.com/in/pradeepta-bhanja-devsummit%E2%9A%A1-397016293/",
+      github: "https://github.com/Pradeepta05/CODSOFT",
+      twitter: "https://x.com/PradeeptaB37535?t=UiyuVS5dNLBl-o3pKpFWSQ&s=09"
     }
   },
   {
@@ -143,9 +143,9 @@ const organizers = [
     image: aanchalImage,
     bio: "",
     socials: {
-      linkedin: "#",
-      github: "#",
-      twitter: "#"
+      linkedin: "https://www.linkedin.com/in/aanchal-sharma-420953264/",
+      github: "https://github.com/aanchal10x",
+      twitter: "https://x.com/Aanchal0X?t=PlWyWtIDRMKKhChXtkhP-g&s=09"
     }
   },
   {
@@ -165,9 +165,9 @@ const organizers = [
     image: vikaskundiyaImage,
     bio: "",
     socials: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/vikas-khundia-a48101253/",
       github: "#",
-      twitter: "#"
+      twitter: "https://x.com/KhundiaVik16234?t=3FdI3yFq-1CgPPk8kyM5lQ&s=08"
     }
   },
   {
@@ -176,8 +176,8 @@ const organizers = [
     image: chandanImage,
     bio: "",
     socials: {
-      linkedin: "#",
-      github: "#",
+      linkedin: "https://www.linkedin.com/in/chandan-kumar-3bb070294/",
+      github: "https://github.com/chand10X",
       twitter: "#"
     }
   },
@@ -317,33 +317,39 @@ const TeamCard = ({ member }) => (
         </motion.p>
       )}
       <div className={`flex justify-center space-x-6 ${!member.bio ? 'mt-6' : ''}`}>
-        <motion.a 
-          whileHover={{ scale: 1.2, y: -2 }}
-          href={member.socials.linkedin}
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-        >
-          <FaLinkedin size={member.bio ? 18 : 22} />
-        </motion.a>
-        <motion.a 
-          whileHover={{ scale: 1.2, y: -2 }}
-          href={member.socials.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-        >
-          <FaGithub size={member.bio ? 18 : 22} />
-        </motion.a>
-        <motion.a 
-          whileHover={{ scale: 1.2, y: -2 }}
-          href={member.socials.twitter}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-        >
-          <FaTwitter size={member.bio ? 18 : 22} />
-        </motion.a>
+        {member.socials.linkedin !== "#" && (
+          <motion.a 
+            whileHover={{ scale: 1.2, y: -2 }}
+            href={member.socials.linkedin}
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
+          >
+            <FaLinkedin size={member.bio ? 18 : 22} />
+          </motion.a>
+        )}
+        {member.socials.github !== "#" && (
+          <motion.a 
+            whileHover={{ scale: 1.2, y: -2 }}
+            href={member.socials.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
+          >
+            <FaGithub size={member.bio ? 18 : 22} />
+          </motion.a>
+        )}
+        {member.socials.twitter !== "#" && (
+          <motion.a 
+            whileHover={{ scale: 1.2, y: -2 }}
+            href={member.socials.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
+          >
+            <FaTwitter size={member.bio ? 18 : 22} />
+          </motion.a>
+        )}
       </div>
     </div>
   </motion.div>

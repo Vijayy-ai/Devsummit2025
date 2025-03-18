@@ -72,7 +72,7 @@ const FacultyCard = ({ faculty }) => (
         </motion.div>
       </div>
       <motion.h3 
-        className="text-lg sm:text-xl font-bold text-white mb-2 text-center truncate"
+        className="text-lg sm:text-xl font-bold text-white mb-2 text-center"
         variants={fadeInUp}
       >
         {faculty.name}
@@ -83,26 +83,6 @@ const FacultyCard = ({ faculty }) => (
       >
         {faculty.designation}
       </motion.p>
-      <div className="flex justify-center space-x-4">
-        <motion.a 
-          whileHover={{ scale: 1.2, y: -2 }}
-          href={faculty.socials.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-        >
-          <FaLinkedin size={18} />
-        </motion.a>
-        <motion.a 
-          whileHover={{ scale: 1.2, y: -2 }}
-          href={faculty.socials.twitter}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-        >
-          <FaTwitter size={18} />
-        </motion.a>
-      </div>
     </div>
   </motion.div>
 );

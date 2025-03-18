@@ -164,16 +164,11 @@ const Navbar = () => {
           </AnimatePresence>
 
           {/* Desktop Register Button */}
-          <motion.a 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="https://www.hackquest.io/hackathons/DevSummit-2025"
-            target="_blank"
-            rel="noopener noreferrer"
+          <span 
             className="hidden md:flex h-8 sm:h-10 px-4 sm:px-6 bg-gradient-to-r from-[#A7FF40] to-[#65D000] text-black rounded-full items-center
             text-sm font-semibold transition-all duration-300 shadow-[0_0_15px_rgba(167,255,64,0.3)]">
             Registration closed
-          </motion.a>
+          </span>
         </motion.div>
       </div>
     </motion.nav>

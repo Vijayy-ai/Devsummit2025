@@ -25,7 +25,7 @@ function Footer() {
     { name: "Team", href: "#team" },
     { name: "Mentors", href: "#mentors" },
     { name: "FAQ", href: "#faq" },
-    { name: "Contact", href: "#contact" },
+    { name: "Contact", href: "#contactUs" },
   ];
 
   return (
@@ -64,26 +64,6 @@ function Footer() {
             >
               The ultimate hackathon event to bring together innovators and creators.
             </motion.p>
-
-            {/* Term and Condition */}
-            <motion.div 
-              className="text-sm md:text-base space-x-4 mb-6"
-              variants={fadeInUp}
-            >
-              <a 
-                href="/terms" 
-                className="text-gray-300 hover:text-[#A7FF40] transition-colors duration-300"
-              >
-                Terms & Conditions
-              </a>
-              <span className="text-gray-500">|</span>
-              <a 
-                href="/privacy" 
-                className="text-gray-300 hover:text-[#A7FF40] transition-colors duration-300"
-              >
-                Privacy Policy
-              </a>
-            </motion.div>
 
             <motion.p 
               className="text-sm md:text-base text-gray-400"

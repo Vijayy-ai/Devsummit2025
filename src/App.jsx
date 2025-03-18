@@ -61,7 +61,7 @@ function App() {
             <section id="faq">
               <FAQ />
             </section>
-            <section id="contact">
+            <section id="contactUs">
               <ContactUs />
             </section>
            
