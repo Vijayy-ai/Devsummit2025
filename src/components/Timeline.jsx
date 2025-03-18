@@ -193,20 +193,27 @@ const Timeline = () => {
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                className="flex gap-4 md:gap-6 mb-8 relative"
+                whileHover={{ scale: 1.01 }}
+                className="flex gap-4 md:gap-6 mb-8 relative group"
               >
                 {/* Timeline Line with Glow Effect */}
                 <div className="flex-none w-24 sm:w-32 text-right">
-                  <span className="text-[#A7FF40] font-medium">{event.time}</span>
+                  <span className="text-[#A7FF40] font-medium text-sm sm:text-base">{event.time}</span>
                 </div>
                 
-                <div className="w-px bg-[#A7FF40]/20 relative">
-                  <div className="absolute w-2 h-2 rounded-full bg-[#A7FF40] -left-1 top-2" />
+                <div className="w-px bg-gradient-to-b from-[#A7FF40]/50 to-[#A7FF40]/10 relative">
+                  <div className="absolute w-3 h-3 rounded-full bg-[#A7FF40] -left-[5px] top-2 shadow-[0_0_10px_rgba(167,255,64,0.7)] group-hover:shadow-[0_0_15px_rgba(167,255,64,0.9)] transition-all duration-300" />
                 </div>
                 
-                <div className="flex-1">
-                  <h3 className="text-white font-semibold mb-1">{event.title}</h3>
-                  <p className="text-gray-400 text-sm">{event.description}</p>
+                <div className="flex-1 bg-[#1a1a1a]/40 backdrop-blur-sm rounded-xl p-4 
+                  border border-[#A7FF40]/10 group-hover:border-[#A7FF40]/30 
+                  shadow-[0_0_10px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_15px_rgba(167,255,64,0.1)] 
+                  transition-all duration-300">
+                  <h3 className="text-white font-semibold mb-2 text-base sm:text-lg">{event.title}</h3>
+                  <p className="text-gray-300 text-xs sm:text-sm">{event.description}</p>
+                  {event.duration && (
+                    <p className="text-[#A7FF40]/80 text-xs mt-2 italic">{event.duration}</p>
+                  )}
                 </div>
               </motion.div>
             ))}

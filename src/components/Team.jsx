@@ -77,9 +77,9 @@ const organizers = [
     image: ramImage,
     bio: "",
     socials: {
-      linkedin: "#",
-      github: "#",
-      twitter: "#"
+      linkedin: "https://www.linkedin.com/in/rambhajan-saini/",
+      github: "https://github.com/rambhajanmali",
+      twitter: "https://x.com/ramm0x"
     }
   },
   {
@@ -187,9 +187,9 @@ const organizers = [
     image: akashImage,
     bio: "",
     socials: {
-      linkedin: "#",
-      github: "#",
-      twitter: "#"
+      linkedin: "https://www.linkedin.com/in/akash-kumar-kumawat/",
+      github: "https://github.com/Akash1000x",
+      twitter: "https://x.com/akashkumawatt"
     }
   }
 ];
@@ -268,7 +268,7 @@ const TeamCard = ({ member }) => (
   <motion.div
     variants={fadeInUp}
     whileHover={{ scale: 1.03, y: -5 }}
-    className="inline-block flex-shrink-0 w-72 sm:w-80 bg-[#1a1a1a]/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 
+    className="inline-block flex-shrink-0 w-[160px] xs:w-[180px] sm:w-80 bg-[#1a1a1a]/80 backdrop-blur-sm rounded-xl p-4 sm:p-8 
       border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
       shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.15)] 
       transition-all duration-300 relative overflow-hidden group"
@@ -310,7 +310,7 @@ const TeamCard = ({ member }) => (
       </motion.h3>
       {member.bio && (
         <motion.p 
-          className="text-gray-300 text-xs sm:text-sm mb-4 text-center h-8 sm:h-10 line-clamp-2"
+          className="text-gray-300 text-xs sm:text-sm mb-4 text-center h-auto min-h-[40px] line-clamp-3 sm:line-clamp-2"
           variants={fadeInUp}
         >
           {member.bio}
@@ -390,7 +390,7 @@ const TeamSection = ({ title, description, members, isScrolling }) => (
       <div className="flex justify-center">
         {members.length <= 3 ? (
           // Special layout for Lead Organizers (3 or fewer members)
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-8 w-full max-w-6xl">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-8 w-full max-w-6xl">
             {members.map((member) => (
               <div key={member.name} className="flex justify-center">
                 <TeamCard member={member} />
@@ -399,7 +399,7 @@ const TeamSection = ({ title, description, members, isScrolling }) => (
           </div>
         ) : (
           // Grid layout for Organizers
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 w-full max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8 w-full max-w-7xl mx-auto">
             {members.map((member) => (
               <div key={member.name} className="flex justify-center">
                 <TeamCard member={member} />
