@@ -9,7 +9,7 @@ import Kartikey from '../assets/mentors/kartikey.jpg';
 import pradeepJha from '../assets/mentors/pradeep jha.jpg';
 import vikashBajpai from '../assets/mentors/vikash bajpai.jpg';
 import shubhamGupta from '../assets/mentors/shubham gupta.jpg';
-import AdityaSoni from '../assets/mentors/Aditya soni.jpg';
+// import AdityaSoni from '../assets/mentors/Aditya soni.jpg';
 import {
   fadeInUp,
   staggerContainer,
@@ -80,16 +80,16 @@ const mentors = [
       twitter: "#"
     }
   },
-  {
-    name: "Aditya Soni",
-    role: "DevOps Engineer II, Forrester Research CNCF Ambassador ",
-    image: AdityaSoni,
-    bio: "DevOps Engineer II, Forrester Research CNCF Ambassador",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/adityasonittyl/",
-      twitter: "https://x.com/adityasonittyl"
-    }
-  },
+  // {
+  //   name: "Aditya Soni",
+  //   role: "DevOps Engineer II, Forrester Research CNCF Ambassador ",
+  //   image: AdityaSoni,
+  //   bio: "DevOps Engineer II, Forrester Research CNCF Ambassador",
+  //   socials: {
+  //     linkedin: "https://www.linkedin.com/in/adityasonittyl/",
+  //     twitter: "https://x.com/adityasonittyl"
+  //   }
+  // },
   // {
   //   name: "Priyanshu",
   //   role: "Head of Ecosystem & Integration @ Pushchain ",

@@ -33,6 +33,20 @@ const CommunityPartnership = () => {
       description: "Developer Learning Community",
       type: "community",
       website: "https://www.geekyhub.in/"
+    },
+    {
+      name: "Threeway Community",
+      logo: "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=75,width=800,height=287.5699888017917/editor-images/zn/3f964fb7-5e4d-46f6-b002-78ec8245a97d",
+      description: "Technology & Innovation Community",
+      type: "community",
+      website: "https://www.threewaystudio.world/"
+    },
+    {
+      name: "Flutter community",
+      logo: "https://media.licdn.com/dms/image/v2/D560BAQEgqvHKW8oGqg/company-logo_200_200/company-logo_200_200/0/1723532033732/flutter_jaipur_logo?e=2147483647&v=beta&t=jdXQkRoikUqJUDg0iprVP8D60mxMGvvjPBbFC0YbcEg",
+      description: "Flutter Developer Community",
+      type: "community",
+      website: "https://flutter.dev/community"
     }
   ];
 
@@ -145,7 +159,7 @@ const CommunityPartnership = () => {
             Community Partners
           </motion.h3>
           <div className="flex justify-center">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 w-full max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-4 lg:gap-6 w-full max-w-6xl mx-auto">
               {partners.filter(p => p.type === "community").map((partner) => (
                 <div className="flex justify-center" key={partner.name}>
                   <PartnerCard partner={partner} />

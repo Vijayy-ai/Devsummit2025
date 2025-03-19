@@ -184,14 +184,14 @@ const Timeline = () => {
           <motion.div
             variants={staggerContainer}
             initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, amount: 0.3 }}
+            animate="animate"
+            key={activeDay}
             className="max-w-4xl mx-auto"
           >
             {/* Timeline items */}
             {timelineData[activeDay].map((event, index) => (
               <motion.div
-                key={index}
+                key={`${activeDay}-${index}`}
                 variants={fadeInUp}
                 whileHover={{ scale: 1.01 }}
                 className="flex gap-4 md:gap-6 mb-8 relative group"
