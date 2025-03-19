@@ -21,7 +21,7 @@ import uditImage from "../assets/team/udit ranjan.jpg";
 import shahbazImage from "../assets/team/shahbaz.jpg";
 import jaydeepImage from "../assets/team/jaydeep.jpg";
 import alokImage from "../assets/team/alok.jpg";
-import vikaskundiyaImage from "../assets/team/vikas-kundiya.jpg";
+import vikaskundiyaImage from "../assets/team/vikash-kundiya.jpg";
 
 import {
   fadeInUp,
@@ -165,7 +165,7 @@ const organizers = [
     image: vikaskundiyaImage,
     bio: "",
     socials: {
-      linkedin: "https://www.linkedin.com/in/vikas-khundia-a48101253/",
+      linkedin: "https://www.linkedin.com/in/vikas-khundia-243205288/",
       github: "#",
       twitter: "https://x.com/KhundiaVik16234?t=3FdI3yFq-1CgPPk8kyM5lQ&s=08"
     }

@@ -4,8 +4,12 @@ import bgDevSummit from '../assets/bgDevSummit.png';
 import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 import amitChandra from '../assets/mentors/Amit Chandra.jpeg';
 import vilsijain from '../assets/mentors/vilsi jain.jpg';
-import RishikaKinger from '../assets/mentors/Rishika Kinger.jpeg';
 import HarshitSharma from '../assets/mentors/Harshit Sharma.jpeg';
+import Kartikey from '../assets/mentors/kartikey.jpg';
+import pradeepJha from '../assets/mentors/pradeep jha.jpg';
+import vikashBajpai from '../assets/mentors/vikash bajpai.jpg';
+import shubhamGupta from '../assets/mentors/shubham gupta.jpg';
+import AdityaSoni from '../assets/mentors/Aditya soni.jpg';
 import {
   fadeInUp,
   staggerContainer,
@@ -20,7 +24,7 @@ const mentors = [
     name: "Amit Chandra",
     role: "Blockchain Advisor @ EY",
     image: amitChandra,
-    bio: "Leading Blockchain Initiative for Govt of Rajasthan, India | Empowering 200+ Govt Officials, 300+ Faculties, 400+ Students & Startups | Strategic Advisor: LF Decentralized Trust & NOBSAA",
+    bio: "Leading Blockchain Initiative for Govt of Rajasthan, India  ",
     socials: {
       linkedin: "https://www.linkedin.com/in/amitchandra13/",
       twitter: "#"
@@ -37,22 +41,72 @@ const mentors = [
     }
   },
   {
-    name: "Rishika Kinger",
-    role: "SWE  @ Couchbase",
-    image: RishikaKinger,
-    bio: "SWE @ Couchbase | Prev- Amazon",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/rishikakinger/",
-      twitter: "#"
-    }
-  },
-  {
     name: "Harshit Sharma",
     role: "Software Engineer 2 @ Google",
     image: HarshitSharma,
     bio: "Software Engineer 2 @ Google • Ex-Amazon",
     socials: {
       linkedin: "https://www.linkedin.com/in/you-know-who/",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Kartikey Garg",
+    role: "Developer Ecosystem Growth at HackQuest",
+    image: Kartikey,
+    bio: "Developer Ecosystem Growth at HackQuest",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/geekykartikey/",
+      twitter: "https://x.com/geeky_kartikey"
+    }
+  },
+  {
+    name: "Dr. Pradeep Jha ",
+    role: "Salesforce Trainer & 2X Salesforce Certified",
+    image: pradeepJha,
+    bio: "Salesforce Trainer & 2X Salesforce Certified",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/pradeepjha1988/",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Shubham Gupta",
+    role: "Team Lead Nagarro ",
+    image: shubhamGupta ,
+    bio: "Team Lead Nagarro ",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/shubhamguptag/",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Aditya Soni",
+    role: "DevOps Engineer II, Forrester Research CNCF Ambassador ",
+    image: AdityaSoni,
+    bio: "DevOps Engineer II, Forrester Research CNCF Ambassador",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/adityasonittyl/",
+      twitter: "https://x.com/adityasonittyl"
+    }
+  },
+  // {
+  //   name: "Priyanshu",
+  //   role: "Head of Ecosystem & Integration @ Pushchain ",
+  //   // image: HarshitSharma,
+  //   bio: "Head of Ecosystem & Integration @ Pushchain",
+  //   socials: {
+  //     linkedin: "https://www.linkedin.com/in/shubhamguptag/",
+  //     twitter: "#"
+  //   }
+  // },
+  {
+    name: "Vikas Bajpai",
+    role: "Lead, Google Developers Group",
+    image: vikashBajpai,
+    bio: "Lead, Google Developers Group",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/vikas-bajpai-6047605/",
       twitter: "#"
     }
   }
@@ -73,7 +127,7 @@ const MentorCard = ({ mentor }) => (
     <div className="relative z-10">
       <div className="relative mb-4">
         <motion.div 
-          className="w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-full overflow-hidden 
+          className="w-24 h-24 sm:w-28 sm:h-28 mx-auto rounded-full overflow-hidden 
             bg-black p-1 border border-[#A7FF40]/10 group-hover:border-[#A7FF40]/40
             transition-all duration-300"
           whileHover={{ scale: 1.1 }}
@@ -84,17 +138,6 @@ const MentorCard = ({ mentor }) => (
             alt={mentor.name}
             className="w-full h-full object-cover rounded-full"
           />
-        </motion.div>
-        <motion.div 
-          className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 
-            bg-[#1a1a1a] text-[#A7FF40] text-xs px-3 sm:px-4 py-1 sm:py-1.5 
-            rounded-full font-medium border border-[#A7FF40]/40
-            shadow-[0_0_10px_rgba(167,255,64,0.3)]
-            hover:scale-110 transition-transform duration-300
-            whitespace-nowrap overflow-hidden max-w-[90%] text-center truncate"
-          style={{ transformOrigin: 'center' }}
-        >
-          {mentor.role}
         </motion.div>
       </div>
       <motion.h3 
@@ -119,67 +162,18 @@ const MentorCard = ({ mentor }) => (
         >
           <FaLinkedin size={18} />
         </motion.a>
-        <motion.a 
-          whileHover={{ scale: 1.2, y: -2 }}
-          href={mentor.socials.twitter}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
-        >
-          <FaTwitter size={18} />
-        </motion.a>
+        {mentor.socials.twitter !== "#" && (
+          <motion.a 
+            whileHover={{ scale: 1.2, y: -2 }}
+            href={mentor.socials.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#A7FF40] hover:text-[#A7FF40]/80 transition-colors"
+          >
+            <FaTwitter size={18} />
+          </motion.a>
+        )}
       </div>
-    </div>
-  </motion.div>
-);
-
-const ComingSoonCard = () => (
-  <motion.div
-    variants={fadeInUp}
-    whileHover={{ scale: 1.03, y: -5 }}
-    className="inline-block flex-shrink-0 w-72 sm:w-80 bg-[#1a1a1a]/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 
-      border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
-      shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.15)] 
-      transition-all duration-300 relative overflow-hidden group"
-  >
-    {/* Animated background gradient */}
-    <div className="absolute inset-0 bg-gradient-to-br from-[#A7FF40]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-    
-    <div className="relative z-10">
-      <div className="relative mb-4">
-        <motion.div 
-          className="w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-full overflow-hidden 
-            bg-black p-1 border border-[#A7FF40]/10 group-hover:border-[#A7FF40]/40 flex items-center justify-center
-            transition-all duration-300"
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.3 }}
-        >
-          <svg className="w-8 h-8 sm:w-12 sm:h-12 text-[#A7FF40]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-          </svg>
-        </motion.div>
-        <motion.div 
-          className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 
-            bg-[#1a1a1a] text-[#A7FF40] text-xs px-3 sm:px-4 py-1 sm:py-1.5 
-            rounded-full font-medium border border-[#A7FF40]/40
-            shadow-[0_0_10px_rgba(167,255,64,0.3)]"
-          whileHover={{ scale: 1.1 }}
-        >
-          Coming Soon
-        </motion.div>
-      </div>
-      <motion.h3 
-        className="text-lg sm:text-xl font-bold text-white mb-2 text-center"
-        variants={fadeInUp}
-      >
-        Revealing Soon
-      </motion.h3>
-      <motion.p 
-        className="text-gray-300 text-xs sm:text-sm mb-4 text-center h-12 sm:h-[60px]"
-        variants={fadeInUp}
-      >
-        Stay tuned for more amazing mentors joining our team!
-      </motion.p>
     </div>
   </motion.div>
 );
@@ -204,9 +198,9 @@ const Mentor = () => {
             className="text-[32px] xs:text-4xl sm:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 text-center text-white"
             variants={fadeInUp}
           >
-            Meet Our{" "}
+            Mentors &{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A7FF40] to-[#65D000]">
-              Expert Mentors
+               Judges
             </span>
           </motion.h2>
           <motion.p 
@@ -231,15 +225,9 @@ const Mentor = () => {
                 {mentors.map((mentor) => (
                   <MentorCard key={`first-${mentor.name}`} mentor={mentor} />
                 ))}
-                {[1, 2].map((_, index) => (
-                  <ComingSoonCard key={`first-coming-soon-${index}`} />
-                ))}
                 {/* Duplicate set for seamless loop */}
                 {mentors.map((mentor) => (
                   <MentorCard key={`second-${mentor.name}`} mentor={mentor} />
-                ))}
-                {[1, 2].map((_, index) => (
-                  <ComingSoonCard key={`second-coming-soon-${index}`} />
                 ))}
               </motion.div>
             </div>
