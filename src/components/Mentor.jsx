@@ -4,12 +4,13 @@ import bgDevSummit from '../assets/bgDevSummit.png';
 import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 import amitChandra from '../assets/mentors/Amit Chandra.jpeg';
 import vilsijain from '../assets/mentors/vilsi jain.jpg';
-import HarshitSharma from '../assets/mentors/Harshit Sharma.jpeg';
+import tapendraSingh from '../assets/mentors/tapendra singh.jpg';
 import Kartikey from '../assets/mentors/kartikey.jpg';
 import pradeepJha from '../assets/mentors/pradeep jha.jpg';
 import vikashBajpai from '../assets/mentors/vikash bajpai.jpg';
 import shubhamGupta from '../assets/mentors/shubham gupta.jpg';
-// import AdityaSoni from '../assets/mentors/Aditya soni.jpg';
+import priyanshu from '../assets/mentors/priyanshu.jpeg';
+import pushpendra from '../assets/mentors/pushpendra.jpeg';
 import {
   fadeInUp,
   staggerContainer,
@@ -40,16 +41,7 @@ const mentors = [
       twitter: "https://x.com/VilsiJain"
     }
   },
-  {
-    name: "Harshit Sharma",
-    role: "Software Engineer 2 @ Google",
-    image: HarshitSharma,
-    bio: "Software Engineer 2 @ Google • Ex-Amazon",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/you-know-who/",
-      twitter: "#"
-    }
-  },
+
   {
     name: "Kartikey Garg",
     role: "Developer Ecosystem Growth at HackQuest",
@@ -90,16 +82,16 @@ const mentors = [
   //     twitter: "https://x.com/adityasonittyl"
   //   }
   // },
-  // {
-  //   name: "Priyanshu",
-  //   role: "Head of Ecosystem & Integration @ Pushchain ",
-  //   // image: HarshitSharma,
-  //   bio: "Head of Ecosystem & Integration @ Pushchain",
-  //   socials: {
-  //     linkedin: "https://www.linkedin.com/in/shubhamguptag/",
-  //     twitter: "#"
-  //   }
-  // },
+  {
+    name: "Priyanshu",
+    role: "Head of Ecosystem & Integration @ Pushchain ",
+    image: priyanshu,
+    bio: "Head of Ecosystem & Integration @ Pushchain",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/rastogipranshu/",
+      twitter: "https://x.com/pranshurastogii"
+    }
+  },
   {
     name: "Vikas Bajpai",
     role: "Lead, Google Developers Group",
@@ -109,7 +101,27 @@ const mentors = [
       linkedin: "https://www.linkedin.com/in/vikas-bajpai-6047605/",
       twitter: "#"
     }
+  },
+  {
+      name: "Tapendra Singh Ranawat ",
+    role: "Associate Project Lead & Full Stack .NET Developer",
+    image: tapendraSingh,
+    bio: "Associate Project Lead & Full Stack .NET Developer",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/tapendraranawat/",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Pushpendra Singh",
+  role: "Revolutionising Agritech in India",
+  image: pushpendra,
+  bio: "Revolutionising Agritech in India",
+  socials: {
+    linkedin: "https://www.linkedin.com/in/pushpendra-singh-57789788/",
+    twitter: "#"
   }
+},
 ];
 
 const MentorCard = ({ mentor }) => (
