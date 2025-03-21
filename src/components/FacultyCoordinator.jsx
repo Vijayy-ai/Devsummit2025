@@ -109,7 +109,7 @@ const FacultyCoordinator = () => {
           >
             Meet Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A7FF40] to-[#65D000]">
-              Faculties
+            Conveners
             </span>
           </motion.h2>
           <motion.p 

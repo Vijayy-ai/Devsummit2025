@@ -264,7 +264,7 @@ const coreTeam = [
   }
 ];
 
-const TeamCard = ({ member }) => (
+const TeamCard = ({ member, isCore }) => (
   <motion.div
     variants={fadeInUp}
     whileHover={{ scale: 1.03, y: -5 }}
@@ -291,16 +291,18 @@ const TeamCard = ({ member }) => (
             className="w-full h-full object-cover rounded-full"
           />
         </motion.div>
-        <motion.div 
-          className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 
-            bg-[#1a1a1a] text-[#A7FF40] text-xs px-3 sm:px-4 py-1 sm:py-1.5 
-            rounded-full font-medium border border-[#A7FF40]/40
-            shadow-[0_0_10px_rgba(167,255,64,0.3)]
-            hover:scale-110 transition-transform duration-300 whitespace-nowrap max-w-[150px] truncate"
-          style={{ transformOrigin: 'center' }}
-        >
-          {member.role}
-        </motion.div>
+        {!isCore && (
+          <motion.div 
+            className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 
+              bg-[#1a1a1a] text-[#A7FF40] text-xs px-3 sm:px-4 py-1 sm:py-1.5 
+              rounded-full font-medium border border-[#A7FF40]/40
+              shadow-[0_0_10px_rgba(167,255,64,0.3)]
+              hover:scale-110 transition-transform duration-300 whitespace-nowrap max-w-[150px] truncate"
+            style={{ transformOrigin: 'center' }}
+          >
+            {member.role}
+          </motion.div>
+        )}
       </div>
       <motion.h3 
         className="text-lg sm:text-xl font-bold text-white mb-2 text-center"
@@ -383,11 +385,11 @@ const TeamSection = ({ title, description, members, isScrolling }) => (
         >
           {/* First set of members */}
           {members.map((member) => (
-            <TeamCard key={`first-${member.name}`} member={member} />
+            <TeamCard key={`first-${member.name}`} member={member} isCore={true} />
           ))}
           {/* Duplicate set for seamless loop */}
           {members.map((member) => (
-            <TeamCard key={`second-${member.name}`} member={member} />
+            <TeamCard key={`second-${member.name}`} member={member} isCore={true} />
           ))}
         </motion.div>
       </div>
@@ -399,7 +401,7 @@ const TeamSection = ({ title, description, members, isScrolling }) => (
           <div className="flex flex-wrap justify-center gap-4 sm:gap-8 w-full max-w-6xl">
             {members.map((member) => (
               <div key={member.name} className="flex justify-center">
-                <TeamCard member={member} />
+                <TeamCard member={member} isCore={false} />
               </div>
             ))}
           </div>
@@ -408,7 +410,7 @@ const TeamSection = ({ title, description, members, isScrolling }) => (
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8 w-full max-w-7xl mx-auto">
             {members.map((member) => (
               <div key={member.name} className="flex justify-center">
-                <TeamCard member={member} />
+                <TeamCard member={member} isCore={false} />
               </div>
             ))}
           </div>
@@ -470,7 +472,7 @@ const Team = () => {
 
           {/* Core Team Section */}
           <TeamSection 
-            title="Core Team" 
+            title="Our Team" 
             description="Our technical backbone working behind the scenes" 
             members={coreTeam} 
             isScrolling={true} 

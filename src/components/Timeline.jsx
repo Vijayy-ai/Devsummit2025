@@ -162,15 +162,15 @@ const Timeline = () => {
           </motion.h2>
 
           {/* Day Selection Tabs */}
-          <div className="flex justify-center gap-4 mb-8">
+          <div className="flex justify-center gap-4 mb-12">
             {["Day 1", "Day 2"].map((day) => (
               <motion.button
                 key={day}
                 onClick={() => setActiveDay(day)}
-                className={`px-6 py-2 rounded-lg font-semibold transition-all duration-300
+                className={`px-8 py-3 rounded-xl font-bold text-lg transition-all duration-300
                   ${activeDay === day 
-                    ? "bg-[#A7FF40] text-black" 
-                    : "bg-[#1a1a1a]/60 text-[#A7FF40] hover:bg-[#1a1a1a]/80"
+                    ? "bg-[#A7FF40] text-black shadow-[0_0_20px_rgba(167,255,64,0.3)]" 
+                    : "bg-[#1a1a1a]/60 text-[#A7FF40] hover:bg-[#1a1a1a]/80 border border-[#A7FF40]/20"
                   }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -193,27 +193,45 @@ const Timeline = () => {
               <motion.div
                 key={`${activeDay}-${index}`}
                 variants={fadeInUp}
-                whileHover={{ scale: 1.01 }}
-                className="flex gap-4 md:gap-6 mb-8 relative group"
+                whileHover={{ scale: 1.02 }}
+                className="flex gap-4 md:gap-8 mb-8 relative group"
               >
-                {/* Timeline Line with Glow Effect */}
+                {/* Time Column */}
                 <div className="flex-none w-24 sm:w-32 text-right">
-                  <span className="text-[#A7FF40] font-medium text-sm sm:text-base">{event.time}</span>
+                  <span className="text-[#A7FF40] font-bold text-base sm:text-lg tracking-wide">
+                    {event.time}
+                  </span>
                 </div>
                 
-                <div className="w-px bg-gradient-to-b from-[#A7FF40]/50 to-[#A7FF40]/10 relative">
-                  <div className="absolute w-3 h-3 rounded-full bg-[#A7FF40] -left-[5px] top-2 shadow-[0_0_10px_rgba(167,255,64,0.7)] group-hover:shadow-[0_0_15px_rgba(167,255,64,0.9)] transition-all duration-300" />
+                {/* Timeline Line with Enhanced Glow Effect */}
+                <div className="w-px bg-gradient-to-b from-[#A7FF40] via-[#A7FF40]/50 to-transparent relative">
+                  <div className="absolute w-4 h-4 rounded-full bg-[#A7FF40] -left-[7px] top-1.5 
+                    shadow-[0_0_15px_rgba(167,255,64,0.7)] group-hover:shadow-[0_0_20px_rgba(167,255,64,0.9)]
+                    transition-all duration-300 group-hover:scale-125" />
                 </div>
                 
-                <div className="flex-1 bg-[#1a1a1a]/40 backdrop-blur-sm rounded-xl p-4 
-                  border border-[#A7FF40]/10 group-hover:border-[#A7FF40]/30 
-                  shadow-[0_0_10px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_15px_rgba(167,255,64,0.1)] 
-                  transition-all duration-300">
-                  <h3 className="text-white font-semibold mb-2 text-base sm:text-lg">{event.title}</h3>
-                  <p className="text-gray-300 text-xs sm:text-sm">{event.description}</p>
-                  {event.duration && (
-                    <p className="text-[#A7FF40]/80 text-xs mt-2 italic">{event.duration}</p>
-                  )}
+                {/* Content Card */}
+                <div className="flex-1 bg-[#1a1a1a]/60 backdrop-blur-sm rounded-xl p-5 
+                  border border-[#A7FF40]/20 group-hover:border-[#A7FF40]/40 
+                  shadow-[0_0_15px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_25px_rgba(167,255,64,0.15)] 
+                  transition-all duration-300 relative overflow-hidden">
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#A7FF40]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <h3 className="text-white font-bold mb-2 text-lg sm:text-xl group-hover:text-[#A7FF40] transition-colors duration-300">
+                      {event.title}
+                    </h3>
+                    <p className="text-gray-300 text-sm sm:text-base">
+                      {event.description}
+                    </p>
+                    {event.duration && (
+                      <p className="text-[#A7FF40]/80 text-sm mt-2 font-medium">
+                        {event.duration}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -221,7 +239,19 @@ const Timeline = () => {
         </SectionTransition>
       </div>
 
-      <style jsx>{sectionStyles}</style>
+      <style jsx>{`
+        .animated-bg {
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(circle at 50% 50%, rgba(167, 255, 64, 0.1) 0%, transparent 50%);
+          opacity: 0.5;
+          animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); opacity: 0.5; }
+          50% { transform: scale(1.2); opacity: 0.3; }
+        }
+      `}</style>
     </section>
   );
 };

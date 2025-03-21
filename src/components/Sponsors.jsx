@@ -23,6 +23,18 @@ import {
 const Sponsors = () => {
   const sponsors = [
     {
+      name: "Upflairs",
+      logo: "https://media.licdn.com/dms/image/v2/C560BAQFEgvugw66oIg/company-logo_200_200/company-logo_200_200/0/1630641305868?e=2147483647&v=beta&t=bVhjAftCiuedj61TBYsSFKaGsF0AkTWotdQ8NCRFz60",
+      description: "Training Partner",
+      website: "https://upflairs.com/"
+    },
+    {
+      name: " KeasBrain Technologies Private Limited",
+      logo: keasbrainLogo,
+      // description: "Decentralized Storage",
+      website: "https://keasbrain.com/"
+    },
+    {
       name: "Appwrite",
       logo: appwrite1Logo,
       // description: "Web3 Infrastructure",
@@ -41,18 +53,17 @@ const Sponsors = () => {
       website: "https://interviewbuddy.net/"
     },
     {
-      name: " KeasBrain Technologies Private Limited",
-      logo: keasbrainLogo,
-      // description: "Decentralized Storage",
-      website: "https://keasbrain.com/"
-    },
-    {
-      name: "give my certificate",
+      name: "Give My Certificate",
       logo: givemycertificate,
       // description: "Decentralized Storage",
       website: "https://givemycertificate.com/"
     },
-   
+    // {
+    //   name: "Engineers Academy",
+    //   logo: "https://media.licdn.com/dms/image/v2/C4E16AQHGzN8gMXuytA/profile-displaybackgroundimage-shrink_200_800/profile-displaybackgroundimage-shrink_200_800/0/1653381777502?e=2147483647&v=beta&t=pNMdaX97MmrG9g0QSJgu3p0EX7esp3-w3wMsVPEQ3K0",
+    //   description: "Education Partner",
+    //   website: "https://www.engineersacademy.org/"
+    // },
     {
       name: "Coming Soon",
       logo: "", // Empty logo for coming soon card
@@ -92,9 +103,9 @@ const Sponsors = () => {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, amount: 0.3 }}
-            className="max-w-6xl mx-auto mb-20"
+            className="max-w-4xl mx-auto mb-20"
           >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+            <div className="grid grid-cols-2 gap-6 sm:gap-8">
               {/* Organization Cards with Circular Design */}
               <motion.div
                 variants={fadeInUp}
@@ -157,7 +168,30 @@ const Sponsors = () => {
                   </div>
                 </a>
               </motion.div>
+            </div>
+          </motion.div>
+        </SectionTransition>
 
+        {/* State Ecosystem Partner Section */}
+        <SectionTransition>
+          <motion.h2 
+            className="text-[32px] xs:text-4xl sm:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 text-center text-white"
+            variants={fadeInUp}
+          >
+            State Ecosystem{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A7FF40] to-[#65D000]">
+              Partners
+            </span>
+          </motion.h2>
+          
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.3 }}
+            className="max-w-4xl mx-auto mb-20"
+          >
+            <div className="grid grid-cols-2 gap-6 sm:gap-8">
               <motion.div
                 variants={fadeInUp}
                 whileHover={{ scale: 1.03 }}
@@ -278,13 +312,68 @@ const Sponsors = () => {
           </motion.div>
         </SectionTransition>
 
-        {/* Existing Sponsors Section */}
+        {/* Gold Sponsor Section */}
         <SectionTransition>
           <motion.h2 
             className="text-[32px] xs:text-4xl sm:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 text-center text-white"
             variants={fadeInUp}
           >
-            Our{" "}
+            Gold{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A7FF40] to-[#65D000]">
+              Sponsor
+            </span>
+          </motion.h2>
+          
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.3 }}
+            className="max-w-3xl mx-auto mb-20"
+          >
+            <motion.div
+              variants={fadeInUp}
+              whileHover={{ scale: 1.03 }}
+              className="bg-gradient-to-br from-[#1a1a1a]/90 to-[#1a1a1a]/60 backdrop-blur-sm rounded-xl p-4 sm:p-8
+                border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
+                shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.2)] 
+                transition-all duration-300 group relative overflow-hidden mx-auto max-w-md"
+            >
+              <a href="https://learnandbuild.in/" target="_blank" rel="noopener noreferrer">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#A7FF40]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10">
+                  <div className="w-28 h-28 sm:w-40 sm:h-40 mx-auto mb-3 sm:mb-5 rounded-full bg-white
+                    border-2 border-[#A7FF40]/10 group-hover:border-[#A7FF40]/30 
+                    transition-all duration-300 overflow-hidden
+                    shadow-[0_0_15px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_20px_rgba(167,255,64,0.15)]
+                    flex items-center justify-center p-3 sm:p-4">
+                    <img
+                      src="https://internship.learnandbuild.in/assets/logo-lnb.png"
+                      alt="Learn and Build"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <h3 className="text-[#A7FF40] text-center text-lg sm:text-xl font-bold
+                    group-hover:text-white transition-colors duration-300 mb-1 sm:mb-2">
+                    Learn and Build
+                  </h3>
+                  <p className="text-center text-gray-300 text-xs sm:text-sm">
+                    Training & Development Partner
+                  </p>
+                </div>
+              </a>
+            </motion.div>
+          </motion.div>
+        </SectionTransition>
+
+        {/* Our Sponsors Section */}
+        <SectionTransition>
+          <motion.h2 
+            className="text-[32px] xs:text-4xl sm:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 text-center text-white"
+            variants={fadeInUp}
+          >
+            Silver{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A7FF40] to-[#65D000]">
               Sponsors
             </span>

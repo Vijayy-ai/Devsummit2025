@@ -109,7 +109,7 @@ const mentors = [
     bio: "Associate Project Lead & Full Stack .NET Developer",
     socials: {
       linkedin: "https://www.linkedin.com/in/tapendraranawat/",
-      twitter: "#"
+      twitter: "https://x.com/tapendraranawat"
     }
   },
   {
@@ -230,7 +230,7 @@ const Mentor = () => {
               <motion.div 
                 className="flex gap-4 sm:gap-6 animate-scroll pl-4 hover:pause-animation"
                 style={{
-                  animationDuration: '40s'
+                  animationDuration: '30s'
                 }}
               >
                 {/* First set of mentors */}
