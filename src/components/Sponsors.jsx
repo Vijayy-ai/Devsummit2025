@@ -1,15 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
 import bgDevSummit from "../assets/bgDevSummit.png";
-import appwrite1Logo from "../assets/appwrite 1.png";
-import xyzLogo from "../assets/xyz.png";
-import interviewbuddyLogo from "../assets/interviewbuddy.png";
-import keasbrainLogo from "../assets/keasbrain.jpg";
+import appwrite1Logo from "../assets/sponsors/appwrite 1.png";
+import xyzLogo from "../assets/sponsors/xyz.png";
+import interviewbuddyLogo from "../assets/sponsors/interviewbuddy.png";
+import keasbrainLogo from "../assets/sponsors/keasbrain.jpg";
 import iicLogo from "../assets/IIC-LOGO 1.webp";
 import juLogo from "../assets/UNIVERSITY NEW LOGO 3.png";
-import istartLogo from "../assets/iStart_logo.jpeg";
-import DoitcLogo from "../assets/DOITC logo.jpeg";
-import givemycertificate from "../assets/give my certificate.jpg";
+import istartLogo from "../assets/sponsors/iStart_logo.jpeg";
+import DoitcLogo from "../assets/sponsors/DOITC logo.jpeg";
+import givemycertificate from "../assets/sponsors/give my certificate.jpg";
+import learnandbuild from "../assets/sponsors/learn and build.png";
+import iciciBank from "../assets/sponsors/icici bank logo.png";
+import upflairs from "../assets/sponsors/upflairs logo.jpg";
 
 import {
   fadeInUp,
@@ -24,7 +27,7 @@ const Sponsors = () => {
   const sponsors = [
     {
       name: "Upflairs",
-      logo: "https://media.licdn.com/dms/image/v2/C560BAQFEgvugw66oIg/company-logo_200_200/company-logo_200_200/0/1630641305868?e=2147483647&v=beta&t=bVhjAftCiuedj61TBYsSFKaGsF0AkTWotdQ8NCRFz60",
+      logo: upflairs,
       description: "Training Partner",
       website: "https://upflairs.com/"
     },
@@ -294,7 +297,7 @@ const Sponsors = () => {
                     shadow-[0_0_15px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_20px_rgba(167,255,64,0.15)]
                     flex items-center justify-center p-3 sm:p-4">
                     <img
-                      src="https://getvectorlogo.com/wp-content/uploads/2018/12/icici-bank-vector-logo.png"
+                      src={iciciBank}
                       alt="ICICI Bank"
                       className="w-full h-full object-contain"
                     />
@@ -349,7 +352,7 @@ const Sponsors = () => {
                     shadow-[0_0_15px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_20px_rgba(167,255,64,0.15)]
                     flex items-center justify-center p-3 sm:p-4">
                     <img
-                      src="https://internship.learnandbuild.in/assets/logo-lnb.png"
+                      src={learnandbuild}
                       alt="Learn and Build"
                       className="w-full h-full object-contain"
                     />
