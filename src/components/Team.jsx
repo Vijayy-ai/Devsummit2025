@@ -160,7 +160,7 @@ const organizers = [
     }
   },
   {
-    name: "Vikash Kundiya",
+    name: "Vikas khundia",
     role: "Organizer",
     image: vikaskundiyaImage,
     bio: "",

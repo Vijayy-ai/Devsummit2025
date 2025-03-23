@@ -122,6 +122,16 @@ const mentors = [
     twitter: "#"
   }
 },
+// {
+//   name: "Utkarsha  Sharma",
+// role: "Mentor @Istart ",
+// image: pushpendra,
+// bio: "Mentor @Istart ",
+// socials: {
+//   linkedin: "https://www.linkedin.com/in/utkarsha-sharma-71775294/",
+//   twitter: "#"
+// }
+// },
 ];
 
 const MentorCard = ({ mentor }) => (

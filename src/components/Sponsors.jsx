@@ -13,6 +13,9 @@ import givemycertificate from "../assets/sponsors/give my certificate.jpg";
 import learnandbuild from "../assets/sponsors/learn and build.png";
 import iciciBank from "../assets/sponsors/icici bank logo.png";
 import upflairs from "../assets/sponsors/upflairs logo.jpg";
+import engineersAcademy from "../assets/sponsors/engineers academy logo.png";
+import nimbuslogo from "../assets/sponsors/nimbus logo 2.png";
+import winnersacademy from "../assets/sponsors/winners academy.png";
 
 import {
   fadeInUp,
@@ -44,10 +47,22 @@ const Sponsors = () => {
       website: "https://appwrite.io/"
     },
     {
+      name: "Engineers Academy",
+      logo: engineersAcademy,
+      // description: "Interchain Infrastructure",
+      website: "https://www.engineersacademy.org/"
+    },
+    {
       name: "XYZ",
       logo: xyzLogo,
       // description: "Interchain Infrastructure",
       website: "https://gen.xyz/"
+    },
+    {
+      name: "Winners Academy",
+      logo: winnersacademy,
+      // description: "Interchain Infrastructure",
+      // website: "https://gen.xyz/"
     },
     {
       name: "Interview Buddy",
@@ -56,23 +71,17 @@ const Sponsors = () => {
       website: "https://interviewbuddy.net/"
     },
     {
+      name: "Nimbus",
+      logo: nimbuslogo,
+      // description: "Decentralized Storage",
+      website: "https://iqvqn.courses.store/"
+    },
+    {
       name: "Give My Certificate",
       logo: givemycertificate,
       // description: "Decentralized Storage",
       website: "https://givemycertificate.com/"
     },
-    // {
-    //   name: "Engineers Academy",
-    //   logo: "https://media.licdn.com/dms/image/v2/C4E16AQHGzN8gMXuytA/profile-displaybackgroundimage-shrink_200_800/profile-displaybackgroundimage-shrink_200_800/0/1653381777502?e=2147483647&v=beta&t=pNMdaX97MmrG9g0QSJgu3p0EX7esp3-w3wMsVPEQ3K0",
-    //   description: "Education Partner",
-    //   website: "https://www.engineersacademy.org/"
-    // },
-    {
-      name: "Coming Soon",
-      logo: "", // Empty logo for coming soon card
-      description: "More sponsors to be announced",
-      isComingSoon: true
-    }
   ];
 
   return (
