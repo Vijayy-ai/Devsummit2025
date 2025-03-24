@@ -10,18 +10,19 @@ import {
 } from "../utils/animations";
 import OpSir from "../assets/faculty/op sir.jpeg"; // Add your image path
 import HukumSir from "../assets/faculty/hukum sir.jpg"; // Add your image path
-import SudhanshuSir from "../assets/faculty/sudhanshu sir.jpeg"; // Add your image path
+import SudhanshuSir from "../assets/faculty/sudhanshu.jpeg"; // Add your image path
+
+const programChair = {
+  name: "Prof. (Dr.) Om Prakash Sharma",
+  image: OpSir,
+  designation: "Dean Faculty of Engineering & Technology",
+  socials: {
+    linkedin: "#",
+    twitter: "#"
+  }
+};
 
 const facultyCoordinators = [
-  {
-    name: "Dr. Om Prakash Sharma",
-    image: OpSir,
-    designation: "Dean Faculty of Engineering & Technology",
-    socials: {
-      linkedin: "#",
-      twitter: "#"
-    }
-  },
   {
     name: "Dr. Hukum Saini",
     image: HukumSir,
@@ -102,14 +103,30 @@ const FacultyCoordinator = () => {
 
       {/* Content */}
       <div className="relative z-10">
+        {/* Program Chair Section */}
         <SectionTransition>
           <motion.h2 
             className="text-[32px] xs:text-4xl sm:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 text-center text-white"
             variants={fadeInUp}
           >
-            Meet Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A7FF40] to-[#65D000]">
-            Conveners
+              Program Chair
+            </span>
+          </motion.h2>
+          
+          <div className="flex justify-center mb-16">
+            <FacultyCard faculty={programChair} />
+          </div>
+        </SectionTransition>
+
+        {/* Conveners Section */}
+        <SectionTransition>
+          <motion.h2 
+            className="text-[32px] xs:text-4xl sm:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 text-center text-white"
+            variants={fadeInUp}
+          >
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A7FF40] to-[#65D000]">
+              Conveners
             </span>
           </motion.h2>
           <motion.p 
@@ -118,18 +135,18 @@ const FacultyCoordinator = () => {
           >
             Meet our esteemed faculty members guiding DevSummit
           </motion.p>
-        </SectionTransition>
 
-        {/* Faculty Cards Container */}
-        <div className="flex justify-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl mx-auto">
-            {facultyCoordinators.map((faculty) => (
-              <div key={faculty.name} className="flex justify-center">
-                <FacultyCard faculty={faculty} />
-              </div>
-            ))}
+          {/* Faculty Cards Container */}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 w-full max-w-4xl mx-auto">
+              {facultyCoordinators.map((faculty) => (
+                <div key={faculty.name} className="flex justify-center">
+                  <FacultyCard faculty={faculty} />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </SectionTransition>
       </div>
 
       <style jsx>{`

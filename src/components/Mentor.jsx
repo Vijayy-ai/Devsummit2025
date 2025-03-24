@@ -11,6 +11,7 @@ import vikashBajpai from '../assets/mentors/vikash bajpai.jpg';
 import shubhamGupta from '../assets/mentors/shubham gupta.jpg';
 import priyanshu from '../assets/mentors/priyanshu.jpeg';
 import pushpendra from '../assets/mentors/pushpendra.jpeg';
+import utkarsha from '../assets/mentors/utkarsha.jpg';
 import {
   fadeInUp,
   staggerContainer,
@@ -122,16 +123,16 @@ const mentors = [
     twitter: "#"
   }
 },
-// {
-//   name: "Utkarsha  Sharma",
-// role: "Mentor @Istart ",
-// image: pushpendra,
-// bio: "Mentor @Istart ",
-// socials: {
-//   linkedin: "https://www.linkedin.com/in/utkarsha-sharma-71775294/",
-//   twitter: "#"
-// }
-// },
+{
+  name: "Utkarsha  Sharma",
+role: "Mentor @Istart ",
+image: utkarsha,
+bio: "Mentor @Istart ",
+socials: {
+  linkedin: "https://www.linkedin.com/in/utkarsha-sharma-71775294/",
+  twitter: "#"
+}
+},
 ];
 
 const MentorCard = ({ mentor }) => (
