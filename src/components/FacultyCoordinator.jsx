@@ -11,6 +11,8 @@ import {
 import OpSir from "../assets/faculty/op sir.jpeg"; // Add your image path
 import HukumSir from "../assets/faculty/hukum sir.jpg"; // Add your image path
 import SudhanshuSir from "../assets/faculty/sudhanshu.jpeg"; // Add your image path
+import renubagoria from "../assets/faculty/renu bagoriya.jpg";
+import rishi from "../assets/faculty/Rishi Kumar Sharma.jpg";
 
 const programChair = {
   name: "Prof. (Dr.) Om Prakash Sharma",
@@ -38,6 +40,24 @@ const facultyCoordinators = [
     designation: "Assistant Professor, Department of Computer Science",
     socials: {
       linkedin: "https://www.linkedin.com/in/sudhanshu-vashistha-728a0556/",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Dr. Renu Bagoria",
+    image: renubagoria,
+    designation: "Professor, Department of Computer Science",
+    socials: {
+      linkedin: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Dr Rishi Kumar Sharma",
+    image: rishi,
+    designation: "Associate Professor, Department of Computer Science",
+    socials: {
+      linkedin: "#",
       twitter: "#"
     }
   }
