@@ -16,6 +16,7 @@ import upflairs from "../assets/sponsors/upflairs logo.jpg";
 import engineersAcademy from "../assets/sponsors/engineers academy logo.png";
 import nimbuslogo from "../assets/sponsors/nimbus logo 2.png";
 import winnersacademy from "../assets/sponsors/winners academy.png";
+import mediapartner from "../assets/sponsors/media partner.jpg";
 
 import {
   fadeInUp,
@@ -318,6 +319,58 @@ const Sponsors = () => {
                   <p className="text-center text-gray-300 text-xs sm:text-sm">
                     Official Banking Partner for DevSummit 2025
                   </p>
+                </div>
+              </a>
+            </motion.div>
+          </motion.div>
+        </SectionTransition>
+
+        {/* Media Partner Section */}
+        <SectionTransition>
+          <motion.h2 
+            className="text-[32px] xs:text-4xl sm:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 text-center text-white"
+            variants={fadeInUp}
+          >
+            Media{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A7FF40] to-[#65D000]">
+              Partner
+            </span>
+          </motion.h2>
+          
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.3 }}
+            className="max-w-3xl mx-auto mb-20"
+          >
+            <motion.div
+              variants={fadeInUp}
+              whileHover={{ scale: 1.03 }}
+              className="bg-gradient-to-br from-[#1a1a1a]/90 to-[#1a1a1a]/60 backdrop-blur-sm rounded-xl p-6
+                border border-[#A7FF40]/20 hover:border-[#A7FF40]/40 
+                shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(167,255,64,0.2)] 
+                transition-all duration-300 relative overflow-hidden mx-auto max-w-md"
+            >
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#A7FF40]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10">
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-white
+                    border-2 border-[#A7FF40]/10 group-hover:border-[#A7FF40]/30 
+                    transition-all duration-300 overflow-hidden
+                    shadow-[0_0_15px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_20px_rgba(167,255,64,0.15)]
+                    flex items-center justify-center p-4">
+                    <img
+                      src={mediapartner}
+                      alt="California Studios"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <h3 className="text-[#A7FF40] text-center text-sm sm:text-base font-semibold
+                    group-hover:text-white transition-colors duration-300">
+                    California Studios
+                  </h3>
                 </div>
               </a>
             </motion.div>

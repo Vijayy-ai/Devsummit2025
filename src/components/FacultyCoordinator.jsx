@@ -53,7 +53,7 @@ const facultyCoordinators = [
     }
   },
   {
-    name: "Dr Rishi Kumar Sharma",
+    name: "Dr. Rishi Kumar Sharma",
     image: rishi,
     designation: "Associate Professor, Department of Computer Science",
     socials: {

@@ -22,6 +22,12 @@ import shahbazImage from "../assets/team/shahbaz.jpg";
 import jaydeepImage from "../assets/team/jaydeep.jpg";
 import alokImage from "../assets/team/alok.jpg";
 import vikaskundiyaImage from "../assets/team/vikash-kundiya.jpg";
+import yogeshImage from "../assets/team/yogesh.jpeg";
+import kajalImage from "../assets/team/Kajal.jpeg";
+import MihirImage from "../assets/team/Mihir.jpeg";
+import MuskanImage from "../assets/team/Muskan.jpeg";
+import AbhinayImage from "../assets/team/Abhinay.jpeg";
+import DeepakImage from "../assets/team/Deepak.jpeg";
 
 import {
   fadeInUp,
@@ -255,6 +261,72 @@ const coreTeam = [
     name: "Alok",
     role: "Core Team",
     image: alokImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Kajal",
+    role: "Core Team",
+    image: kajalImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Abhinay",
+    role: "Core Team",
+    image: AbhinayImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Muskan",
+    role: "Core Team",
+    image: MuskanImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Mihir",
+    role: "Core Team",
+    image: MihirImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Yogesh",
+    role: "Core Team",
+    image: yogeshImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Deepak Tyagi",
+    role: "Core Team",
+    image: DeepakImage,
     bio: "",
     socials: {
       linkedin: "#",
