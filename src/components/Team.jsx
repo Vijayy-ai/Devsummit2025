@@ -28,6 +28,7 @@ import MihirImage from "../assets/team/Mihir.jpeg";
 import MuskanImage from "../assets/team/Muskan.jpeg";
 import AbhinayImage from "../assets/team/Abhinay.jpeg";
 import DeepakImage from "../assets/team/Deepak.jpeg";
+import SikhaImage from "../assets/team/sikha.jpeg"
 
 import {
   fadeInUp,
@@ -327,6 +328,17 @@ const coreTeam = [
     name: "Deepak Tyagi",
     role: "Core Team",
     image: DeepakImage,
+    bio: "",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    name: "Sikha",
+    role: "Core Team",
+    image: SikhaImage,
     bio: "",
     socials: {
       linkedin: "#",
