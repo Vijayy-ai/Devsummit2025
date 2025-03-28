@@ -2,6 +2,9 @@ import React from 'react';
 import { motion } from "framer-motion";
 import bgDevSummit from "../assets/bgDevSummit.png";
 import platformPartner from "../assets/platform-partner.jpg";
+import CNCFnew from "../assets/CNCFnew.png";
+import awsusergroup from "../assets/aws user group.png";
+import womenintech from "../assets/women in tech.png";
 import {
   fadeInUp,
   staggerContainer,
@@ -47,6 +50,27 @@ const CommunityPartnership = () => {
       description: "Flutter Developer Community",
       type: "community",
       website: "https://flutter.dev/community"
+    },
+    {
+      name: "Women in Tech",
+      logo: womenintech,
+      description: "Women in Technology Community",
+      type: "community",
+      website: "#"
+    },
+    {
+      name: "AWS User Group",
+      logo: awsusergroup,
+      description: "AWS Developer Community",
+      type: "community",
+      website: "#"
+    },
+    {
+      name: "Cloud Native Group Jaipur",
+      logo: CNCFnew,
+      description: "Cloud Native Computing Community",
+      type: "community",
+      website: "#"
     }
   ];
 

@@ -14,7 +14,7 @@ const Prizes = () => {
   const prizes = [
     {
       title: "Grand Prize Pool",
-      amount: "₹1,50,000",
+      amount: "₹15,00,000",
       description: "Total prize pool for innovative solutions",
       icon: (
         <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -114,7 +114,7 @@ const Prizes = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              ₹1,50,000
+              ₹15,00,000
             </motion.h3>
             <motion.p 
               className="text-2xl text-white mb-2 relative z-10"

@@ -45,7 +45,7 @@ const AboutUs = () => {
     { label: "Participants", value: "300+" },
     { label: "Projects", value: "70+" },
     { label: "Mentors", value: "20+" },
-    { label: "Prize Pool", value: "₹1,50,000" }
+    { label: "Prize Pool", value: "₹15 Lakh" }
   ];
 
   return (
@@ -133,7 +133,7 @@ const AboutUs = () => {
                 transition-all duration-300 text-center backdrop-blur-sm bg-opacity-50"
             >
               <motion.div 
-                className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#A7FF40] mb-2"
+                className="text-xl sm:text-2xl lg:text-3xl font-black text-[#A7FF40] mb-2"
                 initial={{ scale: 0.5, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
